@@ -1,0 +1,14 @@
+*.iml
+.gradle/
+.kotlin/
+/local.properties
+/.idea/
+.DS_Store
+build/
+/captures
+.externalNativeBuild
+.cxx
+# Release signing material never lives in the repo.
+*.jks
+*.keystore
+keystore.properties

@@ -1,0 +1,22 @@
+HamSprint gets you ready for the US amateur radio (ham) license exam in as little time as possible. It skips the theory and trains exactly what the exam asks: the official questions and their correct answers.
+
+<b>Current question pools</b>
+Every question comes straight from the official NCVEC pools, with all errata and withdrawn questions applied:
+• Technician (Element 2): 2026-2030 pool, February 2026 revision, 409 questions
+• General (Element 3): 2023-2027 pool, 6th errata (February 2026), 423 questions
+• Amateur Extra (Element 4): 2024-2028 pool, 4th errata (February 2026), 599 questions
+
+<b>How it trains you</b>
+• <b>See it, then recall it.</b> Each new question is shown with its answer first, then you're asked for it a few cards later. Recalling beats re-reading.
+• <b>Reviews timed to your memory.</b> Spaced repetition brings back questions minutes, then hours, then days later, right before you'd forget them. Misses come back almost immediately.
+• <b>Highest-value questions first.</b> Every real exam draws one question from each topic group, so questions from small groups are likelier to appear. HamSprint introduces those first.
+• <b>Shuffled answers.</b> You learn the answer itself, not "it's C".
+• <b>A pass chance you can trust.</b> HamSprint works out your probability of passing from your own answers and the real exam's format. In simulation, learners who reach "ready" pass about 97% of practice exams the next day.
+
+<b>Practice exams</b>
+Full-length exams built the way Volunteer Examiners build them: one question from every group, in syllabus order. You get a pass/fail result, a breakdown by topic, a review of every miss, and your score history over time. Missed questions go to the front of your training queue.
+
+<b>Private by design</b>
+No account, no ads, no tracking, no network permission. Everything stays on your device.
+
+HamSprint is free and open-source software (GPL-3.0). It is not affiliated with the FCC, NCVEC, or ARRL.

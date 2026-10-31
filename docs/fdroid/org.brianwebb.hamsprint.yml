@@ -1,0 +1,25 @@
+Categories:
+  - Science & Education
+License: GPL-3.0-or-later
+AuthorName: Brian Webb
+SourceCode: https://github.com/brianwebb01/hamsprint
+IssueTracker: https://github.com/brianwebb01/hamsprint/issues
+Changelog: https://github.com/brianwebb01/hamsprint/releases
+
+AutoName: HamSprint
+
+RepoType: git
+Repo: https://github.com/brianwebb01/hamsprint.git
+
+Builds:
+  - versionName: 1.0.0
+    versionCode: 1
+    commit: v1.0.0
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 1.0.0
+CurrentVersionCode: 1

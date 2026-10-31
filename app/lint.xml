@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <!-- AAPT2 only resolves adaptive icons from the -v26 folder. -->
+    <issue id="ObsoleteSdkInt" severity="ignore" />
+    <!-- Dependency versions are pinned deliberately for reproducible F-Droid builds. -->
+    <issue id="GradleDependency" severity="ignore" />
+    <issue id="NewerVersionAvailable" severity="ignore" />
+    <issue id="AndroidGradlePluginVersion" severity="ignore" />
+</lint>

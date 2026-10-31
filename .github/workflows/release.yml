@@ -1,0 +1,144 @@
+name: Release
+
+# Every merge into main ships a versioned, signed APK as a GitHub Release.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  release:
+    # Skip the version-bump commit this workflow pushes back to main.
+    if: "!startsWith(github.event.head_commit.message, 'chore(release):')"
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GRADLE_FILE: app/build.gradle.kts
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Decide version
+        id: version
+        run: |
+          set -euo pipefail
+          name=$(sed -nE 's/^\s*versionName = "([0-9]+\.[0-9]+\.[0-9]+)".*/\1/p' "$GRADLE_FILE")
+          code=$(sed -nE 's/^\s*versionCode = ([0-9]+).*/\1/p' "$GRADLE_FILE")
+          [ -n "$name" ] && [ -n "$code" ] || { echo "::error::version not found in $GRADLE_FILE"; exit 1; }
+
+          # The PR that produced this push (if any) supplies the bump size and changelog.
+          pr_json=$(gh api "repos/${GITHUB_REPOSITORY}/commits/${GITHUB_SHA}/pulls" --jq '.[0] // {}' || echo '{}')
+          pr_title=$(jq -r '.title // empty' <<<"$pr_json")
+          labels=$(jq -r '[.labels[]?.name] | join(",")' <<<"$pr_json")
+
+          bumped=false
+          if git rev-parse -q --verify "refs/tags/v$name" >/dev/null; then
+            IFS=. read -r major minor patch <<<"$name"
+            case ",$labels," in
+              *,release:major,*) major=$((major + 1)); minor=0; patch=0 ;;
+              *,release:minor,*) minor=$((minor + 1)); patch=0 ;;
+              *) patch=$((patch + 1)) ;;
+            esac
+            name="$major.$minor.$patch"
+            code=$((code + 1))
+            bumped=true
+          fi
+          if git rev-parse -q --verify "refs/tags/v$name" >/dev/null; then
+            echo "::error::tag v$name already exists"; exit 1
+          fi
+          {
+            echo "name=$name"
+            echo "code=$code"
+            echo "bumped=$bumped"
+            echo "pr_title=${pr_title:-Maintenance release}"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Apply version bump locally
+        if: steps.version.outputs.bumped == 'true'
+        env:
+          NAME: ${{ steps.version.outputs.name }}
+          CODE: ${{ steps.version.outputs.code }}
+          TITLE: ${{ steps.version.outputs.pr_title }}
+        run: |
+          set -euo pipefail
+          sed -i -E "s/^(\s*versionCode = )[0-9]+/\1$CODE/; s/^(\s*versionName = )\"[^\"]+\"/\1\"$NAME\"/" "$GRADLE_FILE"
+          printf '%s\n' "$TITLE" > "fastlane/metadata/android/en-US/changelogs/$CODE.txt"
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - uses: gradle/actions/setup-gradle@v4
+
+      # Build and test before anything is pushed, so a failed build leaves no tag behind.
+      - name: Test and build signed APK
+        env:
+          KEYSTORE_B64: ${{ secrets.HAMSPRINT_KEYSTORE_BASE64 }}
+          HAMSPRINT_KEYSTORE_PASSWORD: ${{ secrets.HAMSPRINT_KEYSTORE_PASSWORD }}
+          HAMSPRINT_KEY_ALIAS: ${{ secrets.HAMSPRINT_KEY_ALIAS }}
+          HAMSPRINT_KEY_PASSWORD: ${{ secrets.HAMSPRINT_KEY_PASSWORD }}
+        run: |
+          set -euo pipefail
+          [ -n "$KEYSTORE_B64" ] || { echo "::error::HAMSPRINT_KEYSTORE_BASE64 secret is missing"; exit 1; }
+          echo "$KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/release.jks"
+          export HAMSPRINT_KEYSTORE="$RUNNER_TEMP/release.jks"
+          trap 'rm -f "$RUNNER_TEMP/release.jks"' EXIT
+          ./gradlew --no-daemon testDebugUnitTest assembleRelease
+
+      - name: Commit bump and tag
+        env:
+          NAME: ${{ steps.version.outputs.name }}
+          CODE: ${{ steps.version.outputs.code }}
+          BUMPED: ${{ steps.version.outputs.bumped }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ "$BUMPED" = "true" ]; then
+            git add "$GRADLE_FILE" "fastlane/metadata/android/en-US/changelogs/$CODE.txt"
+            git commit -m "chore(release): v$NAME"
+            git push origin HEAD:main
+          fi
+          git tag -a "v$NAME" -m "HamSprint v$NAME"
+          git push origin "v$NAME"
+
+      - name: Publish GitHub Release
+        env:
+          NAME: ${{ steps.version.outputs.name }}
+          CODE: ${{ steps.version.outputs.code }}
+        run: |
+          set -euo pipefail
+          apk="HamSprint-v$NAME.apk"
+          cp app/build/outputs/apk/release/app-release.apk "$apk"
+          sha256sum "$apk" > "$apk.sha256"
+          notes="$RUNNER_TEMP/notes.md"
+          {
+            cat "fastlane/metadata/android/en-US/changelogs/$CODE.txt"
+            echo
+            echo "**SHA-256:** \`$(cut -d' ' -f1 "$apk.sha256")\`"
+          } > "$notes"
+          gh release create "v$NAME" "$apk" "$apk.sha256" \
+            --title "HamSprint v$NAME" --notes-file "$notes" --generate-notes --latest
+
+      - name: Sync dev with main
+        if: always() && steps.version.outcome == 'success'
+        run: |
+          set -euo pipefail
+          git fetch origin main dev || { echo "no dev branch yet"; exit 0; }
+          if git merge-base --is-ancestor origin/dev origin/main; then
+            git push origin origin/main:refs/heads/dev
+          else
+            git checkout -B dev origin/dev
+            git merge --no-edit origin/main && git push origin dev \
+              || echo "::warning::dev has diverged from main; merge main into dev manually."
+          fi

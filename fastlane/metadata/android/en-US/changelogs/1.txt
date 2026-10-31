@@ -1,0 +1,6 @@
+First release.
+• Technician 2026-2030, General 2023-2027 and Extra 2024-2028 pools, with current errata
+• Adaptive training: preview, recall, spaced review
+• Live pass-probability estimate and time-to-ready
+• Practice exams with topic breakdown, missed-question review and score history
+• Light and dark themes
