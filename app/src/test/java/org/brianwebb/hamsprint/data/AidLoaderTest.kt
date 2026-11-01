@@ -4,6 +4,7 @@ import org.brianwebb.hamsprint.domain.Band
 import org.brianwebb.hamsprint.domain.BandPlanAid
 import org.brianwebb.hamsprint.domain.DecibelAid
 import org.brianwebb.hamsprint.domain.FactAid
+import org.brianwebb.hamsprint.domain.FrequencyUnit
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertThrows
 import org.junit.Assert.assertTrue
@@ -18,12 +19,17 @@ class AidLoaderTest {
             """[
               {"q": "G1A05", "kind": "bandplan", "band": "40m", "mark": [7.125, 7.175], "caption": "Hook"},
               {"q": "T1F02", "kind": "fact", "value": "10", "unit": "minutes", "label": "Identify every"},
-              {"q": "T5B09", "kind": "decibel", "ratio": 2}
+              {"q": "T5B09", "kind": "decibel", "ratio": 2},
+              {"q": "G1A09", "kind": "bandplan", "band": "15m", "mark": 21.3, "unit": "kHz"},
+              {"q": "E1C12", "kind": "bandplan", "band": "630m"}
             ]""",
         )
         assertEquals(BandPlanAid(Band.B40M, 7.125..7.175, "Hook"), aids["G1A05"])
         assertEquals(FactAid("10", "minutes", "Identify every", null), aids["T1F02"])
         assertEquals(2.0, (aids["T5B09"] as DecibelAid).ratio, 1e-9)
+        assertEquals(FrequencyUnit.MHZ, (aids["G1A05"] as BandPlanAid).unit)
+        assertEquals(FrequencyUnit.KHZ, (aids["G1A09"] as BandPlanAid).unit)
+        assertEquals(FrequencyUnit.KHZ, (aids["E1C12"] as BandPlanAid).unit)
     }
 
     @Test
@@ -39,6 +45,7 @@ class AidLoaderTest {
         assertTrue(failure("""[{"q": "T1A03", "kind": "bandplan", "band": "20m", "mark": 7.1}]""").contains("T1A03"))
         assertTrue(failure("""[{"q": "T5D01", "kind": "ohms", "solve": "R", "E": 12}]""").contains("T5D01"))
         assertTrue(failure("""[{"q": "T1A04", "kind": "fact", "label": "x"}]""").contains("missing value"))
+        assertTrue(failure("""[{"q": "G1A09", "kind": "bandplan", "band": "15m", "unit": "Hz"}]""").contains("unknown unit"))
         assertTrue(
             failure("""[{"q": "T1A05", "kind": "codes", "set": "q", "highlight": "QRM"}, {"q": "T1A05", "kind": "logic", "gate": "OR"}]""")
                 .contains("More than one aid"),

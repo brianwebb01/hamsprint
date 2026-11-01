@@ -20,13 +20,25 @@ sealed interface VisualAid {
 
 // ---- Bands and operating ----
 
-data class BandPlanAid(val band: Band, val mark: ClosedFloatingPointRange<Double>?, override val caption: String?) : VisualAid {
+/** [unit] is how the band's frequencies are written: its question's unit, else the pool convention. */
+data class BandPlanAid(
+    val band: Band,
+    val mark: ClosedFloatingPointRange<Double>?,
+    override val caption: String?,
+    val unit: FrequencyUnit = FrequencyUnit.conventional(band.lowMHz),
+) : VisualAid {
     init {
         require(mark == null || (mark.start in band && mark.endInclusive in band)) { "mark outside ${band.id}" }
     }
 }
 
-data class SpectrumAid(val bands: List<Band>, val markMHz: Double?, override val caption: String?) : VisualAid {
+/** [markUnit] is how the marked frequency is written: its question's unit, else the pool convention. */
+data class SpectrumAid(
+    val bands: List<Band>,
+    val markMHz: Double?,
+    override val caption: String?,
+    val markUnit: FrequencyUnit = FrequencyUnit.conventional(markMHz ?: 1.0),
+) : VisualAid {
     /** The bands to emphasize: those named, else the one holding the mark. */
     val highlighted: List<Band> = bands.ifEmpty { listOfNotNull(markMHz?.let(Band::containing)) }
 }

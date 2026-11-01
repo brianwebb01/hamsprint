@@ -27,6 +27,13 @@ Rules for every entry:
 - Electrical values are plain numbers in base SI units: ohms, volts, amps,
   watts, farads, henries, hertz (so 10 microfarads is `1e-5`). Radio
   frequencies in `bandplan`, `spectrum`, `wavelength`, `antenna` are MHz.
+- Displayed frequencies follow the question. The pools write operating
+  frequencies in MHz from 1 MHz up and in kHz below it, and the aids do the
+  same by default. When a question writes them the other way (G1A09 lists
+  "21300 kHz"), add `"unit": "kHz"` to its `bandplan` or `spectrum` aid and
+  write the caption in kHz too. Data values stay in MHz either way.
+  Bandwidths and offsets (3 kHz, 600 kHz) are spans, not frequencies, and
+  are always fine in kHz or Hz.
 
 Run `python3 tools/aids/validate.py` after editing. The unit test
 `VisualAidAssetsTest` enforces the same rules and checks every computed
@@ -38,8 +45,8 @@ result against the question's correct answer.
 
 | kind | parameters | shows |
 |---|---|---|
-| `bandplan` | `band`, optional `mark` (MHz number, or `[lo, hi]` range) | US privileges on one band for Extra, General and Technician, color coded by mode (CW only, CW and data, phone and image). `mark` highlights a frequency or segment. |
-| `spectrum` | optional `bands` (list), optional `mark` (MHz) | All amateur bands on one log scale with HF, VHF and UHF zones; highlighted bands pop. |
+| `bandplan` | `band`, optional `mark` (MHz number, or `[lo, hi]` range), optional `unit` (`kHz` or `MHz`) | US privileges on one band for Extra, General and Technician, color coded by mode (CW only, CW and data, phone and image). `mark` highlights a frequency or segment. |
+| `spectrum` | optional `bands` (list), optional `mark` (MHz), optional `unit` for the mark | All amateur bands on one log scale with HF, VHF and UHF zones; highlighted bands pop. |
 | `wavelength` | `freqMHz` **or** `meters`, optional `example`: true | `wavelength (m) = 300 / f (MHz)` worked for that value, with the matching band. Set `example` when the question asks for the formula and the value is only an illustration; it is then labelled "Example" and not checked against the answer. |
 | `repeater` | `band`: `6m` `2m` `1.25m` `70cm`, optional `tone`: true | Input and output frequencies and the standard offset for that band; `tone` adds the CTCSS sub-audible tone. |
 | `modes` | `highlight`: `FT8` `PSK31` `CW` `RTTY` `SSB` `AM` `FM` `ATV` | Signal bandwidths compared on one log scale. |

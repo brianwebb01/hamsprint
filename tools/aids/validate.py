@@ -39,6 +39,45 @@ MODES = {"FT8", "PSK31", "CW", "RTTY", "SSB", "AM", "FM", "ATV"}
 
 WORD_PREFIX = {"pico": 1e-12, "nano": 1e-9, "micro": 1e-6, "milli": 1e-3, "kilo": 1e3, "mega": 1e6, "giga": 1e9}
 SYM_PREFIX = {"p": 1e-12, "n": 1e-9, "u": 1e-6, "µ": 1e-6, "m": 1e-3, "k": 1e3, "M": 1e6, "G": 1e9}
+FREQ = re.compile(r"(\d[\d,]*\.?\d*)\s*(kHz|MHz)")
+
+
+def question_unit(q):
+    """kHz when the question writes a radio frequency of 1 MHz or more in kHz
+    (21300 kHz), MHz when it writes one in MHz, else None. The correct answer
+    decides; the stem is used only when that answer names no frequency."""
+    for text in (q["answers"][q["correct"]], q["question"]):
+        found = [(float(n.replace(",", "")), u) for n, u in FREQ.findall(text)]
+        if any(u == "kHz" and n >= 1000 for n, u in found):
+            return "kHz"
+        if any(u == "MHz" for n, u in found):
+            return "MHz"
+    return None
+
+
+def check_units(e, q, say):
+    """Frequencies follow the question's unit, else the pool convention: MHz
+    from 1 MHz up, kHz below. Bandwidths and offsets in kHz are not checked."""
+    expected = question_unit(q)
+    k = e.get("kind")
+    if k in ("bandplan", "spectrum") and e.get("unit", "MHz") not in ("kHz", "MHz"):
+        say("unit must be kHz or MHz")
+    numeric_mark = isinstance(e.get("mark"), (int, float)) and not isinstance(e.get("mark"), bool)
+    if (k == "bandplan" and e.get("band") in BANDS) or (k == "spectrum" and numeric_mark):
+        low = BANDS[e["band"]][0] if k == "bandplan" else e["mark"]
+        conventional = "kHz" if low < 1 else "MHz"
+        shown = e.get("unit", conventional)
+        if shown != (expected or conventional):
+            say(f"shows {shown} but the question writes frequencies in {expected or conventional}")
+        if e.get("unit") == conventional:
+            say("unit repeats the convention; leave it out")
+    cap = e.get("caption") or ""
+    if expected == "kHz" and "MHz" in cap:
+        say("caption uses MHz but the question writes frequencies in kHz")
+    if expected != "kHz" and any(float(n.replace(",", "")) >= 1000 for n, u in FREQ.findall(cap) if u == "kHz"):
+        say("caption writes a frequency in kHz but the question uses MHz")
+
+
 NUM = re.compile(r"(\d[\d,]*\.?\d*|\.\d+)\s*([a-zA-Zµ]*)")
 
 
@@ -144,6 +183,7 @@ def check_entry(e, q, problems):
     for v in e.values():
         if isinstance(v, str) and re.search("[–—]", v):
             say("em/en dash found")
+    check_units(e, q, say)
     if k == "bandplan":
         if e.get("band") not in BANDS:
             return say(f"unknown band {e.get('band')}")

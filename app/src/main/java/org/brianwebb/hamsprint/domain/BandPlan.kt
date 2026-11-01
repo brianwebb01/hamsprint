@@ -101,6 +101,21 @@ enum class Zone(val label: String, val lowMHz: Double, val highMHz: Double) {
     }
 }
 
+/**
+ * How a frequency is written. The question pools write operating frequencies
+ * in MHz from 1 MHz up and in kHz below it, so that is the [conventional]
+ * choice; an aid overrides it only when its question is written the other way.
+ */
+enum class FrequencyUnit(val symbol: String) {
+    KHZ("kHz"),
+    MHZ("MHz");
+
+    companion object {
+        fun conventional(mhz: Double): FrequencyUnit = if (mhz < 1) KHZ else MHZ
+        fun fromSymbol(symbol: String): FrequencyUnit? = entries.firstOrNull { it.symbol.equals(symbol, ignoreCase = true) }
+    }
+}
+
 /** Wavelength in meters for a frequency in MHz: 300 / f. */
 fun wavelengthMeters(mhz: Double): Double = 300.0 / mhz
 

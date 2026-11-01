@@ -22,6 +22,7 @@ import org.brianwebb.hamsprint.domain.ComponentAid
 import org.brianwebb.hamsprint.domain.ComponentSymbol
 import org.brianwebb.hamsprint.domain.DecibelAid
 import org.brianwebb.hamsprint.domain.FactAid
+import org.brianwebb.hamsprint.domain.FrequencyUnit
 import org.brianwebb.hamsprint.domain.FilterAid
 import org.brianwebb.hamsprint.domain.FilterType
 import org.brianwebb.hamsprint.domain.Gate
@@ -88,8 +89,10 @@ class AidLoader(private val open: (path: String) -> InputStream) {
         private val caption: String? = string("caption")
 
         fun toAid(): VisualAid = when (val kind = string("kind")) {
-            "bandplan" -> BandPlanAid(band("band"), mark(), caption)
-            "spectrum" -> SpectrumAid(list("bands").map { parseBand(it.jsonPrimitive.content) }, number("mark"), caption)
+            "bandplan" -> band("band").let { b -> BandPlanAid(b, mark(), caption, unit() ?: FrequencyUnit.conventional(b.lowMHz)) }
+            "spectrum" -> number("mark").let { m ->
+                SpectrumAid(list("bands").map { parseBand(it.jsonPrimitive.content) }, m, caption, unit() ?: FrequencyUnit.conventional(m ?: 1.0))
+            }
             "wavelength" -> number("freqMHz")?.let { WavelengthAid(it, fromMeters = false, caption, bool("example")) }
                 ?: WavelengthAid(300.0 / need<Double>("meters"), fromMeters = true, caption, bool("example"))
             "repeater" -> RepeaterAid(
@@ -159,6 +162,8 @@ class AidLoader(private val open: (path: String) -> InputStream) {
 
         private fun band(key: String): Band = parseBand(need(key))
         private fun parseBand(id: String): Band = requireNotNull(Band.fromId(id)) { "unknown band $id" }
+
+        private fun unit(): FrequencyUnit? = string("unit")?.let { requireNotNull(FrequencyUnit.fromSymbol(it)) { "unknown unit $it" } }
 
         private fun mark(): ClosedFloatingPointRange<Double>? = when (val m = o["mark"]) {
             null -> null
