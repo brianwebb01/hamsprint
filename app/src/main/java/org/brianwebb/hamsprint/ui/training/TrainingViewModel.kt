@@ -1,5 +1,6 @@
 package org.brianwebb.hamsprint.ui.training
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineStart
@@ -13,6 +14,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.brianwebb.hamsprint.AppContainer
 import org.brianwebb.hamsprint.domain.Card
+import org.brianwebb.hamsprint.domain.CardKind
 import org.brianwebb.hamsprint.domain.LicenseClass
 import org.brianwebb.hamsprint.domain.QuestionPool
 import org.brianwebb.hamsprint.domain.QuestionProgress
@@ -20,10 +22,17 @@ import org.brianwebb.hamsprint.domain.Readiness
 import org.brianwebb.hamsprint.domain.RoundSummary
 import org.brianwebb.hamsprint.domain.TrainingConfig
 import org.brianwebb.hamsprint.domain.TrainingSession
+import org.brianwebb.hamsprint.domain.VisualAid
 
 sealed interface CardPhase {
     data object Asking : CardPhase
-    data class Revealed(val chosen: Int, val correct: Boolean, val correctPosition: Int) : CardPhase
+    data class Revealed(
+        val chosen: Int,
+        val correct: Boolean,
+        val correctPosition: Int,
+        /** Aids return only after a miss; a correct answer moves on without one. */
+        val showAid: Boolean,
+    ) : CardPhase
 }
 
 sealed interface TrainingUiState {
@@ -31,11 +40,16 @@ sealed interface TrainingUiState {
     data class Error(val message: String) : TrainingUiState
     data class Studying(
         val card: Card,
+        /** The question's visual aid, shown on its preview and after a reveal. */
+        val aid: VisualAid?,
         val phase: CardPhase,
         val cardsShown: Int,
         val roundLength: Int,
         val scopeTitle: String?,
-    ) : TrainingUiState
+    ) : TrainingUiState {
+        val aidVisible: Boolean
+            get() = aid != null && (card.kind == CardKind.PREVIEW || (phase as? CardPhase.Revealed)?.showAid == true)
+    }
     data class Summary(
         val summary: RoundSummary,
         val passBefore: Double,
@@ -54,6 +68,7 @@ class TrainingViewModel(
     private lateinit var license: LicenseClass
     private lateinit var pool: QuestionPool
     private var session: TrainingSession? = null
+    private var aids: Map<String, VisualAid> = emptyMap()
     private var passBefore = 0.0
     private var cardShownAt = 0L
     private var autoAdvance: Job? = null
@@ -72,6 +87,7 @@ class TrainingViewModel(
                 val settings = container.settings.settings.value
                 license = checkNotNull(settings.license) { "No exam selected" }
                 pool = withContext(Dispatchers.IO) { container.pools.load(license) }
+                aids = loadAids(license)
                 val progress = container.progress.progress(license)
                 val scope = subelementId
                     ?.let { id -> pool.subelements.firstOrNull { it.id == id }?.questions }
@@ -105,8 +121,11 @@ class TrainingViewModel(
         if (current.phase != CardPhase.Asking) return
         val result = s.answer(position)
         persist(result.progress)
-        _state.value = current.copy(phase = CardPhase.Revealed(position, result.correct, result.correctPosition))
-        if (result.correct && container.settings.settings.value.autoAdvance) {
+        val autoAdvancing = result.correct && container.settings.settings.value.autoAdvance
+        _state.value = current.copy(
+            phase = CardPhase.Revealed(position, result.correct, result.correctPosition, showAid = !result.correct),
+        )
+        if (autoAdvancing) {
             autoAdvance = viewModelScope.launch {
                 delay(AUTO_ADVANCE_MILLIS)
                 next()
@@ -131,7 +150,9 @@ class TrainingViewModel(
             return
         }
         cardShownAt = container.clock.nowMillis()
-        _state.value = TrainingUiState.Studying(card, CardPhase.Asking, s.cardsShown, s.roundLength, scopeTitle)
+        _state.value = TrainingUiState.Studying(
+            card, aids[card.question.id], CardPhase.Asking, s.cardsShown, s.roundLength, scopeTitle,
+        )
     }
 
     private fun persist(progress: QuestionProgress) {
@@ -145,6 +166,12 @@ class TrainingViewModel(
         }
     }
 
+    /** Aids only enrich training, so a bad aid file degrades to plain cards instead of blocking study. */
+    private suspend fun loadAids(license: LicenseClass): Map<String, VisualAid> =
+        runCatching { withContext(Dispatchers.IO) { container.aids.load(license) } }
+            .onFailure { Log.e(TAG, "Visual aids unavailable for ${license.poolId}", it) }
+            .getOrDefault(emptyMap())
+
     private fun pass(progress: Map<String, QuestionProgress>): Double =
         Readiness.evaluate(pool, progress, container.clock.nowMillis()).passProbability
 
@@ -153,6 +180,7 @@ class TrainingViewModel(
     }
 
     private companion object {
+        const val TAG = "Training"
         const val AUTO_ADVANCE_MILLIS = 650L
         const val MAX_CARD_MILLIS = 60_000L
     }

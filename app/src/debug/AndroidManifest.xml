@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <!-- Debug builds only: renders one question's training card with its visual aid. -->
+        <activity android:name=".AidPreviewActivity" android:exported="true" android:theme="@style/Theme.HamSprint" />
+    </application>
+</manifest>

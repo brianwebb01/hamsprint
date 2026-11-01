@@ -44,3 +44,6 @@ fun fixturePool(vararg groupSizes: Int, passingScore: Int = groupSizes.size): Qu
 
 fun progressAt(id: String, stage: Int, dueAt: Long, now: Long = dueAt) =
     QuestionProgress(id, stage, dueAt, timesSeen = 3, timesCorrect = 3, lapses = 0, lastAnsweredAtMillis = now)
+
+/** The real bundled visual aids. */
+val realAids = org.brianwebb.hamsprint.data.AidLoader { path -> File("src/main/assets/$path").inputStream() }

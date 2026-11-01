@@ -40,9 +40,25 @@ data class HamColors(
     val onFigure: Color,
     val onFigureScrim: Color,
     val shadow: Color,
+    /** Categorical colors for visual aids, in a fixed order validated for color vision deficiency. */
+    val viz: VizColors,
 ) {
     val brand: Brush get() = Brush.linearGradient(listOf(brandStart, brandEnd))
 }
+
+/**
+ * Visual aid palette. Slots 1 to 4 pass adjacent-pair CVD checks in this order,
+ * and slots 1 to 3 pass all pairs, so mode colors use only those three.
+ */
+@Immutable
+data class VizColors(
+    val slot1: Color,
+    val slot2: Color,
+    val slot3: Color,
+    val slot4: Color,
+    /** Fill behind a plotted area, such as an unused band segment. */
+    val track: Color,
+)
 
 private val Light = HamColors(
     isDark = false,
@@ -68,6 +84,10 @@ private val Light = HamColors(
     onFigure = Color(0xFF0C0C14),
     onFigureScrim = Color(0x14000000),
     shadow = Color(0x1A1B1B3A),
+    viz = VizColors(
+        slot1 = Color(0xFF2A78D6), slot2 = Color(0xFFEB6834), slot3 = Color(0xFF1BAF7A), slot4 = Color(0xFFEDA100),
+        track = Color(0xFFF0F0F4),
+    ),
 )
 
 private val Dark = HamColors(
@@ -94,6 +114,10 @@ private val Dark = HamColors(
     onFigure = Color(0xFF0C0C14),
     onFigureScrim = Color(0x14000000),
     shadow = Color(0x00000000),
+    viz = VizColors(
+        slot1 = Color(0xFF3987E5), slot2 = Color(0xFFD95926), slot3 = Color(0xFF199E70), slot4 = Color(0xFFC98500),
+        track = Color(0xFF1E1E25),
+    ),
 )
 
 /** Spacing and shape scale. */

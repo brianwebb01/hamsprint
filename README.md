@@ -7,10 +7,11 @@
 Technician · General · Amateur Extra. Current NCVEC pools, fully offline, free and open source.</p>
 
 <p align="center">
-  <img src="docs/screenshots/home.png" width="200" alt="Home">
-  <img src="docs/screenshots/preview.png" width="200" alt="New question preview">
-  <img src="docs/screenshots/feedback.png" width="200" alt="Answer feedback">
-  <img src="docs/screenshots/history.png" width="200" alt="Practice exam history">
+  <img src="docs/screenshots/preview.png" width="190" alt="New question preview with a band plan visual aid">
+  <img src="docs/screenshots/feedback.png" width="190" alt="A missed answer with its visual aid">
+  <img src="docs/screenshots/visual-dark.png" width="190" alt="Visual aid in dark mode">
+  <img src="docs/screenshots/home.png" width="190" alt="Home">
+  <img src="docs/screenshots/history.png" width="190" alt="Practice exam history">
 </p>
 
 HamSprint skips the theory. It trains exactly what's on the exam (the official
@@ -58,6 +59,16 @@ The method is optimized for one outcome: passing the exam in the least study tim
    New material keeps flowing even when reviews pile up, so coverage of the pool
    never stalls.
 5. **Shuffled answers.** You memorize the answer, not its letter.
+6. **Visual aids.** About 530 questions (37% of the three pools) carry a small
+   native diagram: band plans color coded by mode and license class, the
+   spectrum colored by HF, VHF and UHF, the ionosphere by day and night,
+   repeater offsets, schematic symbols, Ohm's law and power worked with the
+   question's own numbers, filter curves, logic gates, and more. A picture gives
+   the answer a second memory hook (dual coding). Aids show on a question's
+   first look and after a miss, never while you're being asked, and practice
+   exams never show them. Band edges, bandwidths and formulas live in code, and
+   a unit test checks every computed result against the question's correct
+   answer. See [docs/VISUAL_AIDS.md](docs/VISUAL_AIDS.md).
 
 ### The pass chance
 

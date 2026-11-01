@@ -1,6 +1,7 @@
 package org.brianwebb.hamsprint.ui.components
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.keyframes
@@ -33,6 +34,7 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import org.brianwebb.hamsprint.domain.Card
 import org.brianwebb.hamsprint.ui.theme.HamTheme
@@ -48,6 +50,8 @@ fun AnswerOption(
     state: AnswerState,
     onClick: (() -> Unit)?,
     modifier: Modifier = Modifier,
+    /** One line and tighter padding, so a visual aid below has room. */
+    compact: Boolean = false,
 ) {
     val c = HamTheme.colors
     val bg by animateColorAsState(
@@ -101,13 +105,14 @@ fun AnswerOption(
     Row(
         modifier = modifier
             .fillMaxWidth()
+            .animateContentSize(tween(250))
             .graphicsLayer { translationX = shake.value }
             .alpha(alpha)
             .then(if (onClick != null) Modifier.pressable(onClick, pressedScale = 0.98f, role = Role.RadioButton) else Modifier)
             .clip(shape)
             .background(bg)
             .border(1.5.dp, border, shape)
-            .padding(horizontal = Space.lg, vertical = 14.dp)
+            .padding(horizontal = Space.lg, vertical = if (compact) 8.dp else 14.dp)
             .semantics(mergeDescendants = true) {
                 contentDescription = "$letter. $text"
                 if (stateLabel != null) stateDescription = stateLabel
@@ -115,7 +120,7 @@ fun AnswerOption(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Box(
-            Modifier.size(30.dp).clip(CircleShape).background(badgeBg),
+            Modifier.size(if (compact) 24.dp else 30.dp).clip(CircleShape).background(badgeBg),
             contentAlignment = Alignment.Center,
         ) {
             when (state) {
@@ -132,10 +137,12 @@ fun AnswerOption(
         }
         Text(
             text,
-            style = MaterialTheme.typography.bodyLarge.copy(
+            style = (if (compact) MaterialTheme.typography.bodyMedium else MaterialTheme.typography.bodyLarge).copy(
                 fontWeight = if (state == AnswerState.CORRECT || state == AnswerState.REVEAL) FontWeight.SemiBold else FontWeight.Normal,
             ),
             color = c.textPrimary,
+            maxLines = if (compact) 1 else Int.MAX_VALUE,
+            overflow = TextOverflow.Ellipsis,
             modifier = Modifier.padding(start = Space.md).weight(1f),
         )
     }
@@ -148,9 +155,11 @@ fun QuestionBody(
     stateFor: (position: Int) -> AnswerState,
     onSelect: ((position: Int) -> Unit)?,
     modifier: Modifier = Modifier,
+    /** Shrinks dimmed answers to one line, making room for a visual aid. */
+    compactDimmed: Boolean = false,
 ) {
     val c = HamTheme.colors
-    Column(modifier, verticalArrangement = Arrangement.spacedBy(Space.md)) {
+    Column(modifier, verticalArrangement = Arrangement.spacedBy(if (compactDimmed) Space.sm else Space.md)) {
         Text(
             card.question.text,
             style = MaterialTheme.typography.headlineSmall,
@@ -159,11 +168,13 @@ fun QuestionBody(
         )
         card.question.figure?.let { FigureCard(it, Modifier.padding(bottom = Space.sm)) }
         card.answerOrder.indices.forEach { pos ->
+            val state = stateFor(pos)
             AnswerOption(
                 letter = 'A' + pos,
                 text = card.answerAt(pos),
-                state = stateFor(pos),
+                state = state,
                 onClick = onSelect?.let { { it(pos) } },
+                compact = compactDimmed && state == AnswerState.DIMMED,
             )
         }
     }
