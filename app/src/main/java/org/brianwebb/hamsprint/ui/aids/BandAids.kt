@@ -95,7 +95,7 @@ internal fun BandPlanView(aid: BandPlanAid) {
     val span = band.highMHz - band.lowMHz
 
     Text(
-        formatRange(band.lowMHz, band.highMHz),
+        formatRange(band.lowMHz, band.highMHz, aid.unit),
         style = type.labelMedium, color = c.textSecondary,
     )
     Canvas(Modifier.fillMaxWidth().height(146.dp).padding(top = Space.xs)) {
@@ -135,7 +135,7 @@ internal fun BandPlanView(aid: BandPlanAid) {
         val placed = mutableListOf<ClosedFloatingPointRange<Float>>()
         val pad = 6.dp.toPx()
         (listOf(band.lowMHz, band.highMHz) + bounds).distinct().forEach { f ->
-            val text = formatMHz(f)
+            val text = formatFrequencyNumber(f, aid.unit)
             val layout = measurer.measure(text, tick)
             val tx = (x(f) - layout.size.width / 2f).coerceIn(left, size.width - layout.size.width)
             val span = (tx - pad)..(tx + layout.size.width + pad)
@@ -158,9 +158,10 @@ internal fun BandPlanView(aid: BandPlanAid) {
                     style = Stroke(2.dp.toPx()),
                 )
             }
-            val text = if (m.start == m.endInclusive) formatMHz(m.start) else "${formatMHz(m.start)} to ${formatMHz(m.endInclusive)}"
+            val text = formatMark(m, aid.unit)
             val layout = measurer.measure(text, markStyle)
-            val tx = ((x0 + x1) / 2 - layout.size.width / 2f).coerceIn(left, size.width - layout.size.width)
+            val maxX = max(0f, size.width - layout.size.width)
+            val tx = ((x0 + x1) / 2 - layout.size.width / 2f).coerceIn(kotlin.math.min(left, maxX), maxX)
             label(measurer, text, Offset(tx, 0f), markStyle, c.accent)
         }
     }
@@ -247,7 +248,7 @@ internal fun SpectrumView(aid: SpectrumAid) {
             drawPath(path, c.accent)
         }
         val axisY = size.height - 14.dp.toPx()
-        listOf(1.0 to "1 MHz", 10.0 to "10", 100.0 to "100", 1000.0 to "1 GHz").forEach { (f, t) ->
+        listOf(1.0 to "1 MHz", 10.0 to "10 MHz", 100.0 to "100 MHz", 1000.0 to "1000 MHz").forEach { (f, t) ->
             val px = x(f)
             drawLine(c.separator, Offset(px, axisY - 6.dp.toPx()), Offset(px, axisY - 2.dp.toPx()), 1.dp.toPx())
             label(measurer, t, Offset(px, axisY + 5.dp.toPx()), tick, tick.color, center = true)
@@ -264,7 +265,7 @@ internal fun SpectrumView(aid: SpectrumAid) {
         }
     }
     aid.markMHz?.let { m ->
-        Text("Marked: ${formatFrequency(m)}", style = type.labelMedium, color = c.accent)
+        Text("Marked: ${formatFrequency(m, aid.markUnit)}", style = type.labelMedium, color = c.accent)
     }
 }
 
@@ -333,9 +334,9 @@ internal fun RepeaterView(aid: RepeaterAid) {
     val c = HamTheme.colors
     val type = MaterialTheme.typography
     val r = aid.repeater
-    val offset = if (r.offsetMHz < 1) "${formatNumber(r.offsetMHz * 1000)} kHz" else "${formatNumber(r.offsetMHz)} MHz"
+    val offset = formatSi(r.offsetMHz * 1e6, "Hz")
     Row(verticalAlignment = Alignment.CenterVertically) {
-        FrequencyTile("You transmit", formatMHz(r.sampleInputMHz), "repeater input", c.viz.slot2, Modifier.weight(1f))
+        FrequencyTile("You transmit", formatFrequency(r.sampleInputMHz), "repeater input", c.viz.slot2, Modifier.weight(1f))
         Column(Modifier.width(76.dp), horizontalAlignment = Alignment.CenterHorizontally) {
             Text("± $offset", style = type.titleSmall, color = c.accent, textAlign = TextAlign.Center)
             Canvas(Modifier.fillMaxWidth().height(14.dp).padding(horizontal = Space.sm)) {
@@ -346,7 +347,7 @@ internal fun RepeaterView(aid: RepeaterAid) {
             }
             Text("offset", style = type.bodySmall, color = c.textTertiary)
         }
-        FrequencyTile("You listen", formatMHz(r.sampleOutputMHz), "repeater output", c.viz.slot1, Modifier.weight(1f))
+        FrequencyTile("You listen", formatFrequency(r.sampleOutputMHz), "repeater output", c.viz.slot1, Modifier.weight(1f))
     }
     if (aid.tone) {
         Row(

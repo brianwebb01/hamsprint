@@ -1,14 +1,18 @@
 package org.brianwebb.hamsprint.data
 
 import org.brianwebb.hamsprint.domain.AntennaAid
+import org.brianwebb.hamsprint.domain.BandPlanAid
 import org.brianwebb.hamsprint.domain.CombineAid
 import org.brianwebb.hamsprint.domain.DecibelAid
 import org.brianwebb.hamsprint.domain.FactAid
+import org.brianwebb.hamsprint.domain.FrequencyUnit
 import org.brianwebb.hamsprint.domain.LicenseClass
 import org.brianwebb.hamsprint.domain.OhmsAid
 import org.brianwebb.hamsprint.domain.PowerAid
 import org.brianwebb.hamsprint.domain.PrefixAid
+import org.brianwebb.hamsprint.domain.Question
 import org.brianwebb.hamsprint.domain.ReactanceAid
+import org.brianwebb.hamsprint.domain.SpectrumAid
 import org.brianwebb.hamsprint.domain.SwrAid
 import org.brianwebb.hamsprint.domain.TimeConstantAid
 import org.brianwebb.hamsprint.domain.TransformerAid
@@ -64,6 +68,43 @@ class VisualAidAssetsTest {
     }
 
     @Test
+    fun `frequencies are written in the unit their question uses`() {
+        val wrong = mutableListOf<String>()
+        for (license in LicenseClass.entries) {
+            val pool = realPools.load(license)
+            realAids.load(license).forEach { (id, aid) ->
+                val q = pool.question(id)!!
+                val expected = questionUnit(q)
+                val shown = when (aid) {
+                    is BandPlanAid -> aid.unit to FrequencyUnit.conventional(aid.band.lowMHz)
+                    is SpectrumAid -> aid.markMHz?.let { aid.markUnit to FrequencyUnit.conventional(it) }
+                    else -> null
+                }
+                if (shown != null && shown.first != (expected ?: shown.second)) wrong += "$id shows ${shown.first.symbol}"
+                val caption = aid.caption.orEmpty()
+                val inKhz = FREQ.findAll(caption).any { it.groupValues[2] == "kHz" && it.groupValues[1].replace(",", "").toDouble() >= 1000 }
+                if (expected == FrequencyUnit.KHZ && "MHz" in caption) wrong += "$id caption uses MHz"
+                if (expected != FrequencyUnit.KHZ && inKhz) wrong += "$id caption uses kHz"
+            }
+        }
+        assertTrue(wrong.joinToString("\n"), wrong.isEmpty())
+    }
+
+    /**
+     * kHz when the question writes a radio frequency of 1 MHz or more in kHz
+     * ("21300 kHz"), MHz when it writes one in MHz, else null. The correct
+     * answer decides; the stem only when that answer names no frequency.
+     */
+    private fun questionUnit(q: Question): FrequencyUnit? {
+        for (text in listOf(q.correctAnswer, q.text)) {
+            val found = FREQ.findAll(text).map { it.groupValues[1].replace(",", "").toDouble() to it.groupValues[2] }.toList()
+            if (found.any { (n, u) -> u == "kHz" && n >= 1000 }) return FrequencyUnit.KHZ
+            if (found.any { (_, u) -> u == "MHz" }) return FrequencyUnit.MHZ
+        }
+        return null
+    }
+
+    @Test
     fun `captions are short and free of em and en dashes`() {
         for (license in LicenseClass.entries) {
             realAids.load(license).forEach { (id, aid) ->
@@ -104,6 +145,7 @@ class VisualAidAssetsTest {
     }.toList()
 
     private companion object {
+        val FREQ = Regex("""(\d[\d,]*\.?\d*)\s*(kHz|MHz)""")
         val NUMBER = Regex("""(\d[\d,]*\.?\d*|\.\d+)\s*([a-zA-Zµ]*)""")
         val WORDS = mapOf("pico" to 1e-12, "nano" to 1e-9, "micro" to 1e-6, "milli" to 1e-3, "kilo" to 1e3, "mega" to 1e6, "giga" to 1e9)
         val SYMBOLS = mapOf('p' to 1e-12, 'n' to 1e-9, 'u' to 1e-6, 'µ' to 1e-6, 'm' to 1e-3, 'k' to 1e3, 'M' to 1e6, 'G' to 1e9)
