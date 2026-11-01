@@ -5,7 +5,7 @@
   {"q": "G1A05", "kind": "bandplan", "band": "40m", "mark": [7.125, 7.175], "caption": "General phone on 40 meters begins at 7.175 MHz."},
   {"q": "G1A07", "kind": "bandplan", "band": "10m", "mark": [28.0, 29.7], "caption": "CW is allowed anywhere on 10 meters."},
   {"q": "G1A08", "kind": "spectrum", "bands": ["80m", "40m", "20m", "15m"], "caption": "Extra only segments: 80, 40, 20 and 15 meters."},
-  {"q": "G1A09", "kind": "bandplan", "band": "15m", "mark": 21.3, "caption": "General phone on 15 meters runs 21.275 to 21.450 MHz."},
+  {"q": "G1A09", "kind": "bandplan", "band": "15m", "mark": 21.3, "unit": "kHz", "caption": "General phone on 15 meters runs 21275 to 21450 kHz."},
   {"q": "G1A10", "kind": "bandplan", "band": "10m", "mark": [29.5, 29.7], "caption": "10 meter repeaters live above 29.5 MHz."},
   {"q": "G1A11", "kind": "bandplan", "band": "20m", "mark": [14.225, 14.35], "caption": "General phone gets the upper part of the voice segment."},
   {"q": "G1B01", "kind": "fact", "value": "200", "unit": "feet", "label": "Max antenna height without FAA notice"},

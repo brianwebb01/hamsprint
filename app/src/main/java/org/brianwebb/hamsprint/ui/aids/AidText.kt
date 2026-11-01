@@ -9,6 +9,7 @@ import org.brianwebb.hamsprint.domain.ComponentAid
 import org.brianwebb.hamsprint.domain.DecibelAid
 import org.brianwebb.hamsprint.domain.FactAid
 import org.brianwebb.hamsprint.domain.FilterAid
+import org.brianwebb.hamsprint.domain.FrequencyUnit
 import org.brianwebb.hamsprint.domain.IonosphereAid
 import org.brianwebb.hamsprint.domain.LogicAid
 import org.brianwebb.hamsprint.domain.MeterAid
@@ -30,6 +31,7 @@ import org.brianwebb.hamsprint.domain.WaveformAid
 import org.brianwebb.hamsprint.domain.WavelengthAid
 import java.math.BigDecimal
 import java.math.MathContext
+import java.math.RoundingMode
 import kotlin.math.abs
 import kotlin.math.floor
 import kotlin.math.log10
@@ -50,34 +52,41 @@ fun formatSi(value: Double, unit: String): String {
     return "${formatNumber(value / Math.pow(10.0, e.toDouble()))} $p$unit"
 }
 
-/** A frequency with its unit: "14.000 MHz", or "472 kHz" below 1 MHz. */
-fun formatFrequency(mhz: Double): String = if (mhz < 1) formatMHz(mhz) else "${formatMHz(mhz)} MHz"
+/** A frequency with its unit: "14.000 MHz", "21300 kHz". Defaults to the pool convention, kHz below 1 MHz. */
+fun formatFrequency(mhz: Double, unit: FrequencyUnit = FrequencyUnit.conventional(mhz)): String =
+    "${formatFrequencyNumber(mhz, unit)} ${unit.symbol}"
 
 /** A frequency range with one unit: "14.000 to 14.350 MHz", "472 to 479 kHz". */
-fun formatRange(lowMHz: Double, highMHz: Double): String =
-    if (highMHz < 1) "${formatNumber(lowMHz * 1000, 4)} to ${formatMHz(highMHz)}" else "${formatMHz(lowMHz)} to ${formatMHz(highMHz)} MHz"
+fun formatRange(lowMHz: Double, highMHz: Double, unit: FrequencyUnit = FrequencyUnit.conventional(highMHz)): String =
+    "${formatFrequencyNumber(lowMHz, unit)} to ${formatFrequencyNumber(highMHz, unit)} ${unit.symbol}"
 
-/** Frequency in MHz with the trailing zeros hams expect at band edges: 14.000, 146.52. Below 1 MHz it carries its own kHz unit. */
-fun formatMHz(mhz: Double): String = when {
-    mhz < 1 -> "${formatNumber(mhz * 1000, 4)} kHz"
-    mhz < 100 -> "%.3f".format(mhz)
+/**
+ * A frequency as a bare number in [unit], written the way the pools write it:
+ * MHz below 100 keeps at least three decimals (14.000, 14.1472), MHz above
+ * drops trailing zeros (146.52), and kHz is a plain number (21300, 135.7).
+ */
+fun formatFrequencyNumber(mhz: Double, unit: FrequencyUnit = FrequencyUnit.conventional(mhz)): String = when {
+    unit == FrequencyUnit.KHZ -> BigDecimal(mhz * 1000).setScale(3, RoundingMode.HALF_UP).stripTrailingZeros().toPlainString()
+    mhz < 100 -> BigDecimal(mhz).setScale(6, RoundingMode.HALF_UP).stripTrailingZeros()
+        .let { if (it.scale() < 3) it.setScale(3) else it }.toPlainString()
     else -> formatNumber(mhz, 6)
 }
 
 /** Text a screen reader speaks in place of the picture. */
 fun describe(aid: VisualAid): String = when (aid) {
     is BandPlanAid -> buildString {
-        append("${aid.band.label}, ${formatRange(aid.band.lowMHz, aid.band.highMHz)}. ")
+        append("${aid.band.label}, ${formatRange(aid.band.lowMHz, aid.band.highMHz, aid.unit)}. ")
         Privilege.entries.forEach { p ->
             val segs = aid.band.segments(p)
             append("${p.label}: ")
-            append(if (segs.isEmpty()) "none" else segs.joinToString { "${formatRange(it.lowMHz, it.highMHz)} ${it.mode.label}" })
+            append(if (segs.isEmpty()) "none" else segs.joinToString { "${formatRange(it.lowMHz, it.highMHz, aid.unit)} ${it.mode.label}" })
             append(". ")
         }
-        aid.mark?.let { append("Marked: ${if (it.endInclusive != it.start) formatRange(it.start, it.endInclusive) else formatFrequency(it.start)}.") }
+        aid.mark?.let { append("Marked: ${formatMark(it, aid.unit)}.") }
     }
     is SpectrumAid -> "Amateur bands from MF to UHF. Highlighted: " +
-        aid.highlighted.joinToString { "${it.label}, ${it.zone.label}" }.ifEmpty { "none" }
+        aid.highlighted.joinToString { "${it.label}, ${it.zone.label}" }.ifEmpty { "none" } +
+        (aid.markMHz?.let { ". Marked: ${formatFrequency(it, aid.markUnit)}" } ?: "")
     is WavelengthAid -> "Wavelength equals 300 divided by ${formatNumber(aid.freqMHz)} megahertz, about ${formatNumber(aid.meters)} meters."
     is RepeaterAid -> "${aid.repeater.band.label} repeaters use a ${formatNumber(aid.repeater.offsetMHz * 1000)} kilohertz offset." +
         if (aid.tone) " A sub-audible CTCSS tone opens the repeater." else ""
@@ -111,3 +120,7 @@ fun describe(aid: VisualAid): String = when (aid) {
     }
     is FactAid -> "${aid.label}: ${aid.value}${aid.unit?.let { " $it" } ?: ""}."
 }
+
+/** A marked point or slice of a band: "21300 kHz", "7.125 to 7.175 MHz". */
+fun formatMark(mark: ClosedFloatingPointRange<Double>, unit: FrequencyUnit): String =
+    if (mark.start == mark.endInclusive) formatFrequency(mark.start, unit) else formatRange(mark.start, mark.endInclusive, unit)
