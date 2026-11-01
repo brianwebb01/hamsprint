@@ -35,8 +35,8 @@ android {
         minSdk = 26
         targetSdk = 36
         // Bumped by .github/workflows/release.yml; keep as literals so F-Droid can read them.
-        versionCode = 3
-        versionName = "1.1.0"
+        versionCode = 4
+        versionName = "1.1.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
