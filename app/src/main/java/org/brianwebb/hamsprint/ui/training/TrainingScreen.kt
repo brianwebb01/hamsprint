@@ -3,12 +3,16 @@ package org.brianwebb.hamsprint.ui.training
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.expandVertically
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.relocation.BringIntoViewRequester
+import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -33,6 +37,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -42,9 +47,11 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import kotlinx.coroutines.delay
 import androidx.lifecycle.viewmodel.compose.viewModel
 import org.brianwebb.hamsprint.domain.CardKind
 import org.brianwebb.hamsprint.ui.LocalAppContainer
+import org.brianwebb.hamsprint.ui.aids.VisualAidCard
 import org.brianwebb.hamsprint.ui.components.AnswerState
 import org.brianwebb.hamsprint.ui.components.Badge
 import org.brianwebb.hamsprint.ui.components.CircleIconButton
@@ -82,6 +89,9 @@ fun TrainingScreen(subelementId: String?, onClose: () -> Unit) {
     }
 }
 
+private const val AID_REVEAL_DELAY_MILLIS = 360L
+
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun ColumnScope.Studying(s: TrainingUiState.Studying, vm: TrainingViewModel, onClose: () -> Unit) {
     val c = HamTheme.colors
@@ -148,7 +158,25 @@ private fun ColumnScope.Studying(s: TrainingUiState.Studying, vm: TrainingViewMo
                     }
                 },
                 onSelect = if (!isPreview && phase == CardPhase.Asking) vm::select else null,
+                compactDimmed = s.aidVisible,
             )
+            s.aid?.let { aid ->
+                // A wrong answer slides the aid in and scrolls to it; a preview shows it in place.
+                val bringIntoView = remember { BringIntoViewRequester() }
+                LaunchedEffect(s.aidVisible, isPreview) {
+                    if (s.aidVisible && !isPreview) {
+                        delay(AID_REVEAL_DELAY_MILLIS)
+                        bringIntoView.bringIntoView()
+                    }
+                }
+                AnimatedVisibility(
+                    visible = s.aidVisible,
+                    enter = expandVertically(tween(320)) + fadeIn(tween(320, delayMillis = 80)),
+                    exit = fadeOut(tween(120)),
+                ) {
+                    VisualAidCard(aid, Modifier.padding(top = Space.lg).bringIntoViewRequester(bringIntoView))
+                }
+            }
             Spacer(Modifier.height(Space.xl))
         }
     }
@@ -164,7 +192,8 @@ private fun Footer(s: TrainingUiState.Studying, onAcknowledge: () -> Unit, onNex
         when {
             s.card.kind == CardKind.PREVIEW -> {
                 Text(
-                    "Lock in the highlighted answer. You'll be asked in a moment.",
+                    if (s.aid != null) "Lock in the highlighted answer and its picture. You'll be asked in a moment."
+                    else "Lock in the highlighted answer. You'll be asked in a moment.",
                     style = MaterialTheme.typography.bodyMedium,
                     color = c.textSecondary,
                     textAlign = TextAlign.Center,

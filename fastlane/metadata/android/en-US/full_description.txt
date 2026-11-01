@@ -11,6 +11,7 @@ Every question comes straight from the official NCVEC pools, with all errata and
 • <b>Reviews timed to your memory.</b> Spaced repetition brings back questions minutes, then hours, then days later, right before you'd forget them. Misses come back almost immediately.
 • <b>Highest-value questions first.</b> Every real exam draws one question from each topic group, so questions from small groups are likelier to appear. HamSprint introduces those first.
 • <b>Shuffled answers.</b> You learn the answer itself, not "it's C".
+• <b>Visual aids.</b> Hundreds of questions come with a small diagram: band plans color coded by license class and mode, the radio spectrum, the ionosphere by day and night, repeater offsets, schematic symbols, Ohm's law worked with the question's numbers, and more. A picture gives each answer a second memory hook.
 • <b>A pass chance you can trust.</b> HamSprint works out your probability of passing from your own answers and the real exam's format. In simulation, learners who reach "ready" pass about 97% of practice exams the next day.
 
 <b>Practice exams</b>
