@@ -5,6 +5,7 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.hours
+import kotlin.time.Duration.Companion.minutes
 
 class ReadinessTest {
     private val now = 1_000_000_000L
@@ -51,5 +52,16 @@ class ReadinessTest {
         val pool = realPools.load(LicenseClass.GENERAL)
         val r = Readiness.evaluate(pool, emptyMap(), now)
         assertTrue("was ${r.timeToReady}", r.timeToReady in 2.hours..5.hours)
+    }
+
+    @Test
+    fun `foundations still to be taught add lesson time to the estimate, taught ones do not`() {
+        val pool = realPools.load(LicenseClass.GENERAL)
+        val curriculum = realFoundations.load(LicenseClass.GENERAL)
+        val plain = Readiness.evaluate(pool, emptyMap(), now).timeToReady
+        val fresh = Readiness.evaluate(pool, emptyMap(), now, curriculum).timeToReady
+        val taught = Readiness.evaluate(pool, emptyMap(), now, curriculum, curriculum.foundations.map { it.id }.toSet()).timeToReady
+        assertTrue("lessons cost time: $fresh vs $taught", fresh > taught)
+        assertTrue("same questions either way: $taught vs $plain", taught in (plain - 30.minutes)..(plain + 30.minutes))
     }
 }

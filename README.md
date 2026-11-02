@@ -7,9 +7,10 @@
 Technician · General · Amateur Extra. Current NCVEC pools, fully offline, free and open source.</p>
 
 <p align="center">
-  <img src="docs/screenshots/preview.png" width="190" alt="New question preview with a band plan visual aid">
-  <img src="docs/screenshots/feedback.png" width="190" alt="A missed answer with its visual aid">
-  <img src="docs/screenshots/visual-dark.png" width="190" alt="Visual aid in dark mode">
+  <img src="docs/screenshots/foundation.png" width="190" alt="A foundation lesson: General privileges on HF">
+  <img src="docs/screenshots/preview.png" width="190" alt="New question preview that builds on the foundation">
+  <img src="docs/screenshots/feedback.png" width="190" alt="A missed answer with its foundation and visual aid">
+  <img src="docs/screenshots/foundation-dark.png" width="190" alt="A foundation lesson in dark mode">
   <img src="docs/screenshots/home.png" width="190" alt="Home">
   <img src="docs/screenshots/history.png" width="190" alt="Practice exam history">
 </p>
@@ -51,15 +52,25 @@ The method is optimized for one outcome: passing the exam in the least study tim
 2. **Spaced review.** Correct recalls push a question out on an expanding
    schedule (10 min → 1 h → 6 h → 1 d → 3 d → 8 d → 21 d). A miss sends it back
    to learning, and it returns within two cards.
-3. **Exam-weighted ordering.** Real exams draw one question per topic group, so a
+3. **Foundations first, then the facts that hang on them.** Scattered numbers
+   are hard to memorize; a framework makes them easy. 224 small foundations
+   (a rule and its exceptions, a progression, a table by band) cover 1,281 of
+   the 1,431 questions. Training teaches a foundation right before its first
+   question, then introduces its questions one after another, simplest first,
+   so each new fact lands on structure you already have. Each question's
+   preview, and any miss, shows a "Builds on" reminder with the row it asks
+   about highlighted. Every number on a foundation comes from the correct
+   answer of a question it links, and a unit test enforces that. See
+   [docs/FOUNDATIONS.md](docs/FOUNDATIONS.md).
+4. **Exam-weighted ordering.** Real exams draw one question per topic group, so a
    question from a 10-question group is likelier to show up than one from a
-   14-question group. New questions are introduced in exam-weight order, with
-   topics interleaved.
-4. **Working-memory limits.** At most five new questions are in flight at once.
+   14-question group. Questions without a foundation follow in exam-weight
+   order, with topics interleaved.
+5. **Working-memory limits.** At most five new questions are in flight at once.
    New material keeps flowing even when reviews pile up, so coverage of the pool
    never stalls.
-5. **Shuffled answers.** You memorize the answer, not its letter.
-6. **Visual aids.** About 530 questions (37% of the three pools) carry a small
+6. **Shuffled answers.** You memorize the answer, not its letter.
+7. **Visual aids.** About 530 questions (37% of the three pools) carry a small
    native diagram: band plans color coded by mode and license class, the
    spectrum colored by HF, VHF and UHF, the ionosphere by day and night,
    repeater offsets, schematic symbols, Ohm's law and power worked with the
@@ -78,20 +89,26 @@ each group's mean recall. HamSprint computes that exactly from your progress
 (`domain/Readiness.kt`). It calls you **ready at 95%** and then asks you to
 confirm by passing two practice exams in a row.
 
-### Evidence for "about four hours"
+### Evidence for the study time
 
 [`StudySimulationTest`](app/src/test/java/org/brianwebb/hamsprint/domain/StudySimulationTest.kt)
 runs simulated learners through the real training engine. Their memory follows
 [FSRS](https://github.com/open-spaced-repetition/fsrs4anki/wiki/The-Algorithm)
 (the model behind Anki's scheduler, fit on hundreds of millions of reviews),
 pessimistically set to "hard material". They study in 50-minute sittings, and the
-next morning they're graded on fresh practice exams using their *true* memory:
+next morning they're graded on fresh practice exams using their *true* memory.
+Each foundation lesson costs them 40 seconds of reading, and the memory model
+gives foundations no credit at all, so the times below are an upper bound on what
+foundations cost; any help they give your memory comes off the top:
 
 | Exam | Study time to "ready" | Next-day practice-exam pass rate |
 |---|---|---|
-| General | 3 h 54 m to 3 h 56 m (5 runs) | 96.5 to 97.5% |
-| Technician | ~3 h 52 m | 94.5 to 97.8% |
-| Amateur Extra | ~5 h 40 m | 99.5 % |
+| General | 4 h 52 m to 5 h 0 m (5 runs), of which about 50 m is foundations | 97.3 to 98.5% |
+| Technician | ~4 h 38 m, of which about 40 m is foundations | 97.8% |
+| Amateur Extra | ~7 h, of which about 1 h is foundations | 99% |
+
+Without foundation lessons the same engine reaches "ready" for General in about
+4 hours. The in-app "To ready" estimate counts the lessons you haven't read yet.
 
 These are simulations, not a guarantee. People vary, and the model makes
 assumptions (≈8 to 9 s per card, for example). The in-app pass chance updates from

@@ -64,6 +64,8 @@ import org.brianwebb.hamsprint.ui.components.ProgressBar
 import org.brianwebb.hamsprint.ui.components.QuestionBody
 import org.brianwebb.hamsprint.ui.components.SecondaryButton
 import org.brianwebb.hamsprint.ui.formatPercent
+import org.brianwebb.hamsprint.ui.foundations.BuildsOnCard
+import org.brianwebb.hamsprint.ui.foundations.FoundationBody
 import org.brianwebb.hamsprint.ui.theme.HamTheme
 import org.brianwebb.hamsprint.ui.theme.Space
 
@@ -83,6 +85,7 @@ fun TrainingScreen(subelementId: String?, onClose: () -> Unit) {
                     SecondaryButton("Close", onClose, Modifier.width(200.dp))
                 }
             }
+            is TrainingUiState.Lesson -> Lesson(s, onStart = vm::startLesson, onClose = onClose)
             is TrainingUiState.Studying -> Studying(s, vm, onClose)
             is TrainingUiState.Summary -> Summary(s, onKeepGoing = vm::startRound, onDone = onClose)
         }
@@ -101,18 +104,7 @@ private fun ColumnScope.Studying(s: TrainingUiState.Studying, vm: TrainingViewMo
         if (phase is CardPhase.Revealed) if (phase.correct) haptics.success() else haptics.error()
     }
 
-    Row(
-        Modifier.fillMaxWidth().padding(horizontal = Space.lg, vertical = Space.sm),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        CircleIconButton(HamIcons.Close, "End training", onClose)
-        ProgressBar(
-            s.cardsShown.toFloat() / s.roundLength,
-            brush = c.brand,
-            modifier = Modifier.weight(1f).padding(horizontal = Space.lg),
-        )
-        Text("${s.cardsShown}/${s.roundLength}", style = MaterialTheme.typography.labelMedium, color = c.textSecondary)
-    }
+    TopBar(s.cardsShown, s.roundLength, onClose)
 
     AnimatedContent(
         targetState = s.card to s.cardsShown,
@@ -158,23 +150,35 @@ private fun ColumnScope.Studying(s: TrainingUiState.Studying, vm: TrainingViewMo
                     }
                 },
                 onSelect = if (!isPreview && phase == CardPhase.Asking) vm::select else null,
-                compactDimmed = s.aidVisible,
+                compactDimmed = s.aidVisible || s.foundationVisible,
             )
-            s.aid?.let { aid ->
-                // A wrong answer slides the aid in and scrolls to it; a preview shows it in place.
-                val bringIntoView = remember { BringIntoViewRequester() }
-                LaunchedEffect(s.aidVisible, isPreview) {
-                    if (s.aidVisible && !isPreview) {
-                        delay(AID_REVEAL_DELAY_MILLIS)
-                        bringIntoView.bringIntoView()
+            // A wrong answer slides the help in and scrolls to it; a preview shows it in place.
+            val bringIntoView = remember { BringIntoViewRequester() }
+            val helpVisible = s.aidVisible || s.foundationVisible
+            LaunchedEffect(helpVisible, isPreview) {
+                if (helpVisible && !isPreview) {
+                    delay(AID_REVEAL_DELAY_MILLIS)
+                    bringIntoView.bringIntoView()
+                }
+            }
+            Column(Modifier.bringIntoViewRequester(bringIntoView)) {
+                s.foundation?.let { foundation ->
+                    AnimatedVisibility(
+                        visible = s.foundationVisible,
+                        enter = expandVertically(tween(320)) + fadeIn(tween(320, delayMillis = 80)),
+                        exit = fadeOut(tween(120)),
+                    ) {
+                        BuildsOnCard(foundation, card.question.id, Modifier.padding(top = Space.lg))
                     }
                 }
-                AnimatedVisibility(
-                    visible = s.aidVisible,
-                    enter = expandVertically(tween(320)) + fadeIn(tween(320, delayMillis = 80)),
-                    exit = fadeOut(tween(120)),
-                ) {
-                    VisualAidCard(aid, Modifier.padding(top = Space.lg).bringIntoViewRequester(bringIntoView))
+                s.aid?.let { aid ->
+                    AnimatedVisibility(
+                        visible = s.aidVisible,
+                        enter = expandVertically(tween(320)) + fadeIn(tween(320, delayMillis = 80)),
+                        exit = fadeOut(tween(120)),
+                    ) {
+                        VisualAidCard(aid, Modifier.padding(top = Space.lg))
+                    }
                 }
             }
             Spacer(Modifier.height(Space.xl))
@@ -185,6 +189,47 @@ private fun ColumnScope.Studying(s: TrainingUiState.Studying, vm: TrainingViewMo
 }
 
 @Composable
+private fun TopBar(cardsShown: Int, roundLength: Int, onClose: () -> Unit) {
+    val c = HamTheme.colors
+    Row(
+        Modifier.fillMaxWidth().padding(horizontal = Space.lg, vertical = Space.sm),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        CircleIconButton(HamIcons.Close, "End training", onClose)
+        ProgressBar(
+            cardsShown.toFloat() / roundLength,
+            brush = c.brand,
+            modifier = Modifier.weight(1f).padding(horizontal = Space.lg),
+        )
+        Text("$cardsShown/$roundLength", style = MaterialTheme.typography.labelMedium, color = c.textSecondary)
+    }
+}
+
+/** Teaches a foundation before the first question that builds on it. */
+@Composable
+private fun ColumnScope.Lesson(s: TrainingUiState.Lesson, onStart: () -> Unit, onClose: () -> Unit) {
+    val c = HamTheme.colors
+    TopBar(s.cardsShown, s.roundLength, onClose)
+    Column(
+        Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = Space.gutter),
+    ) {
+        FoundationBody(s.foundation, s.number, s.total, s.figures, Modifier.padding(top = Space.md))
+        Spacer(Modifier.height(Space.xl))
+    }
+    Column(Modifier.fillMaxWidth().padding(horizontal = Space.gutter, vertical = Space.md)) {
+        val count = s.foundation.questionIds.size
+        Text(
+            "$count questions build on this. Learn the pattern and they get easier.",
+            style = MaterialTheme.typography.bodyMedium,
+            color = c.textSecondary,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth().padding(bottom = Space.md),
+        )
+        PrimaryButton("Start these questions", onStart)
+    }
+}
+
+@Composable
 private fun Footer(s: TrainingUiState.Studying, onAcknowledge: () -> Unit, onNext: () -> Unit) {
     val c = HamTheme.colors
     val phase = s.phase
@@ -192,7 +237,7 @@ private fun Footer(s: TrainingUiState.Studying, onAcknowledge: () -> Unit, onNex
         when {
             s.card.kind == CardKind.PREVIEW -> {
                 Text(
-                    if (s.aid != null) "Lock in the highlighted answer and its picture. You'll be asked in a moment."
+                    if (s.aid != null || s.foundation != null) "Lock in the highlighted answer and how it fits. You'll be asked in a moment."
                     else "Lock in the highlighted answer. You'll be asked in a moment.",
                     style = MaterialTheme.typography.bodyMedium,
                     color = c.textSecondary,

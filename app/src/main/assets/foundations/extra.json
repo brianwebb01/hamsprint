@@ -1,0 +1,5297 @@
+[
+ {
+  "id": "e-1-sideband-edges",
+  "title": "Sideband edges",
+  "summary": "A sideband signal spreads to one side of the carrier. The whole width must stay inside the band or segment.",
+  "points": [
+   {
+    "label": "LSB near a lower edge",
+    "value": "Carrier 3 kHz above the lower band edge",
+    "q": [
+     "E1A02"
+    ]
+   },
+   {
+    "label": "3 kHz USB at 14.348 MHz",
+    "value": "Upper 1 kHz is outside the 20-meter band",
+    "q": [
+     "E1A01"
+    ]
+   },
+   {
+    "label": "2.8 kHz USB data, 20 m top",
+    "value": "Highest carrier is 14.1472 MHz",
+    "q": [
+     "E1A03"
+    ]
+   },
+   {
+    "label": "LSB phone on 3.601 MHz",
+    "value": "No: sidebands extend past the segment edge",
+    "q": [
+     "E1A04"
+    ]
+   }
+  ],
+  "hook": "USB spreads up from the carrier, LSB spreads down. Leave the full signal width between the carrier and the edge.",
+  "questions": [
+   "E1A02",
+   "E1A01",
+   "E1A03",
+   "E1A04"
+  ],
+  "aid": {
+   "kind": "bandplan",
+   "band": "20m"
+  }
+ },
+ {
+  "id": "e-1-clean-signals",
+  "title": "Signal width and purity limits",
+  "summary": "Rules that keep a signal narrow and clean: width limits by mode, where CW sits on 60 m, and how far down spurious must be.",
+  "points": [
+   {
+    "label": "Digital voice or SSTV, HF",
+    "value": "3 kHz bandwidth",
+    "q": [
+     "E1B02"
+    ]
+   },
+   {
+    "label": "Data on 60 meters",
+    "value": "2.8 kHz maximum bandwidth",
+    "q": [
+     "E1C01"
+    ]
+   },
+   {
+    "label": "CW on a 60 meter channel",
+    "value": "At the center frequency of the channel",
+    "q": [
+     "E1A06"
+    ]
+   },
+   {
+    "label": "Angle mod below 29.0 MHz",
+    "value": "Modulation index of 1.0 at most",
+    "q": [
+     "E1C09"
+    ]
+   },
+   {
+    "label": "Spurious emission",
+    "value": "Outside necessary bandwidth, removable",
+    "q": [
+     "E1B01"
+    ]
+   },
+   {
+    "label": "Spurious below 30 MHz",
+    "value": "-43 dB mean power vs the fundamental",
+    "q": [
+     "E1C10"
+    ]
+   },
+   {
+    "label": "Amplifier certification",
+    "value": "Spurious OK at lesser of 1500 W or full output",
+    "q": [
+     "E1F11"
+    ]
+   }
+  ],
+  "questions": [
+   "E1B02",
+   "E1C01",
+   "E1A06",
+   "E1C09",
+   "E1B01",
+   "E1C10",
+   "E1F11"
+  ]
+ },
+ {
+  "id": "e-1-lowest-bands",
+  "title": "The two lowest bands: 2200 m and 630 m",
+  "summary": "Tiny power limits measured as EIRP, plus a notice to the UTC before you transmit.",
+  "points": [
+   {
+    "label": "2200 meter power",
+    "value": "1 watt EIRP",
+    "q": [
+     "E1A07"
+    ]
+   },
+   {
+    "label": "630 meter power",
+    "value": "5 watts EIRP (except parts of Alaska)",
+    "q": [
+     "E1A09"
+    ]
+   },
+   {
+    "label": "630 meter phone",
+    "value": "Permitted in the entire band",
+    "q": [
+     "E1C12"
+    ]
+   },
+   {
+    "label": "Before transmitting",
+    "value": "Tell the UTC your call sign and coordinates",
+    "q": [
+     "E1C07"
+    ]
+   },
+   {
+    "label": "Waiting period",
+    "value": "30 days, unless within 1 km of PLC systems",
+    "q": [
+     "E1C03"
+    ]
+   }
+  ],
+  "hook": "The longer band gets less power: 2200 m is 1 W EIRP, 630 m is 5 W EIRP.",
+  "questions": [
+   "E1A07",
+   "E1A09",
+   "E1C12",
+   "E1C07",
+   "E1C03"
+  ],
+  "aid": {
+   "kind": "spectrum",
+   "bands": [
+    "2200m",
+    "630m"
+   ]
+  }
+ },
+ {
+  "id": "e-1-protected-neighbors",
+  "title": "Neighbors the rules protect",
+  "summary": "Some places and services get special protection, and PRB-1 protects you from unreasonable local rules.",
+  "points": [
+   {
+    "label": "FCC monitoring facility",
+    "value": "Protect it within 1 mile",
+    "q": [
+     "E1B03"
+    ]
+   },
+   {
+    "label": "National Radio Quiet Zone",
+    "value": "Around the National Radio Astronomy Observatory",
+    "q": [
+     "E1B05"
+    ]
+   },
+   {
+    "label": "Antenna near an airport",
+    "value": "May notify FAA and register under Part 17",
+    "q": [
+     "E1B06"
+    ]
+   },
+   {
+    "label": "70 cm repeater hits radar",
+    "value": "Cease or change the repeater to mitigate",
+    "q": [
+     "E1B04"
+    ]
+   },
+   {
+    "label": "Interference to broadcast",
+    "value": "Avoid certain hours on those frequencies",
+    "q": [
+     "E1B08"
+    ]
+   },
+   {
+    "label": "PRB-1 applies to",
+    "value": "State and local zoning",
+    "q": [
+     "E1B07"
+    ]
+   },
+   {
+    "label": "PRB-1 requires",
+    "value": "Reasonable accommodation of amateur radio",
+    "q": [
+     "E1B11"
+    ]
+   }
+  ],
+  "questions": [
+   "E1B03",
+   "E1B05",
+   "E1B06",
+   "E1B04",
+   "E1B08",
+   "E1B07",
+   "E1B11"
+  ]
+ },
+ {
+  "id": "e-1-operating-abroad",
+  "title": "Operating on ships and abroad",
+  "summary": "Which license or permit covers you depends on where you are: a US vessel, Europe, the Americas, or a Canadian in the US.",
+  "points": [
+   {
+    "label": "US vessel, intl waters",
+    "value": "Any FCC-issued amateur license",
+    "q": [
+     "E1A11"
+    ]
+   },
+   {
+    "label": "Physical control, US vessel",
+    "value": "FCC licensee or alien reciprocal operator",
+    "q": [
+     "E1A05"
+    ]
+   },
+   {
+    "label": "Ship or aircraft station",
+    "value": "Approved by the master or pilot in command",
+    "q": [
+     "E1A10"
+    ]
+   },
+   {
+    "label": "CEPT",
+    "value": "US and many European countries, both ways",
+    "q": [
+     "E1C11"
+    ]
+   },
+   {
+    "label": "CEPT paperwork",
+    "value": "Copy of FCC Public Notice DA 16-1048",
+    "q": [
+     "E1C06"
+    ]
+   },
+   {
+    "label": "IARP",
+    "value": "Permit for certain countries of the Americas",
+    "q": [
+     "E1C04"
+    ]
+   },
+   {
+    "label": "Canadian licensee in US",
+    "value": "Canadian terms, not over Extra privileges",
+    "q": [
+     "E1F02"
+    ]
+   }
+  ],
+  "hook": "CEPT for Europe, IARP for the Americas.",
+  "questions": [
+   "E1A11",
+   "E1A05",
+   "E1A10",
+   "E1C11",
+   "E1C06",
+   "E1C04",
+   "E1F02"
+  ]
+ },
+ {
+  "id": "e-1-message-content",
+  "title": "What messages may carry",
+  "summary": "Amateur radio is not for pay or business gain. A few narrow cases are allowed.",
+  "points": [
+   {
+    "label": "Communications for hire",
+    "value": "Prohibited, except as the rules provide",
+    "q": [
+     "E1F08"
+    ]
+   },
+   {
+    "label": "Message to a business",
+    "value": "OK if no pecuniary interest, you or employer",
+    "q": [
+     "E1F07"
+    ]
+   },
+   {
+    "label": "To foreign stations",
+    "value": "Incidental to amateur purpose, personal remarks",
+    "q": [
+     "E1C02"
+    ]
+   },
+   {
+    "label": "Third party, auto control",
+    "value": "Only RTTY or data emissions",
+    "q": [
+     "E1C05"
+    ]
+   },
+   {
+    "label": "Forwarded rule violation",
+    "value": "Originating station's control operator",
+    "q": [
+     "E1A08"
+    ]
+   }
+  ],
+  "questions": [
+   "E1F08",
+   "E1F07",
+   "E1C02",
+   "E1C05",
+   "E1A08"
+  ]
+ },
+ {
+  "id": "e-1-line-a-spread",
+  "title": "Rules that start above 222 MHz",
+  "summary": "Two rules only apply up high: spread spectrum is allowed only above 222 MHz, and Line A closes 420 to 430 MHz in the far north.",
+  "points": [
+   {
+    "label": "Line A",
+    "value": "Roughly parallel to, south of US-Canada border",
+    "q": [
+     "E1F04"
+    ]
+   },
+   {
+    "label": "North of Line A, no TX",
+    "value": "420 MHz to 430 MHz",
+    "q": [
+     "E1F05"
+    ]
+   },
+   {
+    "label": "Spread spectrum",
+    "value": "Only on amateur frequencies above 222 MHz",
+    "q": [
+     "E1F01"
+    ]
+   }
+  ],
+  "questions": [
+   "E1F04",
+   "E1F05",
+   "E1F01"
+  ]
+ },
+ {
+  "id": "e-1-space-bands",
+  "title": "Bands for space stations",
+  "summary": "Space stations get four HF bands, one VHF band and two UHF bands.",
+  "points": [
+   {
+    "label": "HF",
+    "value": "40 m, 20 m, 15 m and 10 m",
+    "q": [
+     "E1D07"
+    ]
+   },
+   {
+    "label": "VHF",
+    "value": "2 meters",
+    "q": [
+     "E1D08"
+    ]
+   },
+   {
+    "label": "UHF",
+    "value": "70 cm and 13 cm",
+    "q": [
+     "E1D09"
+    ]
+   }
+  ],
+  "hook": "Four on HF, one on VHF (2 m), two on UHF (70 cm and 13 cm).",
+  "questions": [
+   "E1D07",
+   "E1D08",
+   "E1D09"
+  ],
+  "aid": {
+   "kind": "spectrum",
+   "bands": [
+    "40m",
+    "20m",
+    "15m",
+    "10m",
+    "2m",
+    "70cm",
+    "13cm"
+   ]
+  }
+ },
+ {
+  "id": "e-1-space-roles",
+  "title": "Space station roles",
+  "summary": "Telemetry reports, telecommand controls, Earth stations talk. Telecommand gets special exceptions.",
+  "points": [
+   {
+    "label": "Telemetry",
+    "value": "One-way measurements sent from a distance",
+    "q": [
+     "E1D01"
+    ]
+   },
+   {
+    "label": "Balloon telemetry ID",
+    "value": "Call sign",
+    "q": [
+     "E1D04"
+    ]
+   },
+   {
+    "label": "Space telecommand station",
+    "value": "Initiates, modifies or ends space station jobs",
+    "q": [
+     "E1D03"
+    ]
+   },
+   {
+    "label": "Who may be telecommand",
+    "value": "Any station the space licensee designates",
+    "q": [
+     "E1D10"
+    ]
+   },
+   {
+    "label": "Who may be an Earth station",
+    "value": "Any amateur station, within license privileges",
+    "q": [
+     "E1D11"
+    ]
+   },
+   {
+    "label": "May be encrypted",
+    "value": "Telecommand signals to a space station",
+    "q": [
+     "E1D02"
+    ]
+   },
+   {
+    "label": "May be one-way",
+    "value": "Space, beacon or telecommand stations",
+    "q": [
+     "E1D12"
+    ]
+   },
+   {
+    "label": "Posted at telecommand site",
+    "value": "License copy, plus licensee and operator labels",
+    "q": [
+     "E1D05"
+    ]
+   }
+  ],
+  "hook": "Telecommand is the special case: it may be encrypted and it may be one-way.",
+  "questions": [
+   "E1D01",
+   "E1D04",
+   "E1D03",
+   "E1D10",
+   "E1D11",
+   "E1D02",
+   "E1D12",
+   "E1D05"
+  ]
+ },
+ {
+  "id": "e-1-exam-session",
+  "title": "The exam session, start to finish",
+  "summary": "VECs coordinate, VEs run the session, and the paperwork goes one way on a pass and another on a fail.",
+  "points": [
+   {
+    "label": "VEC",
+    "value": "Org with FCC agreement to coordinate exams",
+    "q": [
+     "E1E03"
+    ]
+   },
+   {
+    "label": "VEC duties",
+    "value": "Keeps question pools, confirms VE applicants",
+    "q": [
+     "E1E02",
+     "E1E04"
+    ]
+   },
+   {
+    "label": "Who a VE may not test",
+    "value": "Relatives of the VE listed in FCC rules",
+    "q": [
+     "E1E08"
+    ]
+   },
+   {
+    "label": "During the session",
+    "value": "Each VE responsible; end exam if rules ignored",
+    "q": [
+     "E1E06",
+     "E1E07"
+    ]
+   },
+   {
+    "label": "Examinee passes",
+    "value": "Three VEs certify; application goes to the VEC",
+    "q": [
+     "E1E11",
+     "E1E10"
+    ]
+   },
+   {
+    "label": "Examinee fails",
+    "value": "Return the application to the examinee",
+    "q": [
+     "E1E05"
+    ]
+   },
+   {
+    "label": "Reimbursable expenses",
+    "value": "Prepare, process, administer, coordinate exams",
+    "q": [
+     "E1E01"
+    ]
+   },
+   {
+    "label": "Fraud by a VE",
+    "value": "Station license revoked, operator suspended",
+    "q": [
+     "E1E09"
+    ]
+   }
+  ],
+  "hook": "Pass: three VEs sign and the VEC gets it. Fail: the examinee gets it back.",
+  "questions": [
+   "E1E03",
+   "E1E02",
+   "E1E04",
+   "E1E08",
+   "E1E06",
+   "E1E07",
+   "E1E11",
+   "E1E10",
+   "E1E05",
+   "E1E01",
+   "E1E09"
+  ]
+ },
+ {
+  "id": "e-2-satellite-basics",
+  "title": "Satellite orbits and modes",
+  "summary": "A short vocabulary for finding a satellite, knowing its bands, and hearing it well.",
+  "points": [
+   {
+    "label": "Keplerian elements",
+    "value": "Parameters that define the orbit",
+    "q": [
+     "E2A06"
+    ]
+   },
+   {
+    "label": "Ascending pass",
+    "value": "South to north",
+    "q": [
+     "E2A01"
+    ]
+   },
+   {
+    "label": "Stays in one spot in sky",
+    "value": "Geostationary",
+    "q": [
+     "E2A10"
+    ]
+   },
+   {
+    "label": "Satellite mode letters",
+    "value": "Uplink and downlink frequency bands",
+    "q": [
+     "E2A04",
+     "E2A05"
+    ]
+   },
+   {
+    "label": "L band and S band",
+    "value": "23 cm and 13 cm",
+    "q": [
+     "E2A09"
+    ]
+   },
+   {
+    "label": "Store-and-forward",
+    "value": "Holds digital messages for later download",
+    "q": [
+     "E2A12"
+    ]
+   },
+   {
+    "label": "Spin modulation, Faraday",
+    "value": "Use a circularly polarized antenna",
+    "q": [
+     "E2A11"
+    ]
+   }
+  ],
+  "questions": [
+   "E2A06",
+   "E2A01",
+   "E2A10",
+   "E2A04",
+   "E2A05",
+   "E2A09",
+   "E2A12",
+   "E2A11"
+  ]
+ },
+ {
+  "id": "e-2-linear-transponders",
+  "title": "Linear transponders",
+  "summary": "A linear transponder relays a whole slice of band, so it carries many modes and everyone shares its power.",
+  "points": [
+   {
+    "label": "Inverting transponder",
+    "value": "Mixes with LO, transmits the difference",
+    "q": [
+     "E2A03"
+    ]
+   },
+   {
+    "label": "Inverting effects",
+    "value": "Band reversed, USB and LSB swap, less Doppler",
+    "q": [
+     "E2A02"
+    ]
+   },
+   {
+    "label": "Signals it relays",
+    "value": "FM, CW, SSB, SSTV, PSK and packet",
+    "q": [
+     "E2A07"
+    ]
+   },
+   {
+    "label": "Why limit your ERP",
+    "value": "Avoid cutting downlink power to other users",
+    "q": [
+     "E2A08"
+    ]
+   }
+  ],
+  "hook": "Everyone shares one downlink power, so keep your uplink modest.",
+  "questions": [
+   "E2A03",
+   "E2A02",
+   "E2A07",
+   "E2A08"
+  ]
+ },
+ {
+  "id": "e-2-fast-scan-tv",
+  "title": "Fast-scan and digital TV",
+  "summary": "Analog fast-scan copies broadcast TV; digital ATV uses QAM, QPSK and error correction.",
+  "points": [
+   {
+    "label": "NTSC frame",
+    "value": "525 horizontal lines",
+    "q": [
+     "E2B02"
+    ]
+   },
+   {
+    "label": "Interlaced scanning",
+    "value": "Odd lines one field, even lines the next",
+    "q": [
+     "E2B03"
+    ]
+   },
+   {
+    "label": "Vestigial sideband",
+    "value": "AM: one full sideband plus part of the other",
+    "q": [
+     "E2B06"
+    ]
+   },
+   {
+    "label": "Why VSB",
+    "value": "Less bandwidth, better low frequency video",
+    "q": [
+     "E2B05"
+    ]
+   },
+   {
+    "label": "Regular TVs on 70 cm",
+    "value": "Use channels shared with cable TV",
+    "q": [
+     "E2B08"
+    ]
+   },
+   {
+    "label": "DVB-T modulation",
+    "value": "QAM and QPSK",
+    "q": [
+     "E2B07"
+    ]
+   },
+   {
+    "label": "Coding rate 3/4",
+    "value": "25% of data is forward error correction",
+    "q": [
+     "E2B01"
+    ]
+   }
+  ],
+  "questions": [
+   "E2B02",
+   "E2B03",
+   "E2B06",
+   "E2B05",
+   "E2B08",
+   "E2B07",
+   "E2B01"
+  ]
+ },
+ {
+  "id": "e-2-slow-scan-tv",
+  "title": "Slow-scan TV",
+  "summary": "SSTV pictures ride on audio tones: tone frequency sets brightness, and special tones mark new lines and the mode.",
+  "points": [
+   {
+    "label": "Brightness",
+    "value": "Tone frequency",
+    "q": [
+     "E2B10"
+    ]
+   },
+   {
+    "label": "Start of a new line",
+    "value": "Specific tone frequencies",
+    "q": [
+     "E2B12"
+    ]
+   },
+   {
+    "label": "Color",
+    "value": "Color lines sent sequentially",
+    "q": [
+     "E2B04"
+    ]
+   },
+   {
+    "label": "VIS code",
+    "value": "Identifies the SSTV mode in use",
+    "q": [
+     "E2B11"
+    ]
+   },
+   {
+    "label": "Digital SSTV (DRM)",
+    "value": "Received with an SSB receiver",
+    "q": [
+     "E2B09"
+    ]
+   }
+  ],
+  "hook": "Tones carry the picture: tone frequency sets brightness and specific tones start each line.",
+  "questions": [
+   "E2B10",
+   "E2B12",
+   "E2B04",
+   "E2B11",
+   "E2B09"
+  ]
+ },
+ {
+  "id": "e-2-dx-contests-logs",
+  "title": "DX, contests and logs",
+  "summary": "How to work DX and contests, and the formats that carry your log afterward.",
+  "points": [
+   {
+    "label": "ADIF",
+    "value": "File format for exchanging log data",
+    "q": [
+     "E2C02"
+    ]
+   },
+   {
+    "label": "Cabrillo",
+    "value": "Standard for electronic contest logs",
+    "q": [
+     "E2C07"
+    ]
+   },
+   {
+    "label": "LoTW confirms",
+    "value": "US special events, US to DX, WAS: all",
+    "q": [
+     "E2C08"
+    ]
+   },
+   {
+    "label": "DX QSL manager",
+    "value": "Handles confirmations for a DX station",
+    "q": [
+     "E2C05"
+    ]
+   },
+   {
+    "label": "Why DX works split",
+    "value": "Separates callers, cuts interference, legality",
+    "q": [
+     "E2C10"
+    ]
+   },
+   {
+    "label": "Calling in a pileup",
+    "value": "Full call sign once or twice",
+    "q": [
+     "E2C11"
+    ]
+   },
+   {
+    "label": "No contests on",
+    "value": "30 meters",
+    "q": [
+     "E2C03"
+    ]
+   },
+   {
+    "label": "VHF/UHF contest SSB, CW",
+    "value": "Weak signal segment, near calling frequency",
+    "q": [
+     "E2C06"
+    ]
+   }
+  ],
+  "hook": "ADIF to swap logs, Cabrillo to submit a contest log.",
+  "questions": [
+   "E2C02",
+   "E2C07",
+   "E2C08",
+   "E2C05",
+   "E2C10",
+   "E2C11",
+   "E2C03",
+   "E2C06"
+  ]
+ },
+ {
+  "id": "e-2-mesh-networks",
+  "title": "Amateur mesh networks",
+  "summary": "Mesh networks reuse Wi-Fi style gear, but amateur rules still apply.",
+  "points": [
+   {
+    "label": "Frequencies",
+    "value": "Shared with unlicensed wireless data services",
+    "q": [
+     "E2C04"
+    ]
+   },
+   {
+    "label": "Equipment",
+    "value": "Wireless router running custom firmware",
+    "q": [
+     "E2C09"
+    ]
+   },
+   {
+    "label": "Not allowed",
+    "value": "Messages encoded to obscure their meaning",
+    "q": [
+     "E1F09"
+    ]
+   }
+  ],
+  "questions": [
+   "E2C04",
+   "E2C09",
+   "E1F09"
+  ]
+ },
+ {
+  "id": "e-2-weak-signal-modes",
+  "title": "Weak-signal modes by job",
+  "summary": "Each WSJT mode is built for one hard path: meteors, the Moon, or signals buried in noise.",
+  "points": [
+   {
+    "label": "Meteor scatter",
+    "value": "MSK144",
+    "q": [
+     "E2D01"
+    ]
+   },
+   {
+    "label": "EME (Moon bounce)",
+    "value": "Q65",
+    "q": [
+     "E2D03"
+    ]
+   },
+   {
+    "label": "Q65 vs JT65",
+    "value": "Averages multiple receive cycles",
+    "q": [
+     "E2E07"
+    ]
+   },
+   {
+    "label": "JT65 strength",
+    "value": "Decodes signals with very low SNR",
+    "q": [
+     "E2D05"
+    ]
+   },
+   {
+    "label": "JT65 modulation",
+    "value": "Multitone AFSK",
+    "q": [
+     "E2D09"
+    ]
+   },
+   {
+    "label": "EME contact method",
+    "value": "Time-synchronous, alternating transmissions",
+    "q": [
+     "E2D06"
+    ]
+   },
+   {
+    "label": "No keyboard-to-keyboard",
+    "value": "WSPR",
+    "q": [
+     "E2E05"
+    ]
+   }
+  ],
+  "hook": "Pick by path: MSK144 for meteors, Q65 for the Moon.",
+  "questions": [
+   "E2D01",
+   "E2D03",
+   "E2E07",
+   "E2D05",
+   "E2D09",
+   "E2D06",
+   "E2E05"
+  ]
+ },
+ {
+  "id": "e-2-ft8-family",
+  "title": "FT8, FT4 and FST4",
+  "summary": "These modes take turns on a fixed clock, so your computer's time must be right.",
+  "points": [
+   {
+    "label": "FT8 transmit cycle",
+    "value": "15 seconds",
+    "q": [
+     "E2E06"
+    ]
+   },
+   {
+    "label": "What keeps timing",
+    "value": "Synchronized computer clocks",
+    "q": [
+     "E2E02"
+    ]
+   },
+   {
+    "label": "The 4 in FT4",
+    "value": "Four-tone continuous-phase FSK",
+    "q": [
+     "E2E03"
+    ]
+   },
+   {
+    "label": "FST4",
+    "value": "Four-tone GFSK, variable periods, seven spacings",
+    "q": [
+     "E2E04"
+    ]
+   },
+   {
+    "label": "In a VHF contest",
+    "value": "Grid square replaces signal-to-noise ratio",
+    "q": [
+     "E2D02"
+    ]
+   }
+  ],
+  "questions": [
+   "E2E06",
+   "E2E02",
+   "E2E03",
+   "E2E04",
+   "E2D02"
+  ]
+ },
+ {
+  "id": "e-2-aprs",
+  "title": "APRS",
+  "summary": "APRS sends position packets that hop from digipeater to digipeater.",
+  "points": [
+   {
+    "label": "Balloon tracking",
+    "value": "APRS",
+    "q": [
+     "E2D04"
+    ]
+   },
+   {
+    "label": "Protocol",
+    "value": "AX.25",
+    "q": [
+     "E2D07"
+    ]
+   },
+   {
+    "label": "Beacon frame type",
+    "value": "Unnumbered Information",
+    "q": [
+     "E2D08"
+    ]
+   },
+   {
+    "label": "How data is relayed",
+    "value": "Packet digipeaters",
+    "q": [
+     "E2D11"
+    ]
+   },
+   {
+    "label": "Path WIDE3-1",
+    "value": "Three hops requested, one remaining",
+    "q": [
+     "E2D10"
+    ]
+   }
+  ],
+  "hook": "In WIDE3-1, the 3 is hops requested and the 1 is hops remaining.",
+  "questions": [
+   "E2D04",
+   "E2D07",
+   "E2D08",
+   "E2D11",
+   "E2D10"
+  ]
+ },
+ {
+  "id": "e-2-hf-data-modes",
+  "title": "HF data modes",
+  "summary": "HF data trades speed for narrowness: each mode is known for one trait.",
+  "points": [
+   {
+    "label": "Data below 30 MHz",
+    "value": "FSK",
+    "q": [
+     "E2E01"
+    ]
+   },
+   {
+    "label": "Direct vs audio FSK",
+    "value": "Direct FSK modulates the transmitter VFO",
+    "q": [
+     "E2E11"
+    ]
+   },
+   {
+    "label": "Variable-length coding",
+    "value": "PSK31",
+    "q": [
+     "E2E09"
+    ]
+   },
+   {
+    "label": "Binary file transfer",
+    "value": "PACTOR",
+    "q": [
+     "E2E08"
+    ]
+   },
+   {
+    "label": "Highest throughput",
+    "value": "PACTOR IV",
+    "q": [
+     "E2E13"
+    ]
+   },
+   {
+    "label": "Narrowest bandwidth",
+    "value": "FT8",
+    "q": [
+     "E2E10"
+    ]
+   },
+   {
+    "label": "ALE",
+    "value": "Scans a frequency list, wakes on its call sign",
+    "q": [
+     "E2E12"
+    ]
+   }
+  ],
+  "hook": "Same four choices, opposite ends: FT8 is narrowest, PACTOR IV moves the most data.",
+  "questions": [
+   "E2E01",
+   "E2E11",
+   "E2E09",
+   "E2E08",
+   "E2E13",
+   "E2E10",
+   "E2E12"
+  ]
+ },
+ {
+  "id": "e-3-wave-basics",
+  "title": "Electromagnetic wave basics",
+  "summary": "A radio wave is two fields at right angles, and its polarization can be fixed, rotating or elliptical.",
+  "points": [
+   {
+    "label": "Direction of travel",
+    "value": "Right angle to the electric and magnetic fields",
+    "q": [
+     "E3A04"
+    ]
+   },
+   {
+    "label": "The two fields",
+    "value": "At right angles to each other",
+    "q": [
+     "E3A05"
+    ]
+   },
+   {
+    "label": "Speed in a medium",
+    "value": "Set by the index of refraction",
+    "q": [
+     "E3A10"
+    ]
+   },
+   {
+    "label": "Circular polarization",
+    "value": "Rotating electric and magnetic fields",
+    "q": [
+     "E3A14"
+    ]
+   },
+   {
+    "label": "Ordinary, extraordinary",
+    "value": "Elliptically polarized waves from ionosphere",
+    "q": [
+     "E3B04"
+    ]
+   },
+   {
+    "label": "Ground wave polarization",
+    "value": "Vertical",
+    "q": [
+     "E3B13"
+    ]
+   }
+  ],
+  "hook": "Right angles everywhere: the fields cross each other, and the wave travels at a right angle to both.",
+  "questions": [
+   "E3A05",
+   "E3A04",
+   "E3A10",
+   "E3A14",
+   "E3B04",
+   "E3B13"
+  ]
+ },
+ {
+  "id": "e-3-hf-paths",
+  "title": "HF path geometry",
+  "summary": "How far a signal goes depends on frequency, takeoff angle, darkness and how it hops.",
+  "points": [
+   {
+    "label": "Raise ground wave frequency",
+    "value": "Maximum range decreases",
+    "q": [
+     "E3B08"
+    ]
+   },
+   {
+    "label": "Lower elevation angle",
+    "value": "Each hop covers more distance",
+    "q": [
+     "E3B07"
+    ]
+   },
+   {
+    "label": "MUF drops after dark",
+    "value": "Switch to a lower frequency HF band",
+    "q": [
+     "E3A06"
+    ]
+   },
+   {
+    "label": "160 meter DX",
+    "value": "Path entirely in darkness",
+    "q": [
+     "E3B05"
+    ]
+   },
+   {
+    "label": "Long path most frequent",
+    "value": "40 meters and 20 meters",
+    "q": [
+     "E3B06"
+    ]
+   },
+   {
+    "label": "Chordal hop",
+    "value": "Ionospheric hops with no ground reflection",
+    "q": [
+     "E3B12"
+    ]
+   },
+   {
+    "label": "Chordal hop effect",
+    "value": "Less loss than ground-reflected multi-hop",
+    "q": [
+     "E3B10"
+    ]
+   }
+  ],
+  "questions": [
+   "E3B08",
+   "E3B07",
+   "E3A06",
+   "E3B05",
+   "E3B06",
+   "E3B12",
+   "E3B10"
+  ]
+ },
+ {
+  "id": "e-3-tep-sporadic-e",
+  "title": "TEP and sporadic E",
+  "summary": "Two seasonal and daily patterns: when each mode opens and how far it reaches.",
+  "points": [
+   {
+    "label": "TEP path",
+    "value": "Perpendicular to the geomagnetic equator",
+    "q": [
+     "E3B01"
+    ]
+   },
+   {
+    "label": "TEP typical distance",
+    "value": "2,000 to 3,000 miles",
+    "q": [
+     "E3B01"
+    ]
+   },
+   {
+    "label": "TEP maximum range",
+    "value": "About 5,000 miles",
+    "q": [
+     "E3B02"
+    ]
+   },
+   {
+    "label": "TEP time of day",
+    "value": "Afternoon or early evening",
+    "q": [
+     "E3B03"
+    ]
+   },
+   {
+    "label": "Sporadic E season",
+    "value": "Around the solstices, especially summer",
+    "q": [
+     "E3B09"
+    ]
+   },
+   {
+    "label": "Sporadic E time of day",
+    "value": "Between sunrise and sunset",
+    "q": [
+     "E3B11"
+    ]
+   }
+  ],
+  "hook": "TEP is an afternoon and early evening mode; sporadic E is a daytime mode, busiest near summer.",
+  "questions": [
+   "E3B01",
+   "E3B02",
+   "E3B03",
+   "E3B09",
+   "E3B11"
+  ]
+ },
+ {
+  "id": "e-3-eme-meteor",
+  "title": "Moon bounce and meteor scatter",
+  "summary": "Two ways to reach far on VHF: bounce off the Moon or off a meteor's ionized trail.",
+  "points": [
+   {
+    "label": "Least EME path loss",
+    "value": "Moon at perigee",
+    "q": [
+     "E3A03"
+    ]
+   },
+   {
+    "label": "Libration fading",
+    "value": "Fluttery, irregular fading",
+    "q": [
+     "E3A02"
+    ]
+   },
+   {
+    "label": "Max EME separation",
+    "value": "12,000 miles, if both see the Moon",
+    "q": [
+     "E3A01"
+    ]
+   },
+   {
+    "label": "Meteor trail forms in",
+    "value": "The E region",
+    "q": [
+     "E3A08"
+    ]
+   },
+   {
+    "label": "Best meteor scatter range",
+    "value": "28 MHz to 148 MHz",
+    "q": [
+     "E3A09"
+    ]
+   }
+  ],
+  "questions": [
+   "E3A03",
+   "E3A02",
+   "E3A01",
+   "E3A08",
+   "E3A09"
+  ]
+ },
+ {
+  "id": "e-3-beyond-horizon",
+  "title": "VHF and UHF beyond the horizon",
+  "summary": "Past line of sight: a slightly longer radio horizon, ducts over water, and aurora.",
+  "points": [
+   {
+    "label": "Radio horizon",
+    "value": "About 15 percent farther than geographic",
+    "q": [
+     "E3C06"
+    ]
+   },
+   {
+    "label": "Tropo ducts form over",
+    "value": "Large bodies of water",
+    "q": [
+     "E3A07"
+    ]
+   },
+   {
+    "label": "Typical tropo duct range",
+    "value": "100 miles to 300 miles",
+    "q": [
+     "E3A11"
+    ]
+   },
+   {
+    "label": "Auroral propagation cause",
+    "value": "Severe geomagnetic storms",
+    "q": [
+     "E3A12"
+    ]
+   },
+   {
+    "label": "Best mode for aurora",
+    "value": "CW",
+    "q": [
+     "E3A13"
+    ]
+   }
+  ],
+  "questions": [
+   "E3C06",
+   "E3A07",
+   "E3A11",
+   "E3A12",
+   "E3A13"
+  ]
+ },
+ {
+  "id": "e-3-space-weather",
+  "title": "Space weather signs and scales",
+  "summary": "Flares hit fast, geomagnetic storms follow. Know the indexes and scales that warn you.",
+  "points": [
+   {
+    "label": "Solar flare",
+    "value": "Short-term radio blackouts",
+    "q": [
+     "E3C01"
+    ]
+   },
+   {
+    "label": "Strongest flare class",
+    "value": "Class X",
+    "q": [
+     "E3C07"
+    ]
+   },
+   {
+    "label": "Sudden HF noise rise",
+    "value": "CME impact or solar flare",
+    "q": [
+     "E3C12"
+    ]
+   },
+   {
+    "label": "Rising A or K index",
+    "value": "Growing geomagnetic disturbance",
+    "q": [
+     "E3C02"
+    ]
+   },
+   {
+    "label": "High A or K absorbs",
+    "value": "Paths through the auroral oval",
+    "q": [
+     "E3C03"
+    ]
+   },
+   {
+    "label": "Extreme geomagnetic storm",
+    "value": "G5",
+    "q": [
+     "E3C08"
+    ]
+   },
+   {
+    "label": "Bz",
+    "value": "North-south IMF; southward means disturbed",
+    "q": [
+     "E3C04",
+     "E3C05"
+    ]
+   },
+   {
+    "label": "304A parameter",
+    "value": "UV at 304 angstroms, tracks solar flux",
+    "q": [
+     "E3C10"
+    ]
+   }
+  ],
+  "hook": "Top of each scale is worst: Class X flares, G5 storms. A rising A or K index means more disturbance.",
+  "questions": [
+   "E3C01",
+   "E3C07",
+   "E3C12",
+   "E3C02",
+   "E3C03",
+   "E3C08",
+   "E3C04",
+   "E3C05",
+   "E3C10"
+  ]
+ },
+ {
+  "id": "e-4-oscilloscope",
+  "title": "Using a digital oscilloscope",
+  "summary": "Sampling rate sets what a digital scope can show; probe setup and triggering make the trace honest.",
+  "points": [
+   {
+    "label": "Highest frequency shown",
+    "value": "Limited by ADC sampling rate",
+    "q": [
+     "E4A01"
+    ]
+   },
+   {
+    "label": "Aliasing",
+    "value": "False, jittery low-frequency waveform",
+    "q": [
+     "E4A06"
+    ]
+   },
+   {
+    "label": "Probe compensation",
+    "value": "Square wave, adjust until tops are flat",
+    "q": [
+     "E4A04"
+    ]
+   },
+   {
+    "label": "Probe ground lead",
+    "value": "Keep it as short as possible",
+    "q": [
+     "E4A09"
+    ]
+   },
+   {
+    "label": "Trigger for supply ripple",
+    "value": "Line",
+    "q": [
+     "E4A10"
+    ]
+   }
+  ],
+  "questions": [
+   "E4A01",
+   "E4A06",
+   "E4A04",
+   "E4A09",
+   "E4A10"
+  ]
+ },
+ {
+  "id": "e-4-spectrum-counter",
+  "title": "Spectrum analyzers and counters",
+  "summary": "A spectrum analyzer shows signals by frequency; a counter reads one frequency, only as well as its time base.",
+  "points": [
+   {
+    "label": "Spectrum analyzer axes",
+    "value": "Amplitude (vertical), frequency (horizontal)",
+    "q": [
+     "E4A02"
+    ]
+   },
+   {
+    "label": "Shows spurs and IMD",
+    "value": "Spectrum analyzer",
+    "q": [
+     "E4A03"
+    ]
+   },
+   {
+    "label": "SSB IMD test",
+    "value": "Two non-harmonic AF tones, spectrum analyzer",
+    "q": [
+     "E4B10"
+    ]
+   },
+   {
+    "label": "Counter accuracy",
+    "value": "Time base accuracy",
+    "q": [
+     "E4B01"
+    ]
+   },
+   {
+    "label": "Prescaler",
+    "value": "Brings frequency into the counter's range",
+    "q": [
+     "E4A05"
+    ]
+   }
+  ],
+  "questions": [
+   "E4A02",
+   "E4A03",
+   "E4B10",
+   "E4B01",
+   "E4A05"
+  ]
+ },
+ {
+  "id": "e-4-antenna-vna",
+  "title": "Antenna analyzers and VNAs",
+  "summary": "Analyzers do the math for you: SWR, impedance and more, after a known-load calibration for a VNA.",
+  "points": [
+   {
+    "label": "Analyzer vs SWR bridge",
+    "value": "Computes SWR and impedance automatically",
+    "q": [
+     "E4A07"
+    ]
+   },
+   {
+    "label": "Antenna analyzer measures",
+    "value": "Velocity factor, cable length, resonance",
+    "q": [
+     "E4A11"
+    ]
+   },
+   {
+    "label": "Measures SWR",
+    "value": "Directional wattmeter, VNA, antenna analyzer",
+    "q": [
+     "E4A08"
+    ]
+   },
+   {
+    "label": "VNA measures",
+    "value": "Input, output impedance, reflection coefficient",
+    "q": [
+     "E4B11"
+    ]
+   },
+   {
+    "label": "VNA calibration loads",
+    "value": "Short circuit, open circuit, 50 ohms",
+    "q": [
+     "E4B05"
+    ]
+   },
+   {
+    "label": "Two-port VNA",
+    "value": "Filter frequency response",
+    "q": [
+     "E4B09"
+    ]
+   }
+  ],
+  "questions": [
+   "E4A07",
+   "E4A11",
+   "E4A08",
+   "E4B11",
+   "E4B05",
+   "E4B09"
+  ]
+ },
+ {
+  "id": "e-4-s-parameters",
+  "title": "S parameters",
+  "summary": "The digits in an S parameter name the ports where it is measured.",
+  "points": [
+   {
+    "label": "Subscripts",
+    "value": "The port or ports measured",
+    "q": [
+     "E4B07"
+    ]
+   },
+   {
+    "label": "S11",
+    "value": "Input return loss, reflection (like VSWR)",
+    "q": [
+     "E4B04"
+    ]
+   },
+   {
+    "label": "S21",
+    "value": "Forward gain",
+    "q": [
+     "E4B03"
+    ]
+   }
+  ],
+  "hook": "S11 stays at port 1, so it is a reflection. S21 involves ports 1 and 2, so it is gain.",
+  "questions": [
+   "E4B07",
+   "E4B04",
+   "E4B03"
+  ]
+ },
+ {
+  "id": "e-4-receiver-noise",
+  "title": "Receiver noise and sensitivity",
+  "summary": "Every receiver has a noise floor. Wider bandwidth raises it; the weakest usable signal sits on it.",
+  "points": [
+   {
+    "label": "Noise figure",
+    "value": "dB ratio of receiver noise to theoretical min",
+    "q": [
+     "E4C04"
+    ]
+   },
+   {
+    "label": "-174 dBm noise floor",
+    "value": "Perfect receiver, 1 Hz bandwidth, room temp",
+    "q": [
+     "E4C05"
+    ]
+   },
+   {
+    "label": "50 Hz to 1,000 Hz",
+    "value": "Noise floor rises 13 dB",
+    "q": [
+     "E4C06"
+    ]
+   },
+   {
+    "label": "MDS",
+    "value": "Minimum discernible signal",
+    "q": [
+     "E4C07"
+    ]
+   },
+   {
+    "label": "Attenuating low HF bands",
+    "value": "Atmospheric noise still beats internal noise",
+    "q": [
+     "E4C11"
+    ]
+   }
+  ],
+  "hook": "Wider bandwidth lets in more noise: 50 Hz to 1,000 Hz adds 13 dB.",
+  "questions": [
+   "E4C04",
+   "E4C05",
+   "E4C06",
+   "E4C07",
+   "E4C11"
+  ]
+ },
+ {
+  "id": "e-4-link-budget",
+  "title": "Link budget in dBm",
+  "summary": "Work in dBm: start at transmit power, add every gain, subtract every loss.",
+  "points": [
+   {
+    "label": "MDS of -100 dBm",
+    "value": "0.1 picowatts",
+    "q": [
+     "E4D14"
+    ]
+   },
+   {
+    "label": "40 dBm, 6 and 3 dBi, 100 dB",
+    "value": "Received level of -51 dBm",
+    "q": [
+     "E4D13"
+    ]
+   },
+   {
+    "label": "Margin over MDS plus SNR",
+    "value": "+8 dB link margin",
+    "q": [
+     "E4D12"
+    ]
+   }
+  ],
+  "hook": "Received level is power plus gains minus losses. Margin is how far that level sits above the MDS plus the required SNR.",
+  "questions": [
+   "E4D14",
+   "E4D13",
+   "E4D12"
+  ]
+ },
+ {
+  "id": "e-4-strong-signals",
+  "title": "Strong nearby signals",
+  "summary": "A strong signal near your frequency can deafen a receiver. Know the terms and the cures.",
+  "points": [
+   {
+    "label": "Desensitization",
+    "value": "Lost sensitivity from a strong nearby signal",
+    "q": [
+     "E4D06"
+    ]
+   },
+   {
+    "label": "Poor dynamic range causes",
+    "value": "Cross modulation and desensitization",
+    "q": [
+     "E4D02"
+    ]
+   },
+   {
+    "label": "Blocking dynamic range",
+    "value": "dB from noise floor to 1 dB compression",
+    "q": [
+     "E4D01"
+    ]
+   },
+   {
+    "label": "Narrow roofing filter",
+    "value": "Improves blocking dynamic range",
+    "q": [
+     "E4C12"
+    ]
+   },
+   {
+    "label": "Reduce desensitization",
+    "value": "Attenuation before the first RF stage",
+    "q": [
+     "E4D07"
+    ]
+   },
+   {
+    "label": "Preselector, front end",
+    "value": "Rejects strong out-of-band signals",
+    "q": [
+     "E4C02",
+     "E4D09"
+    ]
+   },
+   {
+    "label": "SDR overload point",
+    "value": "ADC reference voltage",
+    "q": [
+     "E4C08"
+    ]
+   }
+  ],
+  "questions": [
+   "E4D06",
+   "E4D02",
+   "E4D01",
+   "E4C12",
+   "E4D07",
+   "E4C02",
+   "E4D09",
+   "E4C08"
+  ]
+ },
+ {
+  "id": "e-4-unwanted-mixing",
+  "title": "Intermodulation and unwanted mixing",
+  "summary": "Signals mix wherever something is nonlinear, creating new signals that were never transmitted.",
+  "points": [
+   {
+    "label": "Cause of intermodulation",
+    "value": "Nonlinear circuits or devices",
+    "q": [
+     "E4D08"
+    ]
+   },
+   {
+    "label": "Odd-order products",
+    "value": "In-band signals make in-band products",
+    "q": [
+     "E4D11"
+    ]
+   },
+   {
+    "label": "Third-order intercept 40 dBm",
+    "value": "Two 40 dBm inputs make IMD equal to each",
+    "q": [
+     "E4D10"
+    ]
+   },
+   {
+    "label": "Repeater intermod",
+    "value": "Outputs mix in a final amplifier",
+    "q": [
+     "E4D03"
+    ]
+   },
+   {
+    "label": "Repeater intermod cure",
+    "value": "Terminated circulator at transmitter output",
+    "q": [
+     "E4D04"
+    ]
+   },
+   {
+    "label": "AM broadcast spurs on HF",
+    "value": "Corroded metal joints mix and reradiate",
+    "q": [
+     "E4E11"
+    ]
+   },
+   {
+    "label": "Reciprocal mixing",
+    "value": "LO phase noise mixes with strong neighbors",
+    "q": [
+     "E4C13"
+    ]
+   },
+   {
+    "label": "SDR clock phase noise",
+    "value": "Combines with nearby strong signals",
+    "q": [
+     "E4C01"
+    ]
+   }
+  ],
+  "hook": "Two signals plus anything nonlinear make new signals.",
+  "questions": [
+   "E4D08",
+   "E4D11",
+   "E4D10",
+   "E4D03",
+   "E4D04",
+   "E4E11",
+   "E4C13",
+   "E4C01"
+  ]
+ },
+ {
+  "id": "e-4-receiver-tools",
+  "title": "Receiver noise and interference controls",
+  "summary": "Each knob fights one kind of trouble, and some have a side effect to watch for.",
+  "points": [
+   {
+    "label": "Noise blanker removes",
+    "value": "Impulse noise",
+    "q": [
+     "E4E03"
+    ]
+   },
+   {
+    "label": "Noise blanker side effect",
+    "value": "Strong signals distort, look like spurs",
+    "q": [
+     "E4E09"
+    ]
+   },
+   {
+    "label": "Auto notch on CW",
+    "value": "May remove the CW signal too",
+    "q": [
+     "E4E01"
+    ]
+   },
+   {
+    "label": "Digital noise reduction",
+    "value": "White, ignition and power line noise",
+    "q": [
+     "E4E02"
+    ]
+   },
+   {
+    "label": "IF shift",
+    "value": "Reduces adjacent-frequency interference",
+    "q": [
+     "E4C14"
+    ]
+   },
+   {
+    "label": "Selectable bandwidths",
+    "value": "Match modulation bandwidth for best SNR",
+    "q": [
+     "E4C10"
+    ]
+   }
+  ],
+  "questions": [
+   "E4E03",
+   "E4E09",
+   "E4E01",
+   "E4E02",
+   "E4C14",
+   "E4C10"
+  ]
+ },
+ {
+  "id": "e-4-noise-sources",
+  "title": "Noise sources and fixes",
+  "summary": "Know each noise by its sound or pattern, then apply the matching fix.",
+  "points": [
+   {
+    "label": "Switch-mode power supply",
+    "value": "Carriers at regular intervals, wide range",
+    "q": [
+     "E4E12"
+    ]
+   },
+   {
+    "label": "Computer network gear",
+    "value": "Unstable signals at specific frequencies",
+    "q": [
+     "E4E06"
+    ]
+   },
+   {
+    "label": "Roaring or buzzing AC line",
+    "value": "Arcing thermostats, doorbells, lit signs",
+    "q": [
+     "E4E10"
+    ]
+   },
+   {
+    "label": "Car charging system",
+    "value": "Ferrite chokes on the charging leads",
+    "q": [
+     "E4E04"
+    ]
+   },
+   {
+    "label": "Line-driven AC motor",
+    "value": "Brute-force AC-line filter in series",
+    "q": [
+     "E4E05"
+    ]
+   },
+   {
+    "label": "Common-mode current",
+    "value": "Flows equally on all conductors",
+    "q": [
+     "E4E08"
+    ]
+   },
+   {
+    "label": "Shielded cable radiates",
+    "value": "Common-mode currents on shield, conductors",
+    "q": [
+     "E4E07"
+    ]
+   }
+  ],
+  "questions": [
+   "E4E12",
+   "E4E06",
+   "E4E10",
+   "E4E04",
+   "E4E05",
+   "E4E08",
+   "E4E07"
+  ]
+ },
+ {
+  "id": "e-5-phase",
+  "title": "Phase in inductors and capacitors",
+  "summary": "Inductors make voltage lead, capacitors make current lead. In a series RLC circuit, whichever reactance is bigger wins.",
+  "points": [
+   {
+    "label": "Inductor",
+    "value": "Voltage leads current by 90 degrees",
+    "q": [
+     "E5B10"
+    ]
+   },
+   {
+    "label": "Capacitor",
+    "value": "Current leads voltage by 90 degrees",
+    "q": [
+     "E5B09"
+    ]
+   },
+   {
+    "label": "XL 75, XC 25, R 100",
+    "value": "27 degrees, voltage leading the current",
+    "q": [
+     "E5B11"
+    ]
+   },
+   {
+    "label": "XL 250, XC 500, R 1 kilohm",
+    "value": "14.0 degrees, voltage lagging the current",
+    "q": [
+     "E5B07"
+    ]
+   },
+   {
+    "label": "XL 100, XC 300, R 100",
+    "value": "63 degrees, voltage lagging the current",
+    "q": [
+     "E5B08"
+    ]
+   }
+  ],
+  "hook": "ELI the ICE man: E before I in an inductor (L), I before E in a capacitor (C). More XL than XC: voltage leads. More XC: voltage lags.",
+  "questions": [
+   "E5B10",
+   "E5B09",
+   "E5B11",
+   "E5B07",
+   "E5B08"
+  ]
+ },
+ {
+  "id": "e-5-reactive-power",
+  "title": "Real power vs reactive power",
+  "summary": "Only resistance turns power into heat. Reactance just stores energy and hands it back.",
+  "points": [
+   {
+    "label": "What it is",
+    "value": "Wattless, nonproductive power",
+    "q": [
+     "E5D12"
+    ]
+   },
+   {
+    "label": "Voltage and current",
+    "value": "90 degrees out of phase",
+    "q": [
+     "E5D03"
+    ]
+   },
+   {
+    "label": "Ideal L and C",
+    "value": "Energy stored in fields, power not dissipated",
+    "q": [
+     "E5D09"
+    ]
+   },
+   {
+    "label": "100 ohm R, 100 ohm XL, 1 A",
+    "value": "100 watts of real power",
+    "q": [
+     "E5D11"
+    ]
+   }
+  ],
+  "hook": "Count only the resistor: 1 A through 100 ohms is 100 watts. The 100 ohms of reactance adds nothing to the real power.",
+  "questions": [
+   "E5D12",
+   "E5D03",
+   "E5D09",
+   "E5D11"
+  ]
+ },
+ {
+  "id": "e-5-complex-plane",
+  "title": "Plotting impedance",
+  "summary": "Rectangular form splits impedance into resistance and reactance. Polar form gives magnitude and angle.",
+  "points": [
+   {
+    "label": "Rectangular X axis",
+    "value": "Resistive component (pure resistance)",
+    "q": [
+     "E5C09",
+     "E5C07"
+    ]
+   },
+   {
+    "label": "Rectangular Y axis",
+    "value": "Reactive component",
+    "q": [
+     "E5C09"
+    ]
+   },
+   {
+    "label": "100 ohms capacitive",
+    "value": "0 - j100",
+    "q": [
+     "E5C01"
+    ]
+   },
+   {
+    "label": "50 - j25 ohms",
+    "value": "50 ohms resistance, 25 ohms capacitive reactance",
+    "q": [
+     "E5C06"
+    ]
+   },
+   {
+    "label": "Polar form",
+    "value": "Magnitude and phase angle",
+    "q": [
+     "E5C02"
+    ]
+   },
+   {
+    "label": "Pure inductive, polar",
+    "value": "A positive 90 degree phase angle",
+    "q": [
+     "E5C03"
+    ]
+   },
+   {
+    "label": "Showing phase angle",
+    "value": "Polar coordinates",
+    "q": [
+     "E5C08"
+    ]
+   },
+   {
+    "label": "Phase between impedances",
+    "value": "Phasor diagram",
+    "q": [
+     "E5C05"
+    ]
+   }
+  ],
+  "hook": "Resistance runs along the horizontal axis, reactance up and down. Capacitive reactance gets minus j; pure inductive sits at plus 90 degrees.",
+  "questions": [
+   "E5C07",
+   "E5C09",
+   "E5C01",
+   "E5C06",
+   "E5C02",
+   "E5C03",
+   "E5C08",
+   "E5C05"
+  ]
+ },
+ {
+  "id": "e-5-admittance",
+  "title": "Admittance: impedance flipped",
+  "summary": "Admittance and susceptance are reciprocals of impedance and reactance. Flip the magnitude, flip the sign of the angle.",
+  "points": [
+   {
+    "label": "Admittance",
+    "value": "The inverse of impedance",
+    "q": [
+     "E5B12"
+    ]
+   },
+   {
+    "label": "Susceptance",
+    "value": "The imaginary part of admittance",
+    "q": [
+     "E5B06"
+    ]
+   },
+   {
+    "label": "Letter for susceptance",
+    "value": "B",
+    "q": [
+     "E5B02"
+    ]
+   },
+   {
+    "label": "Reactance to susceptance",
+    "value": "Magnitude replaced by its reciprocal",
+    "q": [
+     "E5B05"
+    ]
+   },
+   {
+    "label": "Impedance to admittance",
+    "value": "Reciprocal of magnitude, change angle's sign",
+    "q": [
+     "E5B03"
+    ]
+   }
+  ],
+  "hook": "Impedance pairs with admittance, reactance pairs with susceptance (B). Going across is always one over.",
+  "questions": [
+   "E5B12",
+   "E5B06",
+   "E5B02",
+   "E5B05",
+   "E5B03"
+  ]
+ },
+ {
+  "id": "e-5-resonance",
+  "title": "Series vs parallel resonance",
+  "summary": "At resonance the reactances cancel and the impedance is about equal to the circuit resistance. Then series and parallel differ.",
+  "points": [
+   {
+    "label": "Series impedance",
+    "value": "Approximately equal to circuit resistance",
+    "q": [
+     "E5A03"
+    ]
+   },
+   {
+    "label": "Series voltage and current",
+    "value": "In phase",
+    "q": [
+     "E5A08"
+    ]
+   },
+   {
+    "label": "Series reactance voltages",
+    "value": "Can be higher than the applied voltage",
+    "q": [
+     "E5A01"
+    ]
+   },
+   {
+    "label": "Parallel impedance",
+    "value": "Approximately equal to circuit resistance",
+    "q": [
+     "E5A04"
+    ]
+   },
+   {
+    "label": "Parallel input current",
+    "value": "Minimum",
+    "q": [
+     "E5A07"
+    ]
+   },
+   {
+    "label": "Parallel circulating current",
+    "value": "Maximum",
+    "q": [
+     "E5A06"
+    ]
+   },
+   {
+    "label": "Parallel Q",
+    "value": "Resistance divided by reactance of L or C",
+    "q": [
+     "E5A09"
+    ]
+   },
+   {
+    "label": "Raising Q",
+    "value": "Internal voltages up, matching bandwidth down",
+    "q": [
+     "E5A13",
+     "E5A05"
+    ]
+   }
+  ],
+  "hook": "Series resonance builds big voltages inside; parallel resonance keeps a big current circulating while little flows in. Raising Q narrows matching bandwidth.",
+  "questions": [
+   "E5A03",
+   "E5A08",
+   "E5A01",
+   "E5A04",
+   "E5A07",
+   "E5A06",
+   "E5A09",
+   "E5A13",
+   "E5A05"
+  ]
+ },
+ {
+  "id": "e-5-resonance-math",
+  "title": "Resonant frequency and bandwidth",
+  "summary": "Resonant frequency comes from L and C only. Half-power bandwidth is the resonant frequency divided by Q.",
+  "points": [
+   {
+    "label": "50 uH and 40 pF",
+    "value": "3.56 MHz",
+    "q": [
+     "E5A02"
+    ]
+   },
+   {
+    "label": "50 uH and 10 pF",
+    "value": "7.12 MHz",
+    "q": [
+     "E5A10"
+    ]
+   },
+   {
+    "label": "3.7 MHz, Q of 118",
+    "value": "31.4 kHz",
+    "q": [
+     "E5A12"
+    ]
+   },
+   {
+    "label": "7.1 MHz, Q of 150",
+    "value": "47.3 kHz",
+    "q": [
+     "E5A11"
+    ]
+   }
+  ],
+  "hook": "Ignore R. Cut C to a quarter (40 to 10 pF) and frequency doubles (3.56 to 7.12 MHz). Bandwidth: 7.1 MHz divided by 150 is 47.3 kHz.",
+  "questions": [
+   "E5A02",
+   "E5A10",
+   "E5A12",
+   "E5A11"
+  ]
+ },
+ {
+  "id": "e-5-rf-parasitics",
+  "title": "Hidden reactance at RF",
+  "summary": "At RF every part and wire has parasitic reactance. Short leads and the right parts keep it in check.",
+  "points": [
+   {
+    "label": "Skin effect",
+    "value": "RF near surface, resistance rises with frequency",
+    "q": [
+     "E5D01"
+    ]
+   },
+   {
+    "label": "Film capacitor loss at RF",
+    "value": "Skin effect",
+    "q": [
+     "E5D08"
+    ]
+   },
+   {
+    "label": "Electrolytic capacitor",
+    "value": "Inductance makes it unsuitable at RF",
+    "q": [
+     "E5D05"
+    ]
+   },
+   {
+    "label": "Inductor self-resonance",
+    "value": "Caused by inter-turn capacitance",
+    "q": [
+     "E5D06"
+    ]
+   },
+   {
+    "label": "Any self-resonance",
+    "value": "Nominal plus parasitic reactance",
+    "q": [
+     "E5D07"
+    ]
+   },
+   {
+    "label": "Short leads, VHF and up",
+    "value": "Minimize inductive reactance",
+    "q": [
+     "E5D02"
+    ]
+   },
+   {
+    "label": "Short leads, microwave",
+    "value": "Reduce phase shift along the connection",
+    "q": [
+     "E5D04"
+    ]
+   }
+  ],
+  "hook": "Each part hides its opposite: capacitors carry inductance, inductors carry capacitance. Nominal plus parasitic reactance makes the part self-resonate.",
+  "questions": [
+   "E5D01",
+   "E5D08",
+   "E5D05",
+   "E5D06",
+   "E5D07",
+   "E5D02",
+   "E5D04"
+  ]
+ },
+ {
+  "id": "e-6-doping",
+  "title": "N-type, P-type and the junction",
+  "summary": "Impurities give a semiconductor extra electrons or extra holes. The PN junction between them is what a diode controls.",
+  "points": [
+   {
+    "label": "N-type",
+    "value": "Excess free electrons",
+    "q": [
+     "E6A02"
+    ]
+   },
+   {
+    "label": "Acceptor impurity",
+    "value": "Adds holes",
+    "q": [
+     "E6A04"
+    ]
+   },
+   {
+    "label": "Reverse bias",
+    "value": "Holes, electrons pulled apart; depletion widens",
+    "q": [
+     "E6A03"
+    ]
+   }
+  ],
+  "hook": "N for negative: electrons. Acceptor impurities add holes. Reverse bias widens the depletion region, so no current flows.",
+  "questions": [
+   "E6A02",
+   "E6A04",
+   "E6A03"
+  ]
+ },
+ {
+  "id": "e-6-fast-materials",
+  "title": "Semiconductors for high frequency",
+  "summary": "Two gallium compounds lead for UHF, microwave and MMIC work.",
+  "points": [
+   {
+    "label": "Gallium arsenide use",
+    "value": "Microwave circuits",
+    "q": [
+     "E6A01"
+    ]
+   },
+   {
+    "label": "Why GaAs at UHF and up",
+    "value": "Higher electron mobility",
+    "q": [
+     "E6E01"
+    ]
+   },
+   {
+    "label": "Highest frequency in MMICs",
+    "value": "Gallium nitride",
+    "q": [
+     "E6E03"
+    ]
+   }
+  ],
+  "hook": "Think Ga for gigahertz: gallium arsenide for microwaves, gallium nitride for the very highest MMIC frequencies.",
+  "questions": [
+   "E6A01",
+   "E6E01",
+   "E6E03"
+  ]
+ },
+ {
+  "id": "e-6-transistors",
+  "title": "Bipolar vs field-effect transistors",
+  "summary": "Bipolar transistors are run by base current and base voltage. FETs are run by the gate, which has high input impedance.",
+  "points": [
+   {
+    "label": "BJT beta",
+    "value": "Change in collector current vs base current",
+    "q": [
+     "E6A06"
+    ]
+   },
+   {
+    "label": "Silicon NPN biased on",
+    "value": "Base-to-emitter about 0.6 to 0.7 volts",
+    "q": [
+     "E6A07"
+    ]
+   },
+   {
+    "label": "Gain falls to 0.7 of 1 kHz",
+    "value": "Alpha cutoff frequency",
+    "q": [
+     "E6A08"
+    ]
+   },
+   {
+    "label": "FET gate input impedance",
+    "value": "Higher than a bipolar transistor",
+    "q": [
+     "E6A05"
+    ]
+   },
+   {
+    "label": "Depletion-mode FET",
+    "value": "Current flows with no gate voltage applied",
+    "q": [
+     "E6A09"
+    ]
+   },
+   {
+    "label": "Zeners on a MOSFET gate",
+    "value": "Protect the gate from static damage",
+    "q": [
+     "E6A12"
+    ]
+   }
+  ],
+  "hook": "Bipolar: think currents (beta) and 0.6 to 0.7 V at the base. FET: think gate, with high input impedance and a gate static can damage.",
+  "questions": [
+   "E6A06",
+   "E6A07",
+   "E6A08",
+   "E6A05",
+   "E6A09",
+   "E6A12"
+  ]
+ },
+ {
+  "id": "e-6-diodes",
+  "title": "The diode family",
+  "summary": "Each special diode is built for one job. Match the name to its trait.",
+  "points": [
+   {
+    "label": "Zener",
+    "value": "Constant voltage drop as current varies",
+    "q": [
+     "E6B01"
+    ]
+   },
+   {
+    "label": "Varactor",
+    "value": "Voltage-controlled capacitor",
+    "q": [
+     "E6B04"
+    ]
+   },
+   {
+    "label": "Schottky, built as",
+    "value": "Metal-semiconductor junction",
+    "q": [
+     "E6B08"
+    ]
+   },
+   {
+    "label": "Schottky, strengths",
+    "value": "Lower forward drop; VHF/UHF mixer or detector",
+    "q": [
+     "E6B02",
+     "E6B06"
+    ]
+   },
+   {
+    "label": "PIN as RF switch",
+    "value": "Low junction capacitance",
+    "q": [
+     "E6B05"
+    ]
+   },
+   {
+    "label": "PIN attenuation control",
+    "value": "Forward DC bias current",
+    "q": [
+     "E6B11"
+    ]
+   },
+   {
+    "label": "Point-contact",
+    "value": "RF detector",
+    "q": [
+     "E6B09"
+    ]
+   },
+   {
+    "label": "Failure from excess current",
+    "value": "Excessive junction temperature",
+    "q": [
+     "E6B07"
+    ]
+   }
+  ],
+  "hook": "Zener holds voltage, varactor varies capacitance, Schottky drops less, PIN switches RF, point-contact detects RF.",
+  "questions": [
+   "E6B01",
+   "E6B04",
+   "E6B08",
+   "E6B02",
+   "E6B06",
+   "E6B05",
+   "E6B11",
+   "E6B09",
+   "E6B07"
+  ]
+ },
+ {
+  "id": "e-7-logic-gates",
+  "title": "Logic gates and truth tables",
+  "summary": "Positive logic makes high a 1. Each gate is then just a rule for when its output is 1 or 0, listed in a truth table.",
+  "points": [
+   {
+    "label": "Positive logic",
+    "value": "High voltage is 1, low voltage is 0",
+    "q": [
+     "E7A11"
+    ]
+   },
+   {
+    "label": "Truth table",
+    "value": "Lists inputs and the matching outputs",
+    "q": [
+     "E7A10"
+    ]
+   },
+   {
+    "label": "OR",
+    "value": "Output 1 if any input is 1",
+    "q": [
+     "E7A08"
+    ]
+   },
+   {
+    "label": "NAND",
+    "value": "Output 0 only if all inputs are 1",
+    "q": [
+     "E7A07"
+    ]
+   },
+   {
+    "label": "Two-input XNOR",
+    "value": "Output 0 if one and only one input is 1",
+    "q": [
+     "E7A09"
+    ]
+   }
+  ],
+  "hook": "The N means NOT: NAND is AND flipped (0 only when all inputs are 1), and XNOR is XOR flipped (0 when exactly one input is 1).",
+  "questions": [
+   "E7A11",
+   "E7A10",
+   "E7A08",
+   "E7A07",
+   "E7A09"
+  ],
+  "aid": {
+   "kind": "logic",
+   "gate": "NAND"
+  }
+ },
+ {
+  "id": "e-6-logic-thresholds",
+  "title": "Logic thresholds and output states",
+  "summary": "Digital parts decide by comparing to a threshold and drive defined output states. Each row keeps that decision clean.",
+  "points": [
+   {
+    "label": "Comparator input crosses",
+    "value": "Output changes state",
+    "q": [
+     "E6C02"
+    ]
+   },
+   {
+    "label": "Comparator hysteresis",
+    "value": "Stops input noise causing unstable output",
+    "q": [
+     "E6C01"
+    ]
+   },
+   {
+    "label": "CMOS noise immunity",
+    "value": "Switching threshold about half the supply",
+    "q": [
+     "E6C06"
+    ]
+   },
+   {
+    "label": "CMOS power",
+    "value": "Lowest power consumption",
+    "q": [
+     "E6C05"
+    ]
+   },
+   {
+    "label": "BiCMOS",
+    "value": "CMOS input impedance, bipolar output impedance",
+    "q": [
+     "E6C04"
+    ]
+   },
+   {
+    "label": "Tri-state logic",
+    "value": "0, 1, and high-impedance outputs",
+    "q": [
+     "E6C03"
+    ]
+   },
+   {
+    "label": "Pull-up or pull-down",
+    "value": "Sets a voltage when a pin is open circuit",
+    "q": [
+     "E6C07"
+    ]
+   }
+  ],
+  "hook": "Threshold in the middle means noise must swing far to flip a bit. A pin that floats needs a pull-up or pull-down to stay defined.",
+  "questions": [
+   "E6C02",
+   "E6C01",
+   "E6C06",
+   "E6C05",
+   "E6C04",
+   "E6C03",
+   "E6C07"
+  ]
+ },
+ {
+  "id": "e-6-cores",
+  "title": "Inductor core materials",
+  "summary": "The core's permeability sets inductance. Material and shape decide stability, losses and how far the field strays.",
+  "points": [
+   {
+    "label": "Sets the inductance",
+    "value": "Permeability",
+    "q": [
+     "E6D06"
+    ]
+   },
+   {
+    "label": "Ferrite vs powdered iron",
+    "value": "Ferrite needs fewer turns for same inductance",
+    "q": [
+     "E6D05"
+    ]
+   },
+   {
+    "label": "Most temperature stable",
+    "value": "Powdered iron",
+    "q": [
+     "E6D08"
+    ]
+   },
+   {
+    "label": "Lowers inductance",
+    "value": "Brass",
+    "q": [
+     "E6D11"
+    ]
+   },
+   {
+    "label": "Saturation",
+    "value": "Operation at excessive magnetic flux",
+    "q": [
+     "E6D12"
+    ]
+   },
+   {
+    "label": "Thin layers",
+    "value": "Reduce power loss from eddy currents",
+    "q": [
+     "E6D04"
+    ]
+   },
+   {
+    "label": "Toroid vs solenoid",
+    "value": "Toroid confines most of the field in the core",
+    "q": [
+     "E6D10"
+    ]
+   },
+   {
+    "label": "VHF/UHF parasitic suppressor",
+    "value": "Ferrite beads",
+    "q": [
+     "E6D09"
+    ]
+   }
+  ],
+  "hook": "Ferrite is strong (fewer turns), powdered iron is steady (temperature stable), brass works backward (less inductance).",
+  "questions": [
+   "E6D06",
+   "E6D05",
+   "E6D08",
+   "E6D11",
+   "E6D12",
+   "E6D04",
+   "E6D10",
+   "E6D09"
+  ]
+ },
+ {
+  "id": "e-6-piezo",
+  "title": "Piezoelectricity both ways",
+  "summary": "Piezoelectric materials turn stress into voltage and voltage into motion. That is what makes a quartz crystal resonate.",
+  "points": [
+   {
+    "label": "Stress the material",
+    "value": "It generates a voltage",
+    "q": [
+     "E6D01"
+    ]
+   },
+   {
+    "label": "Apply a voltage",
+    "value": "Mechanical deformation (it flexes)",
+    "q": [
+     "E6D01",
+     "E6D03"
+    ]
+   },
+   {
+    "label": "Quartz crystal equivalent",
+    "value": "Series RLC in parallel with a shunt C",
+    "q": [
+     "E6D02"
+    ]
+   }
+  ],
+  "hook": "Squeeze it, get volts. Give it volts, it moves.",
+  "questions": [
+   "E6D01",
+   "E6D03",
+   "E6D02"
+  ]
+ },
+ {
+  "id": "e-6-packages",
+  "title": "Through-hole vs surface mount",
+  "summary": "Long leads add parasitics. That keeps DIP parts off UHF and makes surface mount the RF choice.",
+  "points": [
+   {
+    "label": "DIP",
+    "value": "Through-hole type",
+    "q": [
+     "E6E02"
+    ]
+   },
+   {
+    "label": "DIP layout",
+    "value": "Two rows of pins on opposite sides",
+    "q": [
+     "E6E11"
+    ]
+   },
+   {
+    "label": "DIP at UHF and up",
+    "value": "Not used: excessive lead length",
+    "q": [
+     "E6E12"
+    ]
+   },
+   {
+    "label": "Least parasitics above HF",
+    "value": "Surface mount",
+    "q": [
+     "E6E09"
+    ]
+   },
+   {
+    "label": "Surface mount at RF",
+    "value": "Smaller, shorter traces, less parasitic L and C",
+    "q": [
+     "E6E10"
+    ]
+   }
+  ],
+  "hook": "Shorter is better at RF: DIP leads are too long for UHF, surface mount has the least parasitics.",
+  "questions": [
+   "E6E02",
+   "E6E11",
+   "E6E12",
+   "E6E09",
+   "E6E10"
+  ]
+ },
+ {
+  "id": "e-6-mmic",
+  "title": "MMIC amplifier basics",
+  "summary": "An MMIC is a ready-made VHF to microwave gain block with a standard impedance, fed and connected in standard ways.",
+  "points": [
+   {
+    "label": "Input and output impedance",
+    "value": "50 ohms",
+    "q": [
+     "E6E04"
+    ]
+   },
+   {
+    "label": "Why popular",
+    "value": "Controlled gain, low noise, constant impedance",
+    "q": [
+     "E6E06"
+    ]
+   },
+   {
+    "label": "Typical low-noise UHF preamp",
+    "value": "Noise figure of 0.5 dB",
+    "q": [
+     "E6E05"
+    ]
+   },
+   {
+    "label": "Connections",
+    "value": "Microstrip",
+    "q": [
+     "E6E07"
+    ]
+   },
+   {
+    "label": "DC power",
+    "value": "Resistor and/or RF choke on the output lead",
+    "q": [
+     "E6E08"
+    ]
+   }
+  ],
+  "hook": "50 ohms in, 50 ohms out, over microstrip, with DC fed through the output lead.",
+  "questions": [
+   "E6E04",
+   "E6E06",
+   "E6E05",
+   "E6E07",
+   "E6E08"
+  ]
+ },
+ {
+  "id": "e-6-photovoltaic",
+  "title": "Photovoltaic cells",
+  "summary": "A photovoltaic cell converts light to electrical energy. Most are silicon and give about half a volt each.",
+  "points": [
+   {
+    "label": "Photovoltaic effect",
+    "value": "Conversion of light to electrical energy",
+    "q": [
+     "E6F04"
+    ]
+   },
+   {
+    "label": "What absorbs the light",
+    "value": "Electrons",
+    "q": [
+     "E6F01"
+    ]
+   },
+   {
+    "label": "Most common material",
+    "value": "Silicon",
+    "q": [
+     "E6F10"
+    ]
+   },
+   {
+    "label": "Open-circuit voltage",
+    "value": "0.5 volts",
+    "q": [
+     "E6F11"
+    ]
+   },
+   {
+    "label": "Efficiency",
+    "value": "Fraction of light converted to current",
+    "q": [
+     "E6F09"
+    ]
+   }
+  ],
+  "hook": "Light hits electrons, electrons make current. A silicon cell gives 0.5 V when fully lit.",
+  "questions": [
+   "E6F04",
+   "E6F01",
+   "E6F10",
+   "E6F11",
+   "E6F09"
+  ]
+ },
+ {
+  "id": "e-6-light-devices",
+  "title": "Devices controlled by light",
+  "summary": "Light can lower a resistance, carry a signal across an isolation gap, or count the turns of a shaft.",
+  "points": [
+   {
+    "label": "Photoconductive in light",
+    "value": "Resistance decreases",
+    "q": [
+     "E6F02"
+    ]
+   },
+   {
+    "label": "Photoconductive material",
+    "value": "Crystalline semiconductor",
+    "q": [
+     "E6F06"
+    ]
+   },
+   {
+    "label": "Optoisolator parts",
+    "value": "An LED and a phototransistor",
+    "q": [
+     "E6F03"
+    ]
+   },
+   {
+    "label": "Optoisolator with 120 VAC",
+    "value": "Isolates control circuit from switched circuit",
+    "q": [
+     "E6F08"
+    ]
+   },
+   {
+    "label": "Optical shaft encoder",
+    "value": "Patterned wheel interrupts a light source",
+    "q": [
+     "E6F05"
+    ]
+   }
+  ],
+  "hook": "More light, less resistance. In an optoisolator only light crosses the gap, keeping the control side isolated from the 120 VAC side.",
+  "questions": [
+   "E6F02",
+   "E6F06",
+   "E6F03",
+   "E6F08",
+   "E6F05"
+  ]
+ },
+ {
+  "id": "e-7-multivibrators",
+  "title": "Multivibrators and counters",
+  "summary": "Digital timing circuits are named by how many stable states they have, and flip-flops chain into dividers.",
+  "points": [
+   {
+    "label": "Bistable, or divide by 2",
+    "value": "A flip-flop",
+    "q": [
+     "E7A01",
+     "E7A03"
+    ]
+   },
+   {
+    "label": "Divide by 16",
+    "value": "4 flip-flops",
+    "q": [
+     "E7A04"
+    ]
+   },
+   {
+    "label": "Decade counter",
+    "value": "One output pulse for every 10 input pulses",
+    "q": [
+     "E7A02"
+    ]
+   },
+   {
+    "label": "Monostable",
+    "value": "Switches to an alternate state for a set time",
+    "q": [
+     "E7A06"
+    ]
+   },
+   {
+    "label": "Astable",
+    "value": "Keeps alternating, no external clock needed",
+    "q": [
+     "E7A05"
+    ]
+   }
+  ],
+  "hook": "Each flip-flop halves the rate, so 4 in a row divide by 16. The prefix counts stable states: bistable two, monostable one, astable none.",
+  "questions": [
+   "E7A01",
+   "E7A03",
+   "E7A04",
+   "E7A02",
+   "E7A06",
+   "E7A05"
+  ]
+ },
+ {
+  "id": "e-7-amplifier-classes",
+  "title": "Amplifier classes: linear to switching",
+  "summary": "Class A sits in the middle of its range; switching classes slam between saturation and cutoff for efficiency.",
+  "points": [
+   {
+    "label": "Class A operating point",
+    "value": "Halfway between saturation and cutoff",
+    "q": [
+     "E7B04"
+    ]
+   },
+   {
+    "label": "Class AB, push-pull",
+    "value": "Each side conducts over 180, under 360 degrees",
+    "q": [
+     "E7B01"
+    ]
+   },
+   {
+    "label": "Class C on SSB",
+    "value": "Signal distortion and excessive bandwidth",
+    "q": [
+     "E7B07"
+    ]
+   },
+   {
+    "label": "Class D",
+    "value": "Switching technology for high efficiency",
+    "q": [
+     "E7B02"
+    ]
+   },
+   {
+    "label": "Why switching is efficient",
+    "value": "Device at saturation or cutoff most of the time",
+    "q": [
+     "E7B08"
+    ]
+   },
+   {
+    "label": "Switching amplifier output",
+    "value": "Needs a filter to remove harmonic content",
+    "q": [
+     "E7B03"
+    ]
+   }
+  ],
+  "hook": "Linear classes keep the device in its middle range; switching classes live at the extremes, which saves power but makes harmonics to filter.",
+  "questions": [
+   "E7B04",
+   "E7B01",
+   "E7B07",
+   "E7B02",
+   "E7B08",
+   "E7B03"
+  ]
+ },
+ {
+  "id": "e-7-amplifier-configs",
+  "title": "Amplifier configurations and bias",
+  "summary": "Name the shared terminal and you know the circuit. Figure E7-1 is a common emitter stage with two kinds of bias.",
+  "points": [
+   {
+    "label": "Figure E7-1 circuit",
+    "value": "Common emitter",
+    "q": [
+     "E7B12"
+    ]
+   },
+   {
+    "label": "R1 and R2 in E7-1",
+    "value": "Voltage divider bias",
+    "q": [
+     "E7B10"
+    ]
+   },
+   {
+    "label": "R3 in E7-1",
+    "value": "Self bias",
+    "q": [
+     "E7B11"
+    ]
+   },
+   {
+    "label": "Emitter follower",
+    "value": "Common collector: input and output in phase",
+    "q": [
+     "E7B09"
+    ]
+   },
+   {
+    "label": "Grounded grid",
+    "value": "Low input impedance",
+    "q": [
+     "E7B06"
+    ]
+   }
+  ],
+  "hook": "A follower follows: its output tracks the input, in phase.",
+  "questions": [
+   "E7B12",
+   "E7B10",
+   "E7B11",
+   "E7B09",
+   "E7B06"
+  ]
+ },
+ {
+  "id": "e-7-lc-networks",
+  "title": "LC networks: Pi, Pi-L and T",
+  "summary": "Where the inductors and capacitors sit decides what passes. Matching networks also cancel reactance.",
+  "points": [
+   {
+    "label": "Low-pass Pi",
+    "value": "Shunt capacitors at each end, series inductor",
+    "q": [
+     "E7C01"
+    ]
+   },
+   {
+    "label": "Pi-L network",
+    "value": "A Pi with an added output series inductor",
+    "q": [
+     "E7C07"
+    ]
+   },
+   {
+    "label": "Why add the L",
+    "value": "Greater harmonic suppression",
+    "q": [
+     "E7C03"
+    ]
+   },
+   {
+    "label": "T: series C, shunt L",
+    "value": "High-pass",
+    "q": [
+     "E7C02"
+    ]
+   },
+   {
+    "label": "Impedance matching",
+    "value": "Cancels reactance, sets resistance to target",
+    "q": [
+     "E7C04"
+    ]
+   }
+  ],
+  "hook": "A series inductor blocks highs, so the Pi is low-pass. Series capacitors block lows, so that T is high-pass.",
+  "questions": [
+   "E7C01",
+   "E7C07",
+   "E7C03",
+   "E7C02",
+   "E7C04"
+  ],
+  "aid": {
+   "kind": "filter",
+   "type": "lowpass"
+  }
+ },
+ {
+  "id": "e-7-filter-types",
+  "title": "Filter types and where they fit",
+  "summary": "Each filter family has a signature trait or a typical home in the station.",
+  "points": [
+   {
+    "label": "Chebyshev",
+    "value": "Ripple in the passband, sharp cutoff",
+    "q": [
+     "E7C05"
+    ]
+   },
+   {
+    "label": "Elliptical",
+    "value": "Extremely sharp cutoff, notches in stop band",
+    "q": [
+     "E7C06"
+    ]
+   },
+   {
+    "label": "Crystal lattice",
+    "value": "For low-level signals, made of quartz crystals",
+    "q": [
+     "E7C09"
+    ]
+   },
+   {
+    "label": "Helical",
+    "value": "Band-pass or notch in VHF and UHF radios",
+    "q": [
+     "E7C08"
+    ]
+   },
+   {
+    "label": "2 meter repeater duplexer",
+    "value": "A cavity filter",
+    "q": [
+     "E7C10"
+    ]
+   },
+   {
+    "label": "Shape factor",
+    "value": "Measures rejection of adjacent channels",
+    "q": [
+     "E7C11"
+    ]
+   }
+  ],
+  "questions": [
+   "E7C05",
+   "E7C06",
+   "E7C09",
+   "E7C08",
+   "E7C10",
+   "E7C11"
+  ]
+ },
+ {
+  "id": "e-7-linear-vs-switching",
+  "title": "Linear vs switching regulators",
+  "summary": "A linear regulator burns off the excess voltage as heat; a switcher chops it with pulses and filters the result.",
+  "points": [
+   {
+    "label": "Linear regulator",
+    "value": "Varies a control element's conduction",
+    "q": [
+     "E7D01"
+    ]
+   },
+   {
+    "label": "Dropout voltage",
+    "value": "Minimum input-to-output voltage to regulate",
+    "q": [
+     "E7D12"
+    ]
+   },
+   {
+    "label": "Series regulator heat",
+    "value": "(Input minus output voltage) x output current",
+    "q": [
+     "E7D13"
+    ]
+   },
+   {
+    "label": "Switchmode regulator",
+    "value": "Varies duty cycle of pulses into a filter",
+    "q": [
+     "E7D02"
+    ]
+   },
+   {
+    "label": "Why switchers are light",
+    "value": "High frequency: smaller transformers, filters",
+    "q": [
+     "E7D10"
+    ]
+   }
+  ],
+  "hook": "Linear: the voltage you drop times the current you pass is heat. Switching: high frequency lets the magnetics shrink.",
+  "questions": [
+   "E7D01",
+   "E7D12",
+   "E7D13",
+   "E7D02",
+   "E7D10"
+  ]
+ },
+ {
+  "id": "e-7-linear-regulator-parts",
+  "title": "Linear regulator building blocks",
+  "summary": "A Zener sets the reference, then a series or shunt element holds the output. Figure E7-2 puts it together.",
+  "points": [
+   {
+    "label": "Stable voltage reference",
+    "value": "A Zener diode",
+    "q": [
+     "E7D03"
+    ]
+   },
+   {
+    "label": "Three-terminal regulator",
+    "value": "A series regulator",
+    "q": [
+     "E7D04"
+    ]
+   },
+   {
+    "label": "Shunt regulator",
+    "value": "Works by loading the unregulated source",
+    "q": [
+     "E7D05"
+    ]
+   },
+   {
+    "label": "Figure E7-2 circuit",
+    "value": "Linear voltage regulator",
+    "q": [
+     "E7D08"
+    ]
+   },
+   {
+    "label": "Q1 in E7-2",
+    "value": "Controls current to keep output voltage constant",
+    "q": [
+     "E7D06"
+    ]
+   },
+   {
+    "label": "C2 in E7-2",
+    "value": "Bypasses rectifier output ripple around D1",
+    "q": [
+     "E7D07"
+    ]
+   }
+  ],
+  "questions": [
+   "E7D03",
+   "E7D04",
+   "E7D05",
+   "E7D08",
+   "E7D06",
+   "E7D07"
+  ],
+  "aid": {
+   "kind": "component",
+   "symbol": "zener"
+  }
+ },
+ {
+  "id": "e-7-make-and-detect",
+  "title": "Making and detecting each mode",
+  "summary": "Every mode has a circuit that creates it and one that recovers it. Learn them as pairs.",
+  "points": [
+   {
+    "label": "Make FM",
+    "value": "Reactance modulation of a local oscillator",
+    "q": [
+     "E7E01"
+    ]
+   },
+   {
+    "label": "Reactance modulator",
+    "value": "Varies a capacitance to make PM or FM",
+    "q": [
+     "E7E02"
+    ]
+   },
+   {
+    "label": "Detect FM",
+    "value": "A frequency discriminator",
+    "q": [
+     "E7E03"
+    ]
+   },
+   {
+    "label": "Make SSB",
+    "value": "Balanced modulator followed by a filter",
+    "q": [
+     "E7E04"
+    ]
+   },
+   {
+    "label": "Detect SSB",
+    "value": "A product detector",
+    "q": [
+     "E7E11"
+    ]
+   },
+   {
+    "label": "Diode envelope detector",
+    "value": "Rectifies and filters the RF signal",
+    "q": [
+     "E7E10"
+    ]
+   }
+  ],
+  "questions": [
+   "E7E01",
+   "E7E02",
+   "E7E03",
+   "E7E04",
+   "E7E11",
+   "E7E10"
+  ]
+ },
+ {
+  "id": "e-7-baseband-to-rf",
+  "title": "From baseband to RF",
+  "summary": "The message starts at baseband, gets shaped for FM, then a mixer moves it in frequency.",
+  "points": [
+   {
+    "label": "Baseband",
+    "value": "Message frequency range before modulation",
+    "q": [
+     "E7E07"
+    ]
+   },
+   {
+    "label": "Pre-emphasis",
+    "value": "Boosts higher audio frequencies in FM speech",
+    "q": [
+     "E7E05"
+    ]
+   },
+   {
+    "label": "De-emphasis in receivers",
+    "value": "Compatibility with phase modulation transmitters",
+    "q": [
+     "E7E06"
+    ]
+   },
+   {
+    "label": "Mixer output",
+    "value": "Both inputs plus their sum and difference",
+    "q": [
+     "E7E08"
+    ]
+   },
+   {
+    "label": "Mixer input too high",
+    "value": "Spurious mixer products",
+    "q": [
+     "E7E09"
+    ]
+   }
+  ],
+  "hook": "Pre-emphasis boosts highs on the way out; de-emphasis undoes it on the way in.",
+  "questions": [
+   "E7E07",
+   "E7E05",
+   "E7E06",
+   "E7E08",
+   "E7E09"
+  ]
+ },
+ {
+  "id": "e-7-sampling",
+  "title": "Sampling and sample rate",
+  "summary": "Sample fast enough and filter out what you cannot sample. The sample rate sets how much spectrum an SDR sees.",
+  "points": [
+   {
+    "label": "Minimum sample rate",
+    "value": "At least twice the highest frequency",
+    "q": [
+     "E7F05"
+    ]
+   },
+   {
+    "label": "Direct sampling",
+    "value": "RF digitized by an ADC with no mixing",
+    "q": [
+     "E7F01"
+    ]
+   },
+   {
+    "label": "Direct-sampling bandwidth",
+    "value": "Set by the sample rate",
+    "q": [
+     "E7F10"
+    ]
+   },
+   {
+    "label": "Decimation",
+    "value": "Removes samples to cut the sample rate",
+    "q": [
+     "E7F08"
+    ]
+   },
+   {
+    "label": "Anti-alias filter",
+    "value": "Stops highs showing up as lower frequencies",
+    "q": [
+     "E7F09"
+    ]
+   }
+  ],
+  "hook": "Twice the highest frequency is the floor. Anything above that must be filtered out first, or it folds back as a false lower frequency.",
+  "questions": [
+   "E7F05",
+   "E7F01",
+   "E7F10",
+   "E7F08",
+   "E7F09"
+  ]
+ },
+ {
+  "id": "e-8-adc-resolution",
+  "title": "ADC and DAC: bits and quality",
+  "summary": "Bits set how finely a converter measures. Dither and filters clean up the steps it leaves behind.",
+  "points": [
+   {
+    "label": "8-bit resolution",
+    "value": "256 input levels",
+    "q": [
+     "E8A09"
+    ]
+   },
+   {
+    "label": "1 V range, 1 mV steps",
+    "value": "10 bits minimum",
+    "q": [
+     "E7F06"
+    ]
+   },
+   {
+    "label": "Smallest detectable signal",
+    "value": "Reference voltage and sample width in bits",
+    "q": [
+     "E7F11"
+    ]
+   },
+   {
+    "label": "Dither",
+    "value": "Small noise added to reduce quantization noise",
+    "q": [
+     "E8A04"
+    ]
+   },
+   {
+    "label": "A type of ADC",
+    "value": "Successive approximation",
+    "q": [
+     "E8A02"
+    ]
+   },
+   {
+    "label": "Flash ADC in an SDR",
+    "value": "Very high speed digitizes high frequencies",
+    "q": [
+     "E8A08"
+    ]
+   },
+   {
+    "label": "ADC quality measure",
+    "value": "Total harmonic distortion",
+    "q": [
+     "E8A11"
+    ]
+   },
+   {
+    "label": "Low-pass after a DAC",
+    "value": "Removes spurious sampling artifacts",
+    "q": [
+     "E8A10"
+    ]
+   }
+  ],
+  "hook": "Each added bit doubles the levels: 8 bits give 256. Ten bits are needed to split 1 volt into 1 millivolt steps.",
+  "questions": [
+   "E8A09",
+   "E7F06",
+   "E7F11",
+   "E8A04",
+   "E8A02",
+   "E8A08",
+   "E8A11",
+   "E8A10"
+  ]
+ },
+ {
+  "id": "e-8-time-and-frequency",
+  "title": "Time domain and frequency domain",
+  "summary": "The same signal can be seen as amplitude over time or as a set of frequencies. Fourier tools move between the two.",
+  "points": [
+   {
+    "label": "Time domain",
+    "value": "Amplitude at different times",
+    "q": [
+     "E8A03"
+    ]
+   },
+   {
+    "label": "Fast Fourier Transform",
+    "value": "Time domain to frequency domain",
+    "q": [
+     "E7F07"
+    ]
+   },
+   {
+    "label": "Fourier analysis",
+    "value": "Square wave is a sine plus its odd harmonics",
+    "q": [
+     "E8A01"
+    ]
+   }
+  ],
+  "questions": [
+   "E8A03",
+   "E7F07",
+   "E8A01"
+  ]
+ },
+ {
+  "id": "e-7-dsp-filters",
+  "title": "DSP filters and digital SSB",
+  "summary": "Digital filters are built from delay taps; the same math also generates and cleans up SSB.",
+  "points": [
+   {
+    "label": "Taps",
+    "value": "Incremental signal delays for the algorithm",
+    "q": [
+     "E7F13"
+    ]
+   },
+   {
+    "label": "Sharper response",
+    "value": "More taps",
+    "q": [
+     "E7F14"
+    ]
+   },
+   {
+    "label": "FIR filters",
+    "value": "Can delay all frequencies by the same amount",
+    "q": [
+     "E7F12"
+    ]
+   },
+   {
+    "label": "Removing noise on SSB",
+    "value": "An adaptive filter",
+    "q": [
+     "E7F02"
+    ]
+   },
+   {
+    "label": "Filter to generate SSB",
+    "value": "A Hilbert-transform filter",
+    "q": [
+     "E7F03"
+    ]
+   },
+   {
+    "label": "DSP SSB method",
+    "value": "Signals combined in quadrature phase",
+    "q": [
+     "E7F04"
+    ]
+   }
+  ],
+  "hook": "More taps, more delays to work with, sharper filter.",
+  "questions": [
+   "E7F13",
+   "E7F14",
+   "E7F12",
+   "E7F02",
+   "E7F03",
+   "E7F04"
+  ]
+ },
+ {
+  "id": "e-7-op-amp-traits",
+  "title": "Op-amp traits",
+  "summary": "An op-amp is a near ideal amplifier: huge gain, very high input impedance, very low output impedance.",
+  "points": [
+   {
+    "label": "What it is",
+    "value": "High-gain, direct-coupled differential amplifier",
+    "q": [
+     "E7G12"
+    ]
+   },
+   {
+    "label": "Input impedance",
+    "value": "Very high",
+    "q": [
+     "E7G03"
+    ]
+   },
+   {
+    "label": "Output impedance",
+    "value": "Very low",
+    "q": [
+     "E7G01"
+    ]
+   },
+   {
+    "label": "Ideal gain vs frequency",
+    "value": "Does not vary with frequency",
+    "q": [
+     "E7G08"
+    ]
+   },
+   {
+    "label": "Gain-bandwidth",
+    "value": "Frequency where open-loop gain equals one",
+    "q": [
+     "E7G06"
+    ]
+   },
+   {
+    "label": "Input offset voltage",
+    "value": "Differential input that zeroes open-loop output",
+    "q": [
+     "E7G04"
+    ]
+   }
+  ],
+  "hook": "High in, low out: it barely loads what feeds it and easily drives what follows.",
+  "questions": [
+   "E7G12",
+   "E7G03",
+   "E7G01",
+   "E7G08",
+   "E7G06",
+   "E7G04"
+  ]
+ },
+ {
+  "id": "e-7-inverting-op-amp",
+  "title": "Inverting op-amp gain (Figure E7-3)",
+  "summary": "In Figure E7-3 the gain is RF divided by R1, and the output is inverted.",
+  "points": [
+   {
+    "label": "R1 10, RF 470",
+    "value": "Gain 47",
+    "q": [
+     "E7G07"
+    ]
+   },
+   {
+    "label": "R1 1,800, RF 68 kilohms",
+    "value": "Gain 38",
+    "q": [
+     "E7G10"
+    ]
+   },
+   {
+    "label": "R1 3,300, RF 47 kilohms",
+    "value": "Gain 14",
+    "q": [
+     "E7G11"
+    ]
+   },
+   {
+    "label": "0.23 V, R1 1,000, RF 10,000",
+    "value": "-2.3 volts",
+    "q": [
+     "E7G09"
+    ]
+   },
+   {
+    "label": "Capacitor across RF",
+    "value": "Low-pass filter",
+    "q": [
+     "E7G02"
+    ]
+   },
+   {
+    "label": "Stop ringing in audio filter",
+    "value": "Restrict both gain and Q",
+    "q": [
+     "E7G05"
+    ]
+   }
+  ],
+  "hook": "Divide RF by R1: 470 / 10 = 47. The sign flips, so 0.23 volts in becomes -2.3 volts out.",
+  "questions": [
+   "E7G07",
+   "E7G10",
+   "E7G11",
+   "E7G09",
+   "E7G02",
+   "E7G05"
+  ]
+ },
+ {
+  "id": "e-7-oscillators",
+  "title": "Oscillators and stability",
+  "summary": "Oscillators differ in how they feed back, and good ones fight drift from heat and vibration.",
+  "points": [
+   {
+    "label": "Three common circuits",
+    "value": "Colpitts, Hartley, and Pierce",
+    "q": [
+     "E7H01"
+    ]
+   },
+   {
+    "label": "Colpitts feedback",
+    "value": "Through a capacitive divider",
+    "q": [
+     "E7H04"
+    ]
+   },
+   {
+    "label": "Pierce feedback",
+    "value": "Through a quartz crystal",
+    "q": [
+     "E7H05"
+    ]
+   },
+   {
+    "label": "Crystal on spec frequency",
+    "value": "Give it the specified parallel capacitance",
+    "q": [
+     "E7H12"
+    ]
+   },
+   {
+    "label": "Less thermal drift",
+    "value": "NP0 capacitors",
+    "q": [
+     "E7H08"
+    ]
+   },
+   {
+    "label": "Microphonic",
+    "value": "Frequency change from mechanical vibration",
+    "q": [
+     "E7H02"
+    ]
+   },
+   {
+    "label": "Reduce microphonics",
+    "value": "Mechanically isolate it from its enclosure",
+    "q": [
+     "E7H07"
+    ]
+   }
+  ],
+  "hook": "Colpitts uses Capacitors; Pierce uses a crystal.",
+  "questions": [
+   "E7H01",
+   "E7H04",
+   "E7H05",
+   "E7H12",
+   "E7H08",
+   "E7H02",
+   "E7H07"
+  ]
+ },
+ {
+  "id": "e-7-synthesizers",
+  "title": "Frequency synthesizers: PLL and DDS",
+  "summary": "A PLL locks an oscillator to a reference; a DDS builds the waveform from a table of numbers.",
+  "points": [
+   {
+    "label": "Phase-locked loop",
+    "value": "Phase detector, low-pass filter, VCO, reference",
+    "q": [
+     "E7H03"
+    ]
+   },
+   {
+    "label": "PLL jobs",
+    "value": "Frequency synthesis and FM demodulation",
+    "q": [
+     "E7H06"
+    ]
+   },
+   {
+    "label": "Direct digital synthesizer",
+    "value": "Phase accumulator, lookup table, DAC, filter",
+    "q": [
+     "E7H09"
+    ]
+   },
+   {
+    "label": "DDS lookup table",
+    "value": "Amplitude values of the desired waveform",
+    "q": [
+     "E7H10"
+    ]
+   },
+   {
+    "label": "DDS impurities",
+    "value": "Spurious signals at discrete frequencies",
+    "q": [
+     "E7H11"
+    ]
+   }
+  ],
+  "questions": [
+   "E7H03",
+   "E7H06",
+   "E7H09",
+   "E7H10",
+   "E7H11"
+  ]
+ },
+ {
+  "id": "e-8-modulation-index",
+  "title": "FM modulation index and deviation ratio",
+  "summary": "Both are deviation divided by audio frequency. Divide and you have the answer.",
+  "points": [
+   {
+    "label": "Modulation index",
+    "value": "Frequency deviation / modulating frequency",
+    "q": [
+     "E8B01"
+    ]
+   },
+   {
+    "label": "Deviation ratio",
+    "value": "Max deviation / highest audio frequency",
+    "q": [
+     "E8B09"
+    ]
+   },
+   {
+    "label": "PM index vs carrier",
+    "value": "Does not depend on the RF carrier frequency",
+    "q": [
+     "E8B02"
+    ]
+   },
+   {
+    "label": "3000 Hz deviation, 1000 Hz",
+    "value": "Index 3",
+    "q": [
+     "E8B03"
+    ]
+   },
+   {
+    "label": "6 kHz deviation, 2 kHz audio",
+    "value": "Index 3",
+    "q": [
+     "E8B04"
+    ]
+   },
+   {
+    "label": "5 kHz swing, 3 kHz audio",
+    "value": "Ratio 1.67",
+    "q": [
+     "E8B05"
+    ]
+   },
+   {
+    "label": "7.5 kHz swing, 3.5 kHz audio",
+    "value": "Ratio 2.14",
+    "q": [
+     "E8B06"
+    ]
+   }
+  ],
+  "hook": "Just divide: 3000 / 1000 = 3, 6 / 2 = 3, 5 / 3 = 1.67, 7.5 / 3.5 = 2.14.",
+  "questions": [
+   "E8B01",
+   "E8B09",
+   "E8B02",
+   "E8B03",
+   "E8B04",
+   "E8B05",
+   "E8B06"
+  ]
+ },
+ {
+  "id": "e-8-multiplexing",
+  "title": "Multiplexing: sharing a channel",
+  "summary": "Signals can share a transmission by splitting it into frequency bands, time slots, or orthogonal subcarriers.",
+  "points": [
+   {
+    "label": "Frequency division (FDM)",
+    "value": "Separate bands, each a different data stream",
+    "q": [
+     "E8B10"
+    ]
+   },
+   {
+    "label": "Time division (TDM)",
+    "value": "Signals share discrete time slots",
+    "q": [
+     "E8B11"
+    ]
+   },
+   {
+    "label": "OFDM",
+    "value": "Subcarriers that avoid intersymbol interference",
+    "q": [
+     "E8B08"
+    ]
+   },
+   {
+    "label": "OFDM is used for",
+    "value": "Digital modes",
+    "q": [
+     "E8B07"
+    ]
+   }
+  ],
+  "questions": [
+   "E8B10",
+   "E8B11",
+   "E8B08",
+   "E8B07"
+  ]
+ },
+ {
+  "id": "e-8-symbols-and-qam",
+  "title": "Symbols, baud and QAM",
+  "summary": "A symbol is one change of the waveform. QAM and QPSK states are mapped on a constellation diagram.",
+  "points": [
+   {
+    "label": "Symbol rate",
+    "value": "Rate the waveform changes to carry information",
+    "q": [
+     "E8C02"
+    ]
+   },
+   {
+    "label": "Symbol rate vs baud",
+    "value": "They are the same",
+    "q": [
+     "E8C11"
+    ]
+   },
+   {
+    "label": "QAM",
+    "value": "Two same-frequency carriers 90 degrees apart",
+    "q": [
+     "E8C01"
+    ]
+   },
+   {
+    "label": "Constellation diagram",
+    "value": "Possible phase and amplitude states per symbol",
+    "q": [
+     "E8C13"
+    ]
+   },
+   {
+    "label": "More data, same bandwidth",
+    "value": "Use a more efficient digital code",
+    "q": [
+     "E8C10"
+    ]
+   }
+  ],
+  "questions": [
+   "E8C02",
+   "E8C11",
+   "E8C01",
+   "E8C13",
+   "E8C10"
+  ]
+ },
+ {
+  "id": "e-8-signal-bandwidths",
+  "title": "Digital signal bandwidths",
+  "summary": "Three widths to know, from narrow CW and FT8 up to fast FM data.",
+  "points": [
+   {
+    "label": "13 WPM Morse code",
+    "value": "About 52 Hz",
+    "q": [
+     "E8C05"
+    ]
+   },
+   {
+    "label": "FT8",
+    "value": "50 Hz",
+    "q": [
+     "E8C06"
+    ]
+   },
+   {
+    "label": "4,800 Hz shift, 9,600 baud",
+    "value": "15.36 kHz",
+    "q": [
+     "E8C07"
+    ]
+   }
+  ],
+  "hook": "Slow CW (52 Hz) and FT8 (50 Hz) are nearly the same width; fast FM data is hundreds of times wider.",
+  "questions": [
+   "E8C05",
+   "E8C06",
+   "E8C07"
+  ],
+  "aid": {
+   "kind": "modes",
+   "highlight": "FT8"
+  }
+ },
+ {
+  "id": "e-8-clean-signals",
+  "title": "Keeping signals clean and narrow",
+  "summary": "Sharp edges and overdriven audio both spread a signal. Soften the edges and keep audio levels down.",
+  "points": [
+   {
+    "label": "CW bandwidth depends on",
+    "value": "Keying speed and rise and fall time",
+    "q": [
+     "E8C12"
+    ]
+   },
+   {
+    "label": "Very short rise or fall",
+    "value": "Key clicks",
+    "q": [
+     "E8D04"
+    ]
+   },
+   {
+    "label": "Reduce key clicks",
+    "value": "Increase rise and fall times",
+    "q": [
+     "E8D05"
+    ]
+   },
+   {
+    "label": "PSK phase change timing",
+    "value": "At the zero crossing, to minimize bandwidth",
+    "q": [
+     "E8C03"
+    ]
+   },
+   {
+    "label": "Narrow PSK31",
+    "value": "Sinusoidal data pulses",
+    "q": [
+     "E8C04"
+    ]
+   },
+   {
+    "label": "AFSK overmodulation cause",
+    "value": "Excessive transmit audio levels",
+    "q": [
+     "E8D07"
+    ]
+   },
+   {
+    "label": "AFSK distortion measure",
+    "value": "Intermodulation distortion (IMD)",
+    "q": [
+     "E8D08"
+    ]
+   },
+   {
+    "label": "Idling PSK, max IMD",
+    "value": "-30 dB",
+    "q": [
+     "E8D09"
+    ]
+   }
+  ],
+  "hook": "Abrupt changes splatter. Smooth the keying, change phase at zero, and keep the audio down.",
+  "questions": [
+   "E8C12",
+   "E8D04",
+   "E8D05",
+   "E8C03",
+   "E8C04",
+   "E8D07",
+   "E8D08",
+   "E8D09"
+  ]
+ },
+ {
+  "id": "e-8-codes-and-errors",
+  "title": "Digital codes and error control",
+  "summary": "Codes define the bits per character; parity and ARQ catch and fix errors.",
+  "points": [
+   {
+    "label": "Baudot",
+    "value": "5 data bits, letters/figures shift codes",
+    "q": [
+     "E8D10"
+    ]
+   },
+   {
+    "label": "ASCII",
+    "value": "7 or 8 bits, no shift code",
+    "q": [
+     "E8D10"
+    ]
+   },
+   {
+    "label": "ASCII advantage",
+    "value": "Both uppercase and lowercase text",
+    "q": [
+     "E8D11"
+    ]
+   },
+   {
+    "label": "Gray code",
+    "value": "Only one bit changes between values",
+    "q": [
+     "E8C09"
+    ]
+   },
+   {
+    "label": "Parity bits",
+    "value": "Some types of errors can be detected",
+    "q": [
+     "E8D06"
+    ]
+   },
+   {
+    "label": "ARQ",
+    "value": "Requests a retransmission when errors are found",
+    "q": [
+     "E8C08"
+    ]
+   }
+  ],
+  "hook": "Parity only detects errors; ARQ fixes them by asking again.",
+  "questions": [
+   "E8D10",
+   "E8D11",
+   "E8C09",
+   "E8D06",
+   "E8C08"
+  ]
+ },
+ {
+  "id": "e-8-spread-spectrum",
+  "title": "Spread spectrum techniques",
+  "summary": "Spread spectrum spreads a signal by an algorithm; the receiver suppresses anything not using it.",
+  "points": [
+   {
+    "label": "Direct sequence",
+    "value": "High-speed bit stream shifts the carrier phase",
+    "q": [
+     "E8D02"
+    ]
+   },
+   {
+    "label": "Frequency hopping",
+    "value": "Rapid frequency changes, pseudorandom sequence",
+    "q": [
+     "E8D03"
+    ]
+   },
+   {
+    "label": "Interference resistance",
+    "value": "Signals not using the algorithm are suppressed",
+    "q": [
+     "E8D01"
+    ]
+   }
+  ],
+  "questions": [
+   "E8D02",
+   "E8D03",
+   "E8D01"
+  ]
+ },
+ {
+  "id": "e-9-erp",
+  "title": "Antenna gain and ERP",
+  "summary": "Start from transmitter power, subtract every loss, add antenna gain, and convert the net dB to watts.",
+  "points": [
+   {
+    "label": "Isotropic radiator",
+    "value": "Lossless, equal in all directions, the reference",
+    "q": [
+     "E9A01"
+    ]
+   },
+   {
+    "label": "All gains and losses",
+    "value": "Effective radiated power",
+    "q": [
+     "E9A03"
+    ]
+   },
+   {
+    "label": "Gain antenna vs isotropic",
+    "value": "Total radiated power is the same",
+    "q": [
+     "E9B07"
+    ]
+   },
+   {
+    "label": "6 dB over isotropic",
+    "value": "3.85 dB over a dipole",
+    "q": [
+     "E9A12"
+    ]
+   },
+   {
+    "label": "150 W, 7 dBd antenna",
+    "value": "ERP 286 watts",
+    "q": [
+     "E9A02"
+    ]
+   },
+   {
+    "label": "200 W, 10 dBd antenna",
+    "value": "ERP 317 watts",
+    "q": [
+     "E9A06"
+    ]
+   },
+   {
+    "label": "200 W, 7 dBi antenna",
+    "value": "EIRP 252 watts",
+    "q": [
+     "E9A07"
+    ]
+   }
+  ],
+  "hook": "Net dB is gain minus losses: 150 W at +2.8 dB is about 286 W. Gain only redirects power, it never adds to the total.",
+  "questions": [
+   "E9A01",
+   "E9A03",
+   "E9B07",
+   "E9A12",
+   "E9A02",
+   "E9A06",
+   "E9A07"
+  ]
+ },
+ {
+  "id": "e-9-ground-effects",
+  "title": "How ground shapes an antenna",
+  "summary": "The ground under an antenna changes its losses, its impedance and the angle its signal leaves at.",
+  "points": [
+   {
+    "label": "Feed point impedance",
+    "value": "Affected by antenna height",
+    "q": [
+     "E9A04"
+    ]
+   },
+   {
+    "label": "Ground gain",
+    "value": "Stronger signal from ground reflections",
+    "q": [
+     "E9A05"
+    ]
+   },
+   {
+    "label": "Vertical, HF ground losses",
+    "value": "Set by soil conductivity",
+    "q": [
+     "E9A11"
+    ]
+   },
+   {
+    "label": "Better quarter-wave vertical",
+    "value": "Install a ground radial system",
+    "q": [
+     "E9A10"
+    ]
+   },
+   {
+    "label": "Vertical over seawater",
+    "value": "More radiation at low angles",
+    "q": [
+     "E9C11"
+    ]
+   },
+   {
+    "label": "Horizontal, raised higher",
+    "value": "Lowest lobe takeoff angle decreases",
+    "q": [
+     "E9C13"
+    ]
+   },
+   {
+    "label": "Horizontal above a slope",
+    "value": "Takeoff angle lower in downhill direction",
+    "q": [
+     "E9C14"
+    ]
+   }
+  ],
+  "hook": "Radials fight lossy soil and seawater boosts low angles. Raising a horizontal antenna, or a downhill slope, lowers its takeoff angle.",
+  "questions": [
+   "E9A04",
+   "E9A05",
+   "E9A11",
+   "E9A10",
+   "E9C11",
+   "E9C13",
+   "E9C14"
+  ]
+ },
+ {
+  "id": "e-9-loading",
+  "title": "Short antennas and loading",
+  "summary": "A shortened antenna is resonated with a coil. Efficiency and bandwidth both depend on how it is done.",
+  "points": [
+   {
+    "label": "Antenna efficiency",
+    "value": "Radiation resistance / total resistance",
+    "q": [
+     "E9A09"
+    ]
+   },
+   {
+    "label": "Whip fed below resonance",
+    "value": "Radiation resistance decreases",
+    "q": [
+     "E9D10"
+    ]
+   },
+   {
+    "label": "Loading coil's job",
+    "value": "Resonate by cancelling capacitive reactance",
+    "q": [
+     "E9D09"
+    ]
+   },
+   {
+    "label": "Best coil location",
+    "value": "Near the center of the vertical radiator",
+    "q": [
+     "E9D03"
+    ]
+   },
+   {
+    "label": "High reactance-to-resistance",
+    "value": "Maximizes loading coil efficiency",
+    "q": [
+     "E9D04"
+    ]
+   },
+   {
+    "label": "Top loading",
+    "value": "Improved radiation efficiency",
+    "q": [
+     "E9D07"
+    ]
+   },
+   {
+    "label": "Adding loading coils",
+    "value": "SWR bandwidth decreases",
+    "q": [
+     "E9D06"
+    ]
+   },
+   {
+    "label": "Higher antenna Q",
+    "value": "SWR bandwidth decreases",
+    "q": [
+     "E9D08"
+    ]
+   }
+  ],
+  "hook": "Efficiency is radiation resistance over total resistance, so keep coil losses low. Loading and high Q both narrow SWR bandwidth.",
+  "questions": [
+   "E9A09",
+   "E9D10",
+   "E9D09",
+   "E9D03",
+   "E9D04",
+   "E9D07",
+   "E9D06",
+   "E9D08"
+  ]
+ },
+ {
+  "id": "e-9-pattern-plots",
+  "title": "Reading radiation pattern plots",
+  "summary": "Read each plot by comparing the main lobe with the back, the sides, or the half-power points.",
+  "points": [
+   {
+    "label": "E9-1: 3 dB beamwidth",
+    "value": "50 degrees",
+    "q": [
+     "E9B01"
+    ]
+   },
+   {
+    "label": "E9-1: front-to-back",
+    "value": "18 dB",
+    "q": [
+     "E9B02"
+    ]
+   },
+   {
+    "label": "E9-1: front-to-side",
+    "value": "14 dB",
+    "q": [
+     "E9B03"
+    ]
+   },
+   {
+    "label": "E9-2: pattern type",
+    "value": "Elevation",
+    "q": [
+     "E9B05"
+    ]
+   },
+   {
+    "label": "E9-2: front-to-back",
+    "value": "28 dB",
+    "q": [
+     "E9B04"
+    ]
+   },
+   {
+    "label": "E9-2: peak elevation angle",
+    "value": "7.5 degrees",
+    "q": [
+     "E9B06"
+    ]
+   },
+   {
+    "label": "Far field",
+    "value": "Pattern shape no longer varies with distance",
+    "q": [
+     "E9B08"
+    ]
+   }
+  ],
+  "questions": [
+   "E9B01",
+   "E9B02",
+   "E9B03",
+   "E9B05",
+   "E9B04",
+   "E9B06",
+   "E9B08"
+  ]
+ },
+ {
+  "id": "e-9-antenna-modeling",
+  "title": "Antenna modeling",
+  "summary": "Modeling software chops wires into segments; too few segments give wrong answers.",
+  "points": [
+   {
+    "label": "Common analysis",
+    "value": "Method of Moments",
+    "q": [
+     "E9B09"
+    ]
+   },
+   {
+    "label": "Principle",
+    "value": "Wire as segments, each with uniform current",
+    "q": [
+     "E9B10"
+    ]
+   },
+   {
+    "label": "Under 10 per half wavelength",
+    "value": "Feed point impedance may be incorrect",
+    "q": [
+     "E9B11"
+    ]
+   }
+  ],
+  "questions": [
+   "E9B09",
+   "E9B10",
+   "E9B11"
+  ]
+ },
+ {
+  "id": "e-9-phased-verticals",
+  "title": "Phased vertical arrays",
+  "summary": "Two quarter-wave verticals: spacing and feed phase decide where the pattern points.",
+  "points": [
+   {
+    "label": "1/2 wave apart, in phase",
+    "value": "Figure-eight broadside to the array axis",
+    "q": [
+     "E9C03"
+    ]
+   },
+   {
+    "label": "1/2 wave apart, 180 degrees",
+    "value": "Figure-eight along the array axis",
+    "q": [
+     "E9C01"
+    ]
+   },
+   {
+    "label": "1/4 wave apart, 90 degrees",
+    "value": "Cardioid",
+    "q": [
+     "E9C02"
+    ]
+   },
+   {
+    "label": "Phasing lines' purpose",
+    "value": "Control the radiation pattern",
+    "q": [
+     "E9E11"
+    ]
+   }
+  ],
+  "hook": "In phase fires broadside; 180 degrees out fires along the axis; a quarter wave with 90 degrees makes a one-way cardioid.",
+  "questions": [
+   "E9C03",
+   "E9C01",
+   "E9C02",
+   "E9E11"
+  ]
+ },
+ {
+  "id": "e-9-wire-antennas",
+  "title": "Dipole family wire antennas",
+  "summary": "Each of these is a dipole with a twist: folded, end-fed, extended, or fed off center.",
+  "points": [
+   {
+    "label": "Folded dipole",
+    "value": "Half-wave dipole plus a parallel wire",
+    "q": [
+     "E9C08"
+    ]
+   },
+   {
+    "label": "Folded dipole impedance",
+    "value": "About 300 ohms at center",
+    "q": [
+     "E9C07"
+    ]
+   },
+   {
+    "label": "Zepp",
+    "value": "End-fed half-wavelength dipole",
+    "q": [
+     "E9C10"
+    ]
+   },
+   {
+    "label": "Extended double Zepp",
+    "value": "Center-fed 1.25-wavelength dipole",
+    "q": [
+     "E9C12"
+    ]
+   },
+   {
+    "label": "G5RV",
+    "value": "Center-fed via open-wire line, balun, coax",
+    "q": [
+     "E9C09"
+    ]
+   },
+   {
+    "label": "Off-center-fed dipole",
+    "value": "Similar feed impedance on multiple bands",
+    "q": [
+     "E9C05"
+    ]
+   }
+  ],
+  "questions": [
+   "E9C08",
+   "E9C07",
+   "E9C10",
+   "E9C12",
+   "E9C09",
+   "E9C05"
+  ],
+  "aid": {
+   "kind": "antenna",
+   "type": "dipole"
+  }
+ },
+ {
+  "id": "e-9-yagi",
+  "title": "Yagi design",
+  "summary": "One driven element plus parasitic elements tuned long or short to steer the phase.",
+  "points": [
+   {
+    "label": "Driven element",
+    "value": "About 1/2 wavelength",
+    "q": [
+     "E9D05"
+    ]
+   },
+   {
+    "label": "Parasitics long or short",
+    "value": "Control of phase shift",
+    "q": [
+     "E9D12"
+    ]
+   },
+   {
+    "label": "Two elements: reflector",
+    "value": "Higher gain than a director",
+    "q": [
+     "E9D11"
+    ]
+   },
+   {
+    "label": "Circular polarization",
+    "value": "Two Yagis at right angles, fed 90 degrees apart",
+    "q": [
+     "E9D02"
+    ]
+   }
+  ],
+  "questions": [
+   "E9D05",
+   "E9D12",
+   "E9D11",
+   "E9D02"
+  ],
+  "aid": {
+   "kind": "antenna",
+   "type": "yagi",
+   "highlight": "reflector"
+  }
+ },
+ {
+  "id": "e-9-matching",
+  "title": "Antenna matching systems",
+  "summary": "Each matching system has a signature: where it connects and what reactance it needs or cancels.",
+  "points": [
+   {
+    "label": "Gamma match",
+    "value": "Shield at center, conductor off to one side",
+    "q": [
+     "E9E02"
+    ]
+   },
+   {
+    "label": "Gamma series capacitor",
+    "value": "Cancels unwanted inductive reactance",
+    "q": [
+     "E9E04"
+    ]
+   },
+   {
+    "label": "Shunt feeding a tower base",
+    "value": "Gamma match",
+    "q": [
+     "E9E09"
+    ]
+   },
+   {
+    "label": "Beta or hairpin",
+    "value": "Driven element insulated from the boom",
+    "q": [
+     "E9E01"
+    ]
+   },
+   {
+    "label": "Hairpin feed point",
+    "value": "Capacitive, shorter than 1/2 wavelength",
+    "q": [
+     "E9E05"
+    ]
+   },
+   {
+    "label": "Stub match",
+    "value": "Short line in parallel near the feed point",
+    "q": [
+     "E9E03"
+    ]
+   },
+   {
+    "label": "Q-section, 100 to 50 ohms",
+    "value": "75 ohm line",
+    "q": [
+     "E9E06"
+    ]
+   },
+   {
+    "label": "Wilkinson divider",
+    "value": "Splits power equally into two 50 ohm loads",
+    "q": [
+     "E9E08"
+    ]
+   }
+  ],
+  "questions": [
+   "E9E02",
+   "E9E04",
+   "E9E09",
+   "E9E01",
+   "E9E05",
+   "E9E03",
+   "E9E06",
+   "E9E08"
+  ]
+ },
+ {
+  "id": "e-9-velocity-factor",
+  "title": "Velocity factor and line types",
+  "summary": "Waves travel slower in a line than in a vacuum, so lines are electrically longer than they look.",
+  "points": [
+   {
+    "label": "Velocity factor",
+    "value": "Wave speed in line / speed of light",
+    "q": [
+     "E9F01"
+    ]
+   },
+   {
+    "label": "Biggest effect on it",
+    "value": "The insulating dielectric",
+    "q": [
+     "E9F02"
+    ]
+   },
+   {
+    "label": "Coax electrically longer",
+    "value": "Waves move more slowly than in air",
+    "q": [
+     "E9F03"
+    ]
+   },
+   {
+    "label": "1/2 wave air line, 14.10 MHz",
+    "value": "About 10.6 meters",
+    "q": [
+     "E9F06"
+    ]
+   },
+   {
+    "label": "Parallel line vs coax",
+    "value": "Lower loss",
+    "q": [
+     "E9F07"
+    ]
+   }
+  ],
+  "questions": [
+   "E9F01",
+   "E9F02",
+   "E9F03",
+   "E9F06",
+   "E9F07"
+  ]
+ },
+ {
+  "id": "e-9-line-stubs",
+  "title": "Shorted and open line sections",
+  "summary": "A line section's length and end condition decide what the generator sees.",
+  "points": [
+   {
+    "label": "1/8 wave, shorted",
+    "value": "Inductive reactance",
+    "q": [
+     "E9F10"
+    ]
+   },
+   {
+    "label": "1/8 wave, open",
+    "value": "Capacitive reactance",
+    "q": [
+     "E9F11"
+    ]
+   },
+   {
+    "label": "1/4 wave, shorted",
+    "value": "Very high impedance",
+    "q": [
+     "E9F09"
+    ]
+   },
+   {
+    "label": "1/4 wave, open",
+    "value": "Very low impedance",
+    "q": [
+     "E9F12"
+    ]
+   },
+   {
+    "label": "1/2 wave, shorted",
+    "value": "Very low impedance",
+    "q": [
+     "E9F04"
+    ]
+   }
+  ],
+  "hook": "A quarter wave flips the end: short looks high, open looks low. A half wave shows the short as it is.",
+  "questions": [
+   "E9F10",
+   "E9F11",
+   "E9F09",
+   "E9F12",
+   "E9F04"
+  ]
+ },
+ {
+  "id": "e-9-smith-chart",
+  "title": "The Smith chart",
+  "summary": "A map of impedance: resistance circles, reactance arcs, and scales in wavelengths for working along a line.",
+  "points": [
+   {
+    "label": "Coordinate system",
+    "value": "Resistance circles and reactance arcs",
+    "q": [
+     "E9G02",
+     "E9G04"
+    ]
+   },
+   {
+    "label": "The arcs",
+    "value": "Points with constant reactance",
+    "q": [
+     "E9G10"
+    ]
+   },
+   {
+    "label": "Large outer circle",
+    "value": "Reactance axis",
+    "q": [
+     "E9G06"
+    ]
+   },
+   {
+    "label": "Only straight line",
+    "value": "Resistance axis",
+    "q": [
+     "E9G07"
+    ]
+   },
+   {
+    "label": "Third family, for matching",
+    "value": "Constant-SWR circles",
+    "q": [
+     "E9G09"
+    ]
+   },
+   {
+    "label": "Normalizing",
+    "value": "Reassign the prime center's impedance",
+    "q": [
+     "E9G08"
+    ]
+   },
+   {
+    "label": "Wavelength scales",
+    "value": "Fractions of electrical wavelength",
+    "q": [
+     "E9G11"
+    ]
+   },
+   {
+    "label": "Common uses",
+    "value": "Impedance, SWR, and matching stub placement",
+    "q": [
+     "E9G01",
+     "E9G03",
+     "E9G05"
+    ]
+   }
+  ],
+  "hook": "Arcs are reactance and end on the outer reactance axis; the one straight line is the resistance axis.",
+  "questions": [
+   "E9G02",
+   "E9G04",
+   "E9G10",
+   "E9G06",
+   "E9G07",
+   "E9G09",
+   "E9G08",
+   "E9G11",
+   "E9G01",
+   "E9G03",
+   "E9G05"
+  ]
+ },
+ {
+  "id": "e-9-receiving-wires",
+  "title": "Low-band receiving and terminated wires",
+  "summary": "On the low bands noise is high, so receiving antennas chase directivity. A terminating resistor makes a wire one-way.",
+  "points": [
+   {
+    "label": "160 and 80 meter receiving",
+    "value": "Directivity matters much more than losses",
+    "q": [
+     "E9H02"
+    ]
+   },
+   {
+    "label": "RDF",
+    "value": "Peak gain vs average over the hemisphere",
+    "q": [
+     "E9H03"
+    ]
+   },
+   {
+    "label": "Beverage length",
+    "value": "At least one wavelength",
+    "q": [
+     "E9H01"
+    ]
+   },
+   {
+    "label": "Beverage termination",
+    "value": "Absorbs signals from the reverse direction",
+    "q": [
+     "E9H07"
+    ]
+   },
+   {
+    "label": "Right termination value",
+    "value": "Minimum SWR variation over the range",
+    "q": [
+     "E9H06"
+    ]
+   },
+   {
+    "label": "Terminated rhombic or wire",
+    "value": "Bidirectional becomes unidirectional",
+    "q": [
+     "E9C06"
+    ]
+   },
+   {
+    "label": "Longer unterminated wire",
+    "value": "More lobes, major lobes nearer the wire axis",
+    "q": [
+     "E9C04"
+    ]
+   }
+  ],
+  "questions": [
+   "E9H02",
+   "E9H03",
+   "E9H01",
+   "E9H07",
+   "E9H06",
+   "E9C06",
+   "E9C04"
+  ]
+ },
+ {
+  "id": "e-9-df-loops",
+  "title": "Direction-finding loops",
+  "summary": "A small loop has two nulls. DF work adds tricks to get a single null and deeper nulls.",
+  "points": [
+   {
+    "label": "Small loop challenge",
+    "value": "Bidirectional null pattern",
+    "q": [
+     "E9H05"
+    ]
+   },
+   {
+    "label": "Electrostatic shield",
+    "value": "Removes unbalanced coupling, deeper nulls",
+    "q": [
+     "E9H04"
+    ]
+   },
+   {
+    "label": "Sense antenna",
+    "value": "Gives a null in only one direction",
+    "q": [
+     "E9H08"
+    ]
+   },
+   {
+    "label": "Cardioid for DF",
+    "value": "A single null",
+    "q": [
+     "E9H11"
+    ]
+   },
+   {
+    "label": "Pennant (terminated loop)",
+    "value": "Cardioid pattern",
+    "q": [
+     "E9H09"
+    ]
+   },
+   {
+    "label": "More loop output voltage",
+    "value": "More turns and/or more enclosed area",
+    "q": [
+     "E9H10"
+    ]
+   }
+  ],
+  "questions": [
+   "E9H05",
+   "E9H04",
+   "E9H08",
+   "E9H11",
+   "E9H09",
+   "E9H10"
+  ],
+  "aid": {
+   "kind": "antenna",
+   "type": "loop"
+  }
+ },
+ {
+  "id": "e-0-rf-exposure",
+  "title": "RF exposure rules",
+  "summary": "Exposure is judged against MPE limits, strictest from 30 to 300 MHz. Know who must act and what is exempt.",
+  "points": [
+   {
+    "label": "Most restrictive range",
+    "value": "30 to 300 MHz",
+    "q": [
+     "E0A03"
+    ]
+   },
+   {
+    "label": "At a neighbor's home",
+    "value": "Below uncontrolled MPE limits",
+    "q": [
+     "E0A02"
+    ]
+   },
+   {
+    "label": "Multiple transmitters",
+    "value": "Each at 5 percent or more of its MPE limit",
+    "q": [
+     "E0A04"
+    ]
+   },
+   {
+    "label": "Microwave hazard",
+    "value": "High gain antennas, high exposure",
+    "q": [
+     "E0A05"
+    ]
+   },
+   {
+    "label": "SAR",
+    "value": "Rate RF energy is absorbed by the body",
+    "q": [
+     "E0A08"
+    ]
+   },
+   {
+    "label": "Exempt equipment",
+    "value": "Hand-helds sold before May 3, 2021",
+    "q": [
+     "E0A09"
+    ]
+   },
+   {
+    "label": "Station on 80 meters",
+    "value": "An evaluation must always be performed",
+    "q": [
+     "E0A10"
+    ]
+   }
+  ],
+  "questions": [
+   "E0A03",
+   "E0A02",
+   "E0A04",
+   "E0A05",
+   "E0A08",
+   "E0A09",
+   "E0A10"
+  ]
+ },
+ {
+  "id": "e-0-tower-safety",
+  "title": "Tower climbing safety",
+  "summary": "Tower work: a ground rod for lightning, then stay tied off at all times, lanyards on the legs, the shock-absorbing one up high.",
+  "points": [
+   {
+    "label": "Ground rod's main job",
+    "value": "Lightning charge dissipation",
+    "q": [
+     "E0A01"
+    ]
+   },
+   {
+    "label": "100% tie-off",
+    "value": "At least one lanyard attached at all times",
+    "q": [
+     "E0A07"
+    ]
+   },
+   {
+    "label": "Attach lanyards to",
+    "value": "Tower legs",
+    "q": [
+     "E0A11"
+    ]
+   },
+   {
+    "label": "Shock-absorbing lanyard",
+    "value": "Above the climber's head level",
+    "q": [
+     "E0A12"
+    ]
+   }
+  ],
+  "questions": [
+   "E0A01",
+   "E0A07",
+   "E0A11",
+   "E0A12"
+  ]
+ }
+]

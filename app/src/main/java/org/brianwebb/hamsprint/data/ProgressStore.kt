@@ -120,6 +120,35 @@ class ProgressStore(
         ).use { c -> if (c.moveToFirst()) c.getLong(0) else 0L }
     }}
 
+    /** Ids of the foundations already taught for [license]; bounded by the curriculum size. */
+    suspend fun seenFoundations(license: LicenseClass): Set<String> = lock.withLock { withContext(io) {
+        helper.readableDatabase.query(
+            T_FOUNDATIONS, arrayOf("foundation_id"), "pool_id = ?", arrayOf(license.poolId), null, null, null,
+        ).use { c -> buildSet { while (c.moveToNext()) add(c.getString(0)) } }
+    }}
+
+    /**
+     * Records that [foundationId] was taught and adds [studiedMillis] of reading
+     * to the study clock, atomically. Marking it again changes only the clock.
+     */
+    suspend fun markFoundationSeen(license: LicenseClass, foundationId: String, atMillis: Long, studiedMillis: Long = 0) {
+        lock.withLock { withContext(io) {
+            helper.writableDatabase.inTransaction {
+                insertWithOnConflict(
+                    T_FOUNDATIONS, null,
+                    ContentValues().apply {
+                        put("pool_id", license.poolId)
+                        put("foundation_id", foundationId)
+                        put("seen_at", atMillis)
+                    },
+                    SQLiteDatabase.CONFLICT_IGNORE,
+                )
+                writeProgress(license, emptyList(), studiedMillis)
+            }
+        } }
+        _version.update { it + 1 }
+    }
+
     suspend fun reset(license: LicenseClass) {
         lock.withLock { withContext(io) {
             helper.writableDatabase.inTransaction {
@@ -127,6 +156,7 @@ class ProgressStore(
                 delete(T_PROGRESS, "pool_id = ?", args)
                 delete(T_EXAMS, "pool_id = ?", args)
                 delete(T_STUDY, "pool_id = ?", args)
+                delete(T_FOUNDATIONS, "pool_id = ?", args)
             }
         } }
         _version.update { it + 1 }
@@ -181,7 +211,7 @@ class ProgressStore(
         }
     }
 
-    private class Helper(context: Context, name: String?) : SQLiteOpenHelper(context, name, null, 1) {
+    private class Helper(context: Context, name: String?) : SQLiteOpenHelper(context, name, null, 2) {
         override fun onCreate(db: SQLiteDatabase) {
             db.execSQL(
                 """CREATE TABLE $T_PROGRESS (
@@ -207,9 +237,21 @@ class ProgressStore(
             )
             db.execSQL("CREATE INDEX idx_exams_pool ON $T_EXAMS(pool_id, taken_at)")
             db.execSQL("CREATE TABLE $T_STUDY (pool_id TEXT PRIMARY KEY NOT NULL, millis INTEGER NOT NULL)")
+            createFoundations(db)
         }
 
-        override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) = Unit
+        // Version 2 only adds a table, so existing progress is untouched.
+        override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+            if (oldVersion < 2) createFoundations(db)
+        }
+
+        private fun createFoundations(db: SQLiteDatabase) = db.execSQL(
+            """CREATE TABLE $T_FOUNDATIONS (
+                pool_id TEXT NOT NULL,
+                foundation_id TEXT NOT NULL,
+                seen_at INTEGER NOT NULL,
+                PRIMARY KEY (pool_id, foundation_id))""",
+        )
     }
 
     private companion object {
@@ -217,5 +259,6 @@ class ProgressStore(
         const val T_PROGRESS = "progress"
         const val T_EXAMS = "exam_results"
         const val T_STUDY = "study_time"
+        const val T_FOUNDATIONS = "foundations_seen"
     }
 }

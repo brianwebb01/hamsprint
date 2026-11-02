@@ -15,6 +15,9 @@ sealed interface Screen {
     /** Practice-exam history and confirmation of readiness. */
     data object ExamHistory : Screen
     data object Settings : Screen
+    /** The library of frameworks the training builds on. */
+    data object Foundations : Screen
+    data class FoundationDetail(val foundationId: String) : Screen
 }
 
 /** A back-stack entry owns the ViewModels of its screen; they are cleared when it is popped. */

@@ -74,18 +74,24 @@ class AidLoader(private val open: (path: String) -> InputStream) {
         val out = LinkedHashMap<String, VisualAid>(entries.size)
         for (element in entries) {
             val e = Entry(element.jsonObject)
+            val question = requireNotNull(e.question) { "Aid without a question id" }
             val aid = try {
                 e.toAid()
             } catch (ex: IllegalArgumentException) {
-                throw IllegalArgumentException("Aid for ${e.question}: ${ex.message}", ex)
+                throw IllegalArgumentException("Aid for $question: ${ex.message}", ex)
             }
-            require(out.put(e.question, aid) == null) { "More than one aid for ${e.question}" }
+            require(out.put(question, aid) == null) { "More than one aid for $question" }
         }
         return out
     }
 
+    companion object {
+        /** Parses one aid object that is not tied to a question, such as a foundation's picture. */
+        internal fun parseAid(o: JsonObject): VisualAid = Entry(o).toAid()
+    }
+
     private class Entry(private val o: JsonObject) {
-        val question: String = requireNotNull(o["q"]?.jsonPrimitive?.content) { "Aid without a question id" }
+        val question: String? = o["q"]?.jsonPrimitive?.content
         private val caption: String? = string("caption")
 
         fun toAid(): VisualAid = when (val kind = string("kind")) {

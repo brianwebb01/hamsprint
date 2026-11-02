@@ -20,7 +20,7 @@ class AppFlowTest {
     @get:Rule val rule = createAndroidComposeRule<MainActivity>()
 
     @Test
-    fun `new user picks General, starts training, previews then recalls a question`() {
+    fun `new user picks General, learns a foundation, then previews its first question`() {
         rule.onNodeWithText("Get started").performClick()
         rule.onNodeWithText("Continue").performClick()
         rule.onNodeWithText("General").performClick()
@@ -30,8 +30,14 @@ class AppFlowTest {
         rule.onNode(hasScrollAction()).performScrollToNode(hasText("Start training"))
         rule.onNodeWithText("Start training").performClick()
 
+        // Training opens with the first foundation, then the questions that build on it.
+        rule.waitUntil(5_000) { rule.onAllNodesWithTextExists("Start these questions") }
+        rule.onNodeWithText("FOUNDATION 1", substring = true).assertIsDisplayed()
+        rule.onNodeWithText("Start these questions").performClick()
+
         rule.waitUntil(5_000) { rule.onAllNodesWithTextExists("Got it") }
         rule.onNodeWithText("New", substring = false, ignoreCase = true).assertIsDisplayed()
+        rule.onNodeWithText("BUILDS ON").assertExists()
         rule.onNodeWithText("Got it").performClick()
 
         // After one preview the next card is another new question (working memory has room).
