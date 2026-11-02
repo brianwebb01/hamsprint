@@ -42,11 +42,20 @@ object Readiness {
     /** Per-question study cost, calibrated against StudySimulationTest (preview + spaced recalls). */
     private val NEW_QUESTION_COST = 34.seconds
     private val LEARNING_QUESTION_COST = 12.seconds
+    /** Reading one foundation lesson, matching StudySimulationTest's pacing. */
+    private val LESSON_COST = 40.seconds
 
+    /**
+     * [curriculum] and [seenFoundations] only shape [ReadinessReport.timeToReady]:
+     * questions are introduced foundation by foundation, and each foundation not
+     * yet taught adds a lesson to read.
+     */
     fun evaluate(
         pool: QuestionPool,
         progress: Map<String, QuestionProgress>,
         nowMillis: Long,
+        curriculum: Curriculum = Curriculum.EMPTY,
+        seenFoundations: Set<String> = emptySet(),
     ): ReadinessReport {
         val recall = pool.questions.associate { it.id to MemoryModel.recallProbability(progress[it.id], nowMillis) }
         val groupRecall = pool.groups.map { g -> g.questions.sumOf { recall.getValue(it.id) } / g.questions.size }
@@ -84,7 +93,7 @@ object Readiness {
             mastered = mastered,
             due = due,
             subelements = subelements,
-            timeToReady = timeToReady(pool, progress, nowMillis),
+            timeToReady = timeToReady(pool, progress, nowMillis, curriculum, seenFoundations),
         )
     }
 
@@ -105,13 +114,16 @@ object Readiness {
 
     /**
      * Greedy estimate: learn questions in the order training introduces them
-     * (highest exam weight first) until the pass probability crosses the
-     * threshold, assuming each learned question reaches a short-term-review level.
+     * (foundation by foundation, then highest exam weight first) until the pass
+     * probability crosses the threshold, assuming each learned question reaches
+     * a short-term-review level.
      */
     private fun timeToReady(
         pool: QuestionPool,
         progress: Map<String, QuestionProgress>,
         nowMillis: Long,
+        curriculum: Curriculum,
+        seenFoundations: Set<String>,
     ): Duration {
         val learnedRecall = MemoryModel.recallProbability(
             QuestionProgress("", 2, nowMillis, 0, 0, 0, nowMillis), nowMillis,
@@ -128,14 +140,18 @@ object Readiness {
         var cost = Duration.ZERO
         if (currentPass() >= READY_THRESHOLD) return cost
 
-        val candidates = pool.questions
-            .filter { recall.getValue(it.id) < learnedRecall }
-            .sortedByDescending { 1.0 / groupSizes.getValue(it.groupId) }
+        val candidates = curriculum.order(
+            pool.questions
+                .filter { recall.getValue(it.id) < learnedRecall }
+                .sortedByDescending { 1.0 / groupSizes.getValue(it.groupId) },
+        )
+        val taught = seenFoundations.toMutableSet()
         // Re-evaluating the tail after every question is O(n² · groups); batching keeps it cheap.
         val step = ceil(candidates.size / 60.0).toInt().coerceAtLeast(1)
         for (batch in candidates.chunked(step)) {
             for (q in batch) {
                 cost += if (progress[q.id] == null) NEW_QUESTION_COST else LEARNING_QUESTION_COST
+                curriculum.foundationOf(q.id)?.let { if (taught.add(it.id)) cost += LESSON_COST }
                 recall[q.id] = learnedRecall
             }
             if (currentPass() >= READY_THRESHOLD) break

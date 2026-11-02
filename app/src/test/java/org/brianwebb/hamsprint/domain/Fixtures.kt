@@ -47,3 +47,6 @@ fun progressAt(id: String, stage: Int, dueAt: Long, now: Long = dueAt) =
 
 /** The real bundled visual aids. */
 val realAids = org.brianwebb.hamsprint.data.AidLoader { path -> File("src/main/assets/$path").inputStream() }
+
+/** The real bundled foundations. */
+val realFoundations = org.brianwebb.hamsprint.data.FoundationLoader { path -> File("src/main/assets/$path").inputStream() }

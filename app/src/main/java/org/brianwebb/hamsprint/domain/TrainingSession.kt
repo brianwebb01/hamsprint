@@ -60,7 +60,9 @@ data class RoundSummary(
  *  2. a brand-new question, if one hasn't been introduced for a few cards,
  *     so a review backlog never stalls coverage of the pool,
  *  3. a spaced review that is due,
- *  4. a brand-new question, if working memory has room, highest exam weight first,
+ *  4. a brand-new question, if working memory has room: each foundation's
+ *     questions together in curriculum order, then the rest, highest exam
+ *     weight first,
  *  5. any question being learned (to avoid stalling),
  *  6. optional review-ahead of the weakest questions,
  *  7. as a last resort, the question just shown (only when nothing else exists).
@@ -69,6 +71,9 @@ data class RoundSummary(
  * later, to graduate to the spaced schedule, whose first review is minutes
  * away. Every question therefore gets at least two spaced retrievals before it
  * counts toward readiness, at a cost of about four cards.
+ *
+ * When a new question opens a foundation the learner hasn't seen, [lesson]
+ * names it so the framework is taught before the question.
  */
 class TrainingSession(
     pool: QuestionPool,
@@ -77,10 +82,13 @@ class TrainingSession(
     private val clock: Clock,
     private val random: Random,
     private val config: TrainingConfig = TrainingConfig(),
+    private val curriculum: Curriculum = Curriculum.EMPTY,
+    seenFoundations: Set<String> = emptySet(),
 ) {
     private class WorkItem(var remaining: Int, var notBefore: Int)
 
     private val progressMap = initialProgress.toMutableMap()
+    private val seen = seenFoundations.toMutableSet()
     private val scopeQuestions = scope
     private val scopeById = scope.associateBy { it.id }
     private val working = LinkedHashMap<String, WorkItem>()
@@ -107,9 +115,11 @@ class TrainingSession(
         // Highest exam weight (smallest group) first; shuffling within a weight
         // band interleaves topics, which improves discrimination between them.
         newQueue = ArrayDeque(
-            scope.filter { it.id !in progressMap }
-                .shuffled(random)
-                .sortedBy { groupSize.getValue(it.groupId) },
+            curriculum.order(
+                scope.filter { it.id !in progressMap }
+                    .shuffled(random)
+                    .sortedBy { groupSize.getValue(it.groupId) },
+            ),
         )
         // Questions left in learning by an earlier round or a missed exam question.
         scope.filter { progressMap[it.id]?.stage == MemoryModel.LEARNING }
@@ -119,6 +129,24 @@ class TrainingSession(
     }
 
     val isFinished: Boolean get() = current == null
+
+    /**
+     * The foundation to teach before the current card: set when the card
+     * introduces a question whose foundation the learner hasn't seen yet.
+     */
+    val lesson: Foundation?
+        get() {
+            val card = current ?: return null
+            if (card.kind != CardKind.PREVIEW && card.kind != CardKind.NEW) return null
+            return curriculum.foundationOf(card.question.id)?.takeIf { it.id !in seen }
+        }
+
+    /** The learner has read the current [lesson]; returns its id so the caller can persist it. */
+    fun acknowledgeLesson(): String {
+        val foundation = checkNotNull(lesson) { "No lesson to acknowledge" }
+        seen += foundation.id
+        return foundation.id
+    }
 
     fun summary(): RoundSummary = RoundSummary(answered, correct, introduced, reviewed, caughtUp)
 

@@ -82,6 +82,8 @@ class TrainingAidTest {
         val deadline = System.currentTimeMillis() + 10_000
         while (System.currentTimeMillis() < deadline) {
             shadowOf(Looper.getMainLooper()).idle()
+            // Foundations are taught before their questions; read them and carry on.
+            if (vm.state.value is TrainingUiState.Lesson) vm.startLesson()
             (vm.state.value as? TrainingUiState.Studying)?.takeIf { it.phase == CardPhase.Asking }?.let { return it }
             Thread.sleep(10)
         }
