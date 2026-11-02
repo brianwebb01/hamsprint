@@ -21,6 +21,9 @@ import kotlin.time.Duration.Companion.minutes
  * set to high difficulty (unfamiliar technical material). Retrievability decays
  * as a power law; successful retrievals after a gap grow stability far more than
  * massed ones; a forgotten answer is still guessed right 25% of the time.
+ *
+ * Training runs with the real foundations, and reading each one costs time.
+ * The memory model gives frameworks no credit, so their benefit is not counted.
  */
 class StudySimulationTest {
     private class Learner(private val random: Random) {
@@ -59,6 +62,8 @@ class StudySimulationTest {
 
     private fun simulate(license: LicenseClass, seed: Int): Outcome {
         val pool = realPools.load(license)
+        val curriculum = realFoundations.load(license)
+        val seen = mutableSetOf<String>()
         val random = Random(seed)
         val clock = FakeClock()
         val learner = Learner(random)
@@ -72,8 +77,13 @@ class StudySimulationTest {
 
         while (Readiness.evaluate(pool, progress, clock.now).passProbability < Readiness.READY_THRESHOLD) {
             check(studyMillis < 12.hours.inWholeMilliseconds) { "$license seed $seed never became ready" }
-            val session = TrainingSession(pool, pool.questions, progress, clock, random)
+            val session = TrainingSession(pool, pool.questions, progress, clock, random, curriculum = curriculum, seenFoundations = seen)
             while (!session.isFinished) {
+                // Reading a foundation costs time; the model gives it no memory benefit, so this is pessimistic.
+                if (session.lesson != null) {
+                    seen += session.acknowledgeLesson()
+                    spend(LESSON_MILLIS)
+                }
                 val card = session.current!!
                 val id = card.question.id
                 if (card.kind == CardKind.PREVIEW) {
@@ -109,10 +119,11 @@ class StudySimulationTest {
     }
 
     @Test
-    fun `a typical learner is ready for General in about four hours and passes the next day`() {
+    fun `a typical learner is ready for General in about five hours, foundations included, and passes the next day`() {
         val outcomes = (1..5).map { seed -> simulate(LicenseClass.GENERAL, seed) }
         outcomes.forEach { println("General: $it") }
-        assertTrue("every run ready within 4.5h: $outcomes", outcomes.all { it.studied < 4.5.hours })
+        // About 4 hours of questions plus about 50 minutes of foundation lessons, which this model gives no credit.
+        assertTrue("every run ready within 5.25h: $outcomes", outcomes.all { it.studied < 5.25.hours })
         val passRate = outcomes.map { it.nextDayPassRate }.average()
         assertTrue("mean next-day pass rate $passRate should honor the 95% readiness bar", passRate >= 0.95)
     }
@@ -130,6 +141,7 @@ class StudySimulationTest {
         // Measured-style pacing: reading a preview vs. answering a question.
         const val PREVIEW_MILLIS = 9_000L
         const val ANSWER_MILLIS = 8_000L
+        const val LESSON_MILLIS = 40_000L
         val SITTING = 50.minutes
     }
 }

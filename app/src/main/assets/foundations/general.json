@@ -1,0 +1,3725 @@
+[
+ {
+  "id": "g-1-extra-gaps",
+  "title": "General privileges on HF",
+  "summary": "Only four HF bands have portions General cannot use. On 10 meters, General may send CW across the entire band.",
+  "points": [
+   {
+    "label": "Bands with Extra-only gaps",
+    "value": "80, 40, 20 and 15 meters",
+    "q": [
+     "G1A01",
+     "G1A08"
+    ]
+   },
+   {
+    "label": "Off limits to General, 40 m",
+    "value": "7.125 MHz to 7.175 MHz",
+    "q": [
+     "G1A05"
+    ]
+   },
+   {
+    "label": "General phone on gap bands",
+    "value": "The upper frequency portion",
+    "q": [
+     "G1A11"
+    ]
+   },
+   {
+    "label": "General on 15 meters",
+    "value": "21300 kHz is in the General portion",
+    "q": [
+     "G1A09"
+    ]
+   },
+   {
+    "label": "10 meters, CW",
+    "value": "The entire band",
+    "q": [
+     "G1A07"
+    ]
+   },
+   {
+    "label": "10 meters, repeaters",
+    "value": "The portion above 29.5 MHz",
+    "q": [
+     "G1A10"
+    ]
+   }
+  ],
+  "hook": "Start at 80 and halve: 80, 40, 20, then 15. Those four have Extra-only gaps. 10 meters CW: the entire band.",
+  "questions": [
+   "G1A01",
+   "G1A08",
+   "G1A07",
+   "G1A11",
+   "G1A05",
+   "G1A09",
+   "G1A10"
+  ],
+  "aid": {
+   "kind": "spectrum",
+   "bands": [
+    "80m",
+    "40m",
+    "20m",
+    "15m"
+   ]
+  }
+ },
+ {
+  "id": "g-1-power-limits",
+  "title": "Power limits: one big number",
+  "summary": "Power is measured as PEP output. Most bands asked about allow 1500 W; learn the two smaller numbers as exceptions.",
+  "points": [
+   {
+    "label": "How power is measured",
+    "value": "PEP output from the transmitter",
+    "q": [
+     "G1C11"
+    ]
+   },
+   {
+    "label": "1.8 MHz band",
+    "value": "1500 watts PEP output",
+    "q": [
+     "G1C06"
+    ]
+   },
+   {
+    "label": "12 meters",
+    "value": "1500 watts PEP output",
+    "q": [
+     "G1C02"
+    ]
+   },
+   {
+    "label": "28 MHz band (General)",
+    "value": "1500 watts PEP output",
+    "q": [
+     "G1C05"
+    ]
+   },
+   {
+    "label": "10.140 MHz (30 meters)",
+    "value": "200 watts PEP output",
+    "q": [
+     "G1C01"
+    ]
+   },
+   {
+    "label": "Spread spectrum",
+    "value": "10 watts PEP output",
+    "q": [
+     "G1E08"
+    ]
+   }
+  ],
+  "hook": "Mostly big (1500 W), smaller on 30 m (200 W), tiny for spread spectrum (10 W).",
+  "questions": [
+   "G1C11",
+   "G1C06",
+   "G1C02",
+   "G1C05",
+   "G1C01",
+   "G1E08"
+  ]
+ },
+ {
+  "id": "g-1-30m-60m-rules",
+  "title": "Special rules on 30 m and 60 m",
+  "summary": "Two odd bands with their own rules: 30 meters bans voice and pictures, 60 meters limits bandwidth and asks for an antenna record.",
+  "points": [
+   {
+    "label": "30 meters, phone",
+    "value": "Prohibited",
+    "q": [
+     "G1A02"
+    ]
+   },
+   {
+    "label": "30 meters, image",
+    "value": "Prohibited",
+    "q": [
+     "G1A03"
+    ]
+   },
+   {
+    "label": "60 meters, USB bandwidth",
+    "value": "2.8 kHz maximum",
+    "q": [
+     "G1C03"
+    ]
+   },
+   {
+    "label": "60 meters, non-dipole",
+    "value": "Keep a record of your antenna gain",
+    "q": [
+     "G1C04"
+    ]
+   }
+  ],
+  "hook": "30 m: no phone, no image. 60 m: USB up to 2.8 kHz, and log the gain of any antenna that is not a dipole.",
+  "questions": [
+   "G1A02",
+   "G1A03",
+   "G1C03",
+   "G1C04"
+  ],
+  "aid": {
+   "kind": "spectrum",
+   "bands": [
+    "30m",
+    "60m"
+   ]
+  }
+ },
+ {
+  "id": "g-1-beacons",
+  "title": "Beacon stations at a glance",
+  "summary": "Beacons exist so hams can observe propagation. A few rules cover where, how many and how strong.",
+  "points": [
+   {
+    "label": "Purpose",
+    "value": "Observation of propagation and reception",
+    "q": [
+     "G1B03"
+    ]
+   },
+   {
+    "label": "How many",
+    "value": "No more than one per band, same location",
+    "q": [
+     "G1B02"
+    ]
+   },
+   {
+    "label": "Automatic HF beacons",
+    "value": "28.20 MHz to 28.30 MHz",
+    "q": [
+     "G1B09"
+    ]
+   },
+   {
+    "label": "Power limit",
+    "value": "100 watts PEP output",
+    "q": [
+     "G1B10"
+    ]
+   },
+   {
+    "label": "14.100, 21.150, 28.200 MHz",
+    "value": "Propagation beacon system: avoid them",
+    "q": [
+     "G1E10"
+    ]
+   }
+  ],
+  "questions": [
+   "G1B03",
+   "G1B02",
+   "G1B10",
+   "G1B09",
+   "G1E10"
+  ]
+ },
+ {
+  "id": "g-1-volunteer-examiners",
+  "title": "Volunteer Examiner rules",
+  "summary": "VEs are accredited by a VEC and must be 18. A General class VE can give only the Technician exam.",
+  "points": [
+   {
+    "label": "Accredited by",
+    "value": "A Volunteer Examiner Coordinator",
+    "q": [
+     "G1D07"
+    ]
+   },
+   {
+    "label": "Minimum age",
+    "value": "18 years",
+    "q": [
+     "G1D10"
+    ]
+   },
+   {
+    "label": "Non-US citizen VE",
+    "value": "FCC license, General class or above",
+    "q": [
+     "G1D08"
+    ]
+   },
+   {
+    "label": "A General VE may give",
+    "value": "Technician exams only",
+    "q": [
+     "G1D02"
+    ]
+   },
+   {
+    "label": "Observing a Tech exam",
+    "value": "At least three VEs, General or higher",
+    "q": [
+     "G1D04"
+    ]
+   }
+  ],
+  "hook": "General keeps showing up: a non-US citizen VE needs General or above, and a Tech exam needs three General or higher VEs.",
+  "questions": [
+   "G1D07",
+   "G1D10",
+   "G1D02",
+   "G1D08",
+   "G1D04"
+  ]
+ },
+ {
+  "id": "g-1-upgrade-credit",
+  "title": "Upgrade credit: CSCEs and old licenses",
+  "summary": "A CSCE lets you use new privileges right away. An old license can still earn credit, with conditions.",
+  "points": [
+   {
+    "label": "CSCE valid for",
+    "value": "365 days",
+    "q": [
+     "G1D09"
+    ]
+   },
+   {
+    "label": "Tech with General CSCE",
+    "value": "Any General or Technician segment",
+    "q": [
+     "G1D03"
+    ]
+   },
+   {
+    "label": "Until the database updates",
+    "value": "Add AG when using General privileges",
+    "q": [
+     "G1D06"
+    ]
+   },
+   {
+    "label": "Partial credit, expired",
+    "value": "Once held General, Advanced or Extra",
+    "q": [
+     "G1D01"
+    ]
+   },
+   {
+    "label": "Past the 2 year grace",
+    "value": "Show the old license, pass Element 2",
+    "q": [
+     "G1D11"
+    ]
+   }
+  ],
+  "hook": "A CSCE is good for 365 days. Sign AG while you use General privileges before the upgrade shows up.",
+  "questions": [
+   "G1D09",
+   "G1D03",
+   "G1D06",
+   "G1D01",
+   "G1D11"
+  ]
+ },
+ {
+  "id": "g-1-third-party",
+  "title": "Third-party messages: who, what, how",
+  "summary": "Three questions about third-party traffic: who is disqualified, what may be said, and whether remote control changes anything.",
+  "points": [
+   {
+    "label": "Who is disqualified",
+    "value": "License revoked and not reinstated",
+    "q": [
+     "G1E01"
+    ]
+   },
+   {
+    "label": "What may be sent",
+    "value": "Amateur radio, personal, emergency or disaster",
+    "q": [
+     "G1E05"
+    ]
+   },
+   {
+    "label": "Via remote control",
+    "value": "Whenever FCC rules permit third party",
+    "q": [
+     "G1E12"
+    ]
+   }
+  ],
+  "questions": [
+   "G1E01",
+   "G1E05",
+   "G1E12"
+  ]
+ },
+ {
+  "id": "g-2-sideband-choice",
+  "title": "Which sideband: upper, with exceptions",
+  "summary": "HF voice is single sideband. Upper sideband is the rule; lower sideband is the custom on the low bands and for RTTY.",
+  "points": [
+   {
+    "label": "HF voice mode",
+    "value": "Single sideband",
+    "q": [
+     "G2A05"
+    ]
+   },
+   {
+    "label": "14 MHz or higher",
+    "value": "Upper sideband",
+    "q": [
+     "G2A01"
+    ]
+   },
+   {
+    "label": "17 and 12 meters",
+    "value": "Upper sideband",
+    "q": [
+     "G2A04"
+    ]
+   },
+   {
+    "label": "VHF and UHF SSB",
+    "value": "Upper sideband",
+    "q": [
+     "G2A03"
+    ]
+   },
+   {
+    "label": "160, 75 and 40 meters",
+    "value": "Lower sideband",
+    "q": [
+     "G2A02"
+    ]
+   },
+   {
+    "label": "Why LSB there",
+    "value": "It is commonly accepted amateur practice",
+    "q": [
+     "G2A09"
+    ]
+   },
+   {
+    "label": "RTTY via AFSK",
+    "value": "LSB",
+    "q": [
+     "G2E01"
+    ]
+   },
+   {
+    "label": "FT8, FT4, JT65, JT9",
+    "value": "USB",
+    "q": [
+     "G2E05"
+    ]
+   }
+  ],
+  "hook": "Upper is the rule. Lower is the exception: the 160, 75 and 40 meter bands by custom, and RTTY.",
+  "questions": [
+   "G2A05",
+   "G2A01",
+   "G2A04",
+   "G2A03",
+   "G2A02",
+   "G2A09",
+   "G2E05",
+   "G2E01"
+  ]
+ },
+ {
+  "id": "g-2-ssb-efficiency",
+  "title": "Why SSB is efficient, and louder",
+  "summary": "SSB throws away what it does not need, then a speech processor squeezes more average power from what is left.",
+  "points": [
+   {
+    "label": "What SSB sends",
+    "value": "One sideband only; carrier also suppressed",
+    "q": [
+     "G2A07"
+    ]
+   },
+   {
+    "label": "Advantage over analog",
+    "value": "Less bandwidth, greater power efficiency",
+    "q": [
+     "G2A06"
+    ]
+   },
+   {
+    "label": "Speech processor goal",
+    "value": "More apparent loudness of your voice",
+    "q": [
+     "G4D01"
+    ]
+   },
+   {
+    "label": "Speech processor on SSB",
+    "value": "Increases average power",
+    "q": [
+     "G4D02"
+    ]
+   }
+  ],
+  "questions": [
+   "G2A07",
+   "G2A06",
+   "G4D01",
+   "G4D02"
+  ]
+ },
+ {
+  "id": "g-2-signal-spacing",
+  "title": "Spacing by mode: hertz to kilohertz",
+  "summary": "Three small spans to know: the RTTY shift, and the gap to leave beside CW and SSB signals.",
+  "points": [
+   {
+    "label": "RTTY frequency shift",
+    "value": "170 Hz",
+    "q": [
+     "G2E06"
+    ]
+   },
+   {
+    "label": "CW: gap from neighbors",
+    "value": "150 Hz to 500 Hz",
+    "q": [
+     "G2B04"
+    ]
+   },
+   {
+    "label": "SSB: gap from neighbors",
+    "value": "2 kHz to 3 kHz",
+    "q": [
+     "G2B05"
+    ]
+   }
+  ],
+  "hook": "Wider signal, wider gap: CW needs hundreds of hertz, SSB needs 2 to 3 kHz.",
+  "questions": [
+   "G2E06",
+   "G2B04",
+   "G2B05"
+  ],
+  "aid": {
+   "kind": "modes",
+   "highlight": "CW"
+  }
+ },
+ {
+  "id": "g-2-ft8-basics",
+  "title": "FT8 on 20 meters",
+  "summary": "FT8 sits inside the 20 meter digital segment and runs on strict timing.",
+  "points": [
+   {
+    "label": "20 m digital segment",
+    "value": "Between 14.070 MHz and 14.100 MHz",
+    "q": [
+     "G2E08"
+    ]
+   },
+   {
+    "label": "FT8 on 20 m",
+    "value": "About 14.074 MHz to 14.077 MHz",
+    "q": [
+     "G2E15"
+    ]
+   },
+   {
+    "label": "Computer clock",
+    "value": "Accurate to within about 1 second",
+    "q": [
+     "G2E07"
+    ]
+   },
+   {
+    "label": "Answering a CQ",
+    "value": "Clear frequency, alternate time slot",
+    "q": [
+     "G2E04"
+    ]
+   }
+  ],
+  "hook": "Nested ranges: FT8 at 14.074 to 14.077 sits inside the digital segment, 14.070 to 14.100.",
+  "questions": [
+   "G2E08",
+   "G2E15",
+   "G2E07",
+   "G2E04"
+  ]
+ },
+ {
+  "id": "g-2-q-signals",
+  "title": "Q signals family",
+  "summary": "Every Q signal is three letters starting with Q, and each one stands for a whole sentence.",
+  "points": [
+   {
+    "label": "QRL?",
+    "value": "Are you busy? Is this frequency in use?",
+    "q": [
+     "G2C04"
+    ]
+   },
+   {
+    "label": "Before calling CQ",
+    "value": "CW: send QRL? Phone: ask. Then your call",
+    "q": [
+     "G2B06"
+    ]
+   },
+   {
+    "label": "QRS?",
+    "value": "Send slower",
+    "q": [
+     "G2C02"
+    ]
+   },
+   {
+    "label": "QSL",
+    "value": "I have received and understood",
+    "q": [
+     "G2C09"
+    ]
+   },
+   {
+    "label": "QRN",
+    "value": "I am troubled by static",
+    "q": [
+     "G2C10"
+    ]
+   },
+   {
+    "label": "QRV",
+    "value": "I am ready to receive",
+    "q": [
+     "G2C11"
+    ]
+   },
+   {
+    "label": "QRP",
+    "value": "Low-power transmit operation",
+    "q": [
+     "G2D10"
+    ]
+   }
+  ],
+  "questions": [
+   "G2C04",
+   "G2B06",
+   "G2C02",
+   "G2C09",
+   "G2C10",
+   "G2C11",
+   "G2D10"
+  ],
+  "aid": {
+   "kind": "codes",
+   "set": "q",
+   "highlight": "QRL"
+  }
+ },
+ {
+  "id": "g-2-cw-endings",
+  "title": "CW endings and report add-ons",
+  "summary": "Short CW signals at the end of a message or report carry a specific meaning.",
+  "points": [
+   {
+    "label": "KN at the end",
+    "value": "Listening only for specific station(s)",
+    "q": [
+     "G2C03"
+    ]
+   },
+   {
+    "label": "AR",
+    "value": "End of a formal message",
+    "q": [
+     "G2C08"
+    ]
+   },
+   {
+    "label": "C added to RST",
+    "value": "Chirpy or unstable signal",
+    "q": [
+     "G2C07"
+    ]
+   }
+  ],
+  "questions": [
+   "G2C03",
+   "G2C08",
+   "G2C07"
+  ],
+  "aid": {
+   "kind": "codes",
+   "set": "prosign",
+   "highlight": "KN"
+  }
+ },
+ {
+  "id": "g-2-calling",
+  "title": "Calling, answering, breaking in",
+  "summary": "Each way of joining the air has its own etiquette. DX means stations outside the lower 48 states.",
+  "points": [
+   {
+    "label": "Break into a phone QSO",
+    "value": "Say your call sign once",
+    "q": [
+     "G2A08"
+    ]
+   },
+   {
+    "label": "Calling CQ on HF",
+    "value": "Repeat CQ, then this is and your call",
+    "q": [
+     "G2D05"
+    ]
+   },
+   {
+    "label": "Answering CQ on CW",
+    "value": "Comfortable copy speed, no faster than CQ",
+    "q": [
+     "G2C05"
+    ]
+   },
+   {
+    "label": "CQ DX from the lower 48",
+    "value": "Answer only if outside the lower 48",
+    "q": [
+     "G2A11"
+    ]
+   },
+   {
+    "label": "50.1 to 50.125 MHz",
+    "value": "Only contacts outside the 48 contiguous states",
+    "q": [
+     "G2B08"
+    ]
+   }
+  ],
+  "hook": "DX means outside the lower 48: the same idea for a CQ DX call and for 50.1 to 50.125 MHz.",
+  "questions": [
+   "G2A08",
+   "G2D05",
+   "G2C05",
+   "G2A11",
+   "G2B08"
+  ]
+ },
+ {
+  "id": "g-2-emergencies",
+  "title": "Emergencies and RACES",
+  "summary": "Normally no one owns a frequency. Emergencies come first, and RACES has its own rules.",
+  "points": [
+   {
+    "label": "Priority access",
+    "value": "None, except during emergencies",
+    "q": [
+     "G2B01"
+    ]
+   },
+   {
+    "label": "Distress station breaks in",
+    "value": "Acknowledge it, find what help is needed",
+    "q": [
+     "G2B02"
+    ]
+   },
+   {
+    "label": "RACES control operator",
+    "value": "Only an FCC-licensed amateur operator",
+    "q": [
+     "G2B09"
+    ]
+   },
+   {
+    "label": "Routine RACES drills",
+    "value": "No more than 1 hour per week",
+    "q": [
+     "G2B11"
+    ]
+   }
+  ],
+  "questions": [
+   "G2B01",
+   "G2B02",
+   "G2B09",
+   "G2B11"
+  ]
+ },
+ {
+  "id": "g-2-winlink-family",
+  "title": "Digital messaging: Winlink and friends",
+  "summary": "Winlink messages pass through gateway stations. VARA and PACTOR are digital protocols; AREDN is a mesh network.",
+  "points": [
+   {
+    "label": "VARA",
+    "value": "A digital protocol used with Winlink",
+    "q": [
+     "G2E02"
+    ]
+   },
+   {
+    "label": "Winlink RMS, other name",
+    "value": "Gateway",
+    "q": [
+     "G2E13"
+    ]
+   },
+   {
+    "label": "Reaching a gateway",
+    "value": "Connect message on its published frequency",
+    "q": [
+     "G2E10"
+    ]
+   },
+   {
+    "label": "Joining a PACTOR contact",
+    "value": "Not possible: two stations only",
+    "q": [
+     "G2E09"
+    ]
+   },
+   {
+    "label": "AREDN mesh network",
+    "value": "High-speed data in emergencies or events",
+    "q": [
+     "G2E11"
+    ]
+   }
+  ],
+  "questions": [
+   "G2E02",
+   "G2E13",
+   "G2E10",
+   "G2E09",
+   "G2E11"
+  ]
+ },
+ {
+  "id": "g-2-volunteer-monitors",
+  "title": "Volunteer Monitors: what, why, how",
+  "summary": "A volunteer program for keeping the bands clean: who they are, what they aim for, and one technique they use.",
+  "points": [
+   {
+    "label": "What",
+    "value": "Volunteers enlisted to monitor for violations",
+    "q": [
+     "G2D01"
+    ]
+   },
+   {
+    "label": "Why",
+    "value": "Encourage self-regulation and compliance",
+    "q": [
+     "G2D02"
+    ]
+   },
+   {
+    "label": "Find a stuck carrier",
+    "value": "Compare beam headings with other monitors",
+    "q": [
+     "G2D03"
+    ]
+   }
+  ],
+  "questions": [
+   "G2D01",
+   "G2D02",
+   "G2D03"
+  ]
+ },
+ {
+  "id": "g-2-short-long-path",
+  "title": "Short path and long path",
+  "summary": "A signal can go the short way or the long way around the Earth, and the map and antenna heading follow from that.",
+  "points": [
+   {
+    "label": "Azimuthal projection map",
+    "value": "True bearings and distances from one spot",
+    "q": [
+     "G2D04"
+    ]
+   },
+   {
+    "label": "Long-path heading",
+    "value": "180 degrees from the short-path heading",
+    "q": [
+     "G2D06"
+    ]
+   },
+   {
+    "label": "Both paths at once",
+    "value": "A slightly delayed echo might be heard",
+    "q": [
+     "G3B01"
+    ]
+   }
+  ],
+  "questions": [
+   "G2D04",
+   "G2D06",
+   "G3B01"
+  ]
+ },
+ {
+  "id": "g-3-solar-timeline",
+  "title": "Solar events by arrival time",
+  "summary": "Order solar effects by how fast they reach Earth, then add the Sun's own rotation cycle.",
+  "points": [
+   {
+    "label": "Flare UV and X-rays",
+    "value": "About 8 minutes",
+    "q": [
+     "G3A03"
+    ]
+   },
+   {
+    "label": "Coronal mass ejection",
+    "value": "15 hours to several days",
+    "q": [
+     "G3A11"
+    ]
+   },
+   {
+    "label": "26 to 28 day cycle",
+    "value": "Rotation of the Sun's surface layers",
+    "q": [
+     "G3A10"
+    ]
+   }
+  ],
+  "hook": "Minutes, then hours to days, then weeks: flare radiation, a CME, and the Sun turning once.",
+  "questions": [
+   "G3A03",
+   "G3A11",
+   "G3A10"
+  ]
+ },
+ {
+  "id": "g-3-space-weather-indexes",
+  "title": "Space weather yardsticks",
+  "summary": "One number measures solar radiation; two indexes measure how steady Earth's magnetic field is.",
+  "points": [
+   {
+    "label": "Solar flux index",
+    "value": "Solar radiation at 10.7 centimeters",
+    "q": [
+     "G3A05"
+    ]
+   },
+   {
+    "label": "Geomagnetic storm",
+    "value": "Temporary disturbance in the geomagnetic field",
+    "q": [
+     "G3A06"
+    ]
+   },
+   {
+    "label": "K-index",
+    "value": "Short-term geomagnetic field stability",
+    "q": [
+     "G3A12"
+    ]
+   },
+   {
+    "label": "A-index",
+    "value": "Long-term geomagnetic field stability",
+    "q": [
+     "G3A13"
+    ]
+   }
+  ],
+  "hook": "K and A are a pair: K is short-term, A is long-term.",
+  "questions": [
+   "G3A05",
+   "G3A06",
+   "G3A12",
+   "G3A13"
+  ]
+ },
+ {
+  "id": "g-3-solar-effects",
+  "title": "How the Sun shapes the bands",
+  "summary": "More sunspots help the high bands. Disturbances hurt: sudden disturbances hit lower frequencies, geomagnetic storms hit high latitudes.",
+  "points": [
+   {
+    "label": "Higher sunspot numbers",
+    "value": "Better odds of good high-frequency propagation",
+    "q": [
+     "G3A01"
+    ]
+   },
+   {
+    "label": "Low solar activity",
+    "value": "15, 12 and 10 meters least reliable",
+    "q": [
+     "G3A04"
+    ]
+   },
+   {
+    "label": "20 m worldwide by day",
+    "value": "At any point in the solar cycle",
+    "q": [
+     "G3A07"
+    ]
+   },
+   {
+    "label": "Sudden disturbance, daytime",
+    "value": "Hurts lower frequencies more than higher",
+    "q": [
+     "G3A02"
+    ]
+   },
+   {
+    "label": "Geomagnetic storm",
+    "value": "Degrades high-latitude HF propagation",
+    "q": [
+     "G3A08"
+    ]
+   },
+   {
+    "label": "High geomagnetic activity",
+    "value": "Auroras that can reflect VHF signals",
+    "q": [
+     "G3A09"
+    ]
+   },
+   {
+    "label": "Coronal hole particles",
+    "value": "HF communication is disturbed",
+    "q": [
+     "G3A14"
+    ]
+   }
+  ],
+  "questions": [
+   "G3A01",
+   "G3A04",
+   "G3A07",
+   "G3A02",
+   "G3A08",
+   "G3A09",
+   "G3A14"
+  ]
+ },
+ {
+  "id": "g-3-muf-luf-window",
+  "title": "The MUF and LUF window",
+  "summary": "Skywave works in a window between two limits. Below it, signals are absorbed. Inside it, they come back to Earth.",
+  "points": [
+   {
+    "label": "MUF",
+    "value": "Maximum Usable Frequency between two points",
+    "q": [
+     "G3B08"
+    ]
+   },
+   {
+    "label": "LUF",
+    "value": "Lowest Usable Frequency between two points",
+    "q": [
+     "G3B07"
+    ]
+   },
+   {
+    "label": "Below the LUF",
+    "value": "Attenuated before reaching destination",
+    "q": [
+     "G3B06"
+    ]
+   },
+   {
+    "label": "Between LUF and MUF",
+    "value": "Refracted back to Earth",
+    "q": [
+     "G3B05"
+    ]
+   },
+   {
+    "label": "Least attenuation",
+    "value": "Just below the MUF",
+    "q": [
+     "G3B03"
+    ]
+   },
+   {
+    "label": "LUF above the MUF",
+    "value": "No ordinary skywave on that path",
+    "q": [
+     "G3B11"
+    ]
+   }
+  ],
+  "hook": "Picture a window: the LUF is the sill, the MUF is the top. Aim just under the top. No window, no skywave.",
+  "questions": [
+   "G3B08",
+   "G3B07",
+   "G3B06",
+   "G3B05",
+   "G3B03",
+   "G3B11"
+  ]
+ },
+ {
+  "id": "g-3-ionosphere-layers",
+  "title": "Ionosphere regions, bottom to top",
+  "summary": "The lowest region absorbs by day. Higher regions bend signals back, and the higher the region, the longer the hop.",
+  "points": [
+   {
+    "label": "Closest to Earth",
+    "value": "The D region",
+    "q": [
+     "G3C01"
+    ]
+   },
+   {
+    "label": "Most absorbent below 10 MHz",
+    "value": "The D region, in daylight",
+    "q": [
+     "G3C11"
+    ]
+   },
+   {
+    "label": "40, 60, 80, 160 m by day",
+    "value": "Hard: the D region absorbs them",
+    "q": [
+     "G3C05"
+    ]
+   },
+   {
+    "label": "E region, one hop",
+    "value": "About 1,200 miles",
+    "q": [
+     "G3B10"
+    ]
+   },
+   {
+    "label": "F2 region, one hop",
+    "value": "About 2,500 miles",
+    "q": [
+     "G3B09"
+    ]
+   },
+   {
+    "label": "Why F2 skips farthest",
+    "value": "It is the highest region",
+    "q": [
+     "G3C03"
+    ]
+   }
+  ],
+  "hook": "Climb the layers: D absorbs by day, E hops about 1,200 miles, F2 (the highest) about 2,500.",
+  "questions": [
+   "G3C01",
+   "G3C11",
+   "G3C05",
+   "G3B10",
+   "G3B09",
+   "G3C03"
+  ],
+  "aid": {
+   "kind": "ionosphere",
+   "layer": "D",
+   "time": "day"
+  }
+ },
+ {
+  "id": "g-3-critical-angles",
+  "title": "The two criticals, and NVIS",
+  "summary": "Both critical values are a highest limit for a signal to return to Earth. NVIS uses high angles on purpose.",
+  "points": [
+   {
+    "label": "Critical frequency",
+    "value": "Highest frequency refracted back to Earth",
+    "q": [
+     "G3C02"
+    ]
+   },
+   {
+    "label": "Critical angle",
+    "value": "Highest takeoff angle that returns to Earth",
+    "q": [
+     "G3C04"
+    ]
+   },
+   {
+    "label": "NVIS",
+    "value": "Short distance MF/HF at high elevation angles",
+    "q": [
+     "G3C10"
+    ]
+   }
+  ],
+  "hook": "Critical means highest: the highest frequency, or the highest angle, that still comes back down.",
+  "questions": [
+   "G3C02",
+   "G3C04",
+   "G3C10"
+  ]
+ },
+ {
+  "id": "g-3-scatter",
+  "title": "Scatter into the skip zone",
+  "summary": "Scatter lets you hear stations in the skip zone, but only a little energy arrives, over many paths.",
+  "points": [
+   {
+    "label": "Heard in the skip zone",
+    "value": "Scatter",
+    "q": [
+     "G3C09"
+    ]
+   },
+   {
+    "label": "Sound",
+    "value": "Signals have a fluttering sound",
+    "q": [
+     "G3C06"
+    ]
+   },
+   {
+    "label": "Why distorted",
+    "value": "Energy arrives over several paths",
+    "q": [
+     "G3C07"
+    ]
+   },
+   {
+    "label": "Why weak",
+    "value": "Only a small part of the energy gets there",
+    "q": [
+     "G3C08"
+    ]
+   }
+  ],
+  "questions": [
+   "G3C09",
+   "G3C06",
+   "G3C07",
+   "G3C08"
+  ]
+ },
+ {
+  "id": "g-5-decibels",
+  "title": "Decibels and link math",
+  "summary": "Decibels turn multiplying into adding. 3 dB is a factor of two in power.",
+  "points": [
+   {
+    "label": "Power doubled or halved",
+    "value": "About 3 dB",
+    "q": [
+     "G5B01"
+    ]
+   },
+   {
+    "label": "Loss of 1 dB",
+    "value": "20.6 percent of the power",
+    "q": [
+     "G5B10"
+    ]
+   },
+   {
+    "label": "dBi vs dBd, same antenna",
+    "value": "dBi is 2.15 dB higher",
+    "q": [
+     "G9C04"
+    ]
+   },
+   {
+    "label": "Link budget",
+    "value": "Transmit power plus antenna gains minus losses",
+    "q": [
+     "G8A13"
+    ]
+   },
+   {
+    "label": "Link margin",
+    "value": "Received level minus minimum required level",
+    "q": [
+     "G8A14"
+    ]
+   }
+  ],
+  "hook": "Because dB values add, a link budget is just power plus gains minus losses, as seen at the receiver.",
+  "questions": [
+   "G5B01",
+   "G5B10",
+   "G9C04",
+   "G8A13",
+   "G8A14"
+  ]
+ },
+ {
+  "id": "g-4-s-meter",
+  "title": "S meter steps in decibels",
+  "summary": "An S meter shows received signal strength. Each S unit is a fixed step in dB, so readings convert to power ratios.",
+  "points": [
+   {
+    "label": "What it measures",
+    "value": "Received signal strength",
+    "q": [
+     "G4D04"
+    ]
+   },
+   {
+    "label": "One S unit",
+    "value": "6 dB",
+    "q": [
+     "G4D06"
+    ]
+   },
+   {
+    "label": "S8 to S9 at the far end",
+    "value": "Raise power about 4 times",
+    "q": [
+     "G4D07"
+    ]
+   },
+   {
+    "label": "20 dB over S9 vs S9",
+    "value": "100 times more powerful",
+    "q": [
+     "G4D05"
+    ]
+   }
+  ],
+  "hook": "One S unit is 6 dB, about 4 times the power. 20 dB over S9 is 100 times.",
+  "questions": [
+   "G4D04",
+   "G4D06",
+   "G4D07",
+   "G4D05"
+  ]
+ },
+ {
+  "id": "g-4-sideband-edges",
+  "title": "Where a 3 kHz sideband signal sits",
+  "summary": "A sideband signal spreads to one side of the displayed carrier: LSB below it, USB above it. Keep that side clear of the edge.",
+  "points": [
+   {
+    "label": "3 kHz LSB at 7.178 MHz",
+    "value": "7.175 MHz to 7.178 MHz",
+    "q": [
+     "G4D08"
+    ]
+   },
+   {
+    "label": "3 kHz USB at 14.347 MHz",
+    "value": "14.347 MHz to 14.350 MHz",
+    "q": [
+     "G4D09"
+    ]
+   },
+   {
+    "label": "LSB near lower edge",
+    "value": "At least 3 kHz above the edge",
+    "q": [
+     "G4D10"
+    ]
+   },
+   {
+    "label": "USB near upper edge",
+    "value": "At least 3 kHz below the edge",
+    "q": [
+     "G4D11"
+    ]
+   }
+  ],
+  "hook": "Lower sideband hangs 3 kHz below the dial, upper sideband 3 kHz above it.",
+  "questions": [
+   "G4D08",
+   "G4D09",
+   "G4D10",
+   "G4D11"
+  ],
+  "aid": {
+   "kind": "bandplan",
+   "band": "40m",
+   "mark": [
+    7.175,
+    7.178
+   ]
+  }
+ },
+ {
+  "id": "g-4-receiver-tools",
+  "title": "Receiver tools: match fix to problem",
+  "summary": "Each receiver control targets one kind of trouble. Learn the trouble each one fixes.",
+  "points": [
+   {
+    "label": "Notch filter",
+    "value": "Cuts carriers in the receiver passband",
+    "q": [
+     "G4A01"
+    ]
+   },
+   {
+    "label": "Noise blanker",
+    "value": "Reduces receiver gain during a noise pulse",
+    "q": [
+     "G4A03"
+    ]
+   },
+   {
+    "label": "Noise reduction turned up",
+    "value": "Received signals may become distorted",
+    "q": [
+     "G4A07"
+    ]
+   },
+   {
+    "label": "Receive attenuator",
+    "value": "Prevents overload from strong signals",
+    "q": [
+     "G4A13"
+    ]
+   },
+   {
+    "label": "Reverse sideband on CW",
+    "value": "May reduce interference from others",
+    "q": [
+     "G4A02"
+    ]
+   },
+   {
+    "label": "Dual VFO",
+    "value": "Transmit on one frequency, listen on another",
+    "q": [
+     "G4A12"
+    ]
+   }
+  ],
+  "questions": [
+   "G4A01",
+   "G4A03",
+   "G4A07",
+   "G4A13",
+   "G4A02",
+   "G4A12"
+  ]
+ },
+ {
+  "id": "g-4-amp-and-alc",
+  "title": "Amplifier tuning and ALC",
+  "summary": "Tune the amplifier for a dip, load it for power within limits, and let ALC guard against overdrive except on data.",
+  "points": [
+   {
+    "label": "Tube amp TUNE control",
+    "value": "A pronounced dip in plate current",
+    "q": [
+     "G4A04"
+    ]
+   },
+   {
+    "label": "LOAD or COUPLING control",
+    "value": "Desired power, not over max plate current",
+    "q": [
+     "G4A08"
+    ]
+   },
+   {
+    "label": "ALC purpose",
+    "value": "To prevent excessive drive",
+    "q": [
+     "G4A05"
+    ]
+   },
+   {
+    "label": "Setting ALC on SSB",
+    "value": "Adjust transmit audio or mic gain",
+    "q": [
+     "G2A12"
+    ]
+   },
+   {
+    "label": "ALC with AFSK data",
+    "value": "Keep it inactive: ALC distorts the signal",
+    "q": [
+     "G4A11"
+    ]
+   },
+   {
+    "label": "Delay before RF output",
+    "value": "Lets the amp switch the antenna over",
+    "q": [
+     "G4A09"
+    ]
+   }
+  ],
+  "questions": [
+   "G4A04",
+   "G4A08",
+   "G4A05",
+   "G2A12",
+   "G4A11",
+   "G4A09"
+  ]
+ },
+ {
+  "id": "g-4-oscilloscope",
+  "title": "Oscilloscope and the two-tone test",
+  "summary": "The oscilloscope shows waveforms, not just numbers, so it is the tool for keying and RF envelope checks.",
+  "points": [
+   {
+    "label": "Inside",
+    "value": "Horizontal and vertical channel amplifiers",
+    "q": [
+     "G4B01"
+    ]
+   },
+   {
+    "label": "Beats a digital voltmeter",
+    "value": "Complex waveforms can be measured",
+    "q": [
+     "G4B02"
+    ]
+   },
+   {
+    "label": "CW keying waveform",
+    "value": "Check it with an oscilloscope",
+    "q": [
+     "G4B03"
+    ]
+   },
+   {
+    "label": "RF envelope, vertical input",
+    "value": "Attenuated RF output of the transmitter",
+    "q": [
+     "G4B04"
+    ]
+   },
+   {
+    "label": "Two-tone test signals",
+    "value": "Two non-harmonically related audio tones",
+    "q": [
+     "G4B07"
+    ]
+   },
+   {
+    "label": "Two-tone test measures",
+    "value": "Linearity",
+    "q": [
+     "G4B08"
+    ]
+   }
+  ],
+  "questions": [
+   "G4B01",
+   "G4B02",
+   "G4B03",
+   "G4B04",
+   "G4B07",
+   "G4B08"
+  ]
+ },
+ {
+  "id": "g-4-meters-analyzers",
+  "title": "Meters and analyzers: which for what",
+  "summary": "Digital for precision, analog for peaking, wattmeters and analyzers for SWR and impedance.",
+  "points": [
+   {
+    "label": "Digital multimeter",
+    "value": "Higher precision",
+    "q": [
+     "G4B06"
+    ]
+   },
+   {
+    "label": "Analog multimeter",
+    "value": "Adjusting for maximum or minimum values",
+    "q": [
+     "G4B09"
+    ]
+   },
+   {
+    "label": "Voltmeter, high impedance",
+    "value": "Less loading on the circuit measured",
+    "q": [
+     "G4B05"
+    ]
+   },
+   {
+    "label": "Directional wattmeter",
+    "value": "Standing wave ratio",
+    "q": [
+     "G4B10"
+    ]
+   },
+   {
+    "label": "Analyzer hookup for SWR",
+    "value": "Antenna and feed line",
+    "q": [
+     "G4B11"
+    ]
+   },
+   {
+    "label": "Analyzer can measure",
+    "value": "Impedance of coaxial cable",
+    "q": [
+     "G4B13"
+    ]
+   },
+   {
+    "label": "Analyzer near transmitters",
+    "value": "Received power upsets SWR readings",
+    "q": [
+     "G4B12"
+    ]
+   }
+  ],
+  "questions": [
+   "G4B06",
+   "G4B09",
+   "G4B05",
+   "G4B10",
+   "G4B11",
+   "G4B13",
+   "G4B12"
+  ]
+ },
+ {
+  "id": "g-4-rfi-sounds-fixes",
+  "title": "RF interference: sound and fix",
+  "summary": "What the interference sounds like points to its source; a capacitor or choke is often the cure.",
+  "points": [
+   {
+    "label": "From an SSB transmitter",
+    "value": "Distorted speech",
+    "q": [
+     "G4C03"
+    ]
+   },
+   {
+    "label": "From a CW transmitter",
+    "value": "On-and-off humming or clicking",
+    "q": [
+     "G4C04"
+    ]
+   },
+   {
+    "label": "Across many frequencies",
+    "value": "Arcing at a poor electrical connection",
+    "q": [
+     "G4C02"
+    ]
+   },
+   {
+    "label": "RF in audio circuits",
+    "value": "Bypass capacitor",
+    "q": [
+     "G4C01"
+    ]
+   },
+   {
+    "label": "Common-mode on audio cable",
+    "value": "Place a ferrite choke on the cable",
+    "q": [
+     "G4C08"
+    ]
+   }
+  ],
+  "hook": "The noise copies the mode: SSB sounds like garbled speech, CW like on-and-off hums or clicks.",
+  "questions": [
+   "G4C03",
+   "G4C04",
+   "G4C02",
+   "G4C01",
+   "G4C08"
+  ]
+ },
+ {
+  "id": "g-4-grounding-bonding",
+  "title": "Grounding and bonding: problem and fix",
+  "summary": "Bonding enclosures together fixes ground loops and hot spots. A ground wire must not be resonant or high impedance.",
+  "points": [
+   {
+    "label": "Why ground enclosures",
+    "value": "No hazardous voltages on the chassis",
+    "q": [
+     "G4C12"
+    ]
+   },
+   {
+    "label": "Ground loop symptom",
+    "value": "Reports of hum on your transmitted signal",
+    "q": [
+     "G4C10"
+    ]
+   },
+   {
+    "label": "Minimize ground loops",
+    "value": "Bond equipment enclosures together",
+    "q": [
+     "G4C09"
+    ]
+   },
+   {
+    "label": "Minimize RF hot spots",
+    "value": "Bond all equipment enclosures together",
+    "q": [
+     "G4C11"
+    ]
+   },
+   {
+    "label": "Cause of RF burns",
+    "value": "Ground wire has high impedance on that frequency",
+    "q": [
+     "G4C05"
+    ]
+   },
+   {
+    "label": "Resonant ground",
+    "value": "High RF voltages on equipment enclosures",
+    "q": [
+     "G4C06"
+    ]
+   },
+   {
+    "label": "Lightning ground joints",
+    "value": "Not soldered: lightning heat destroys them",
+    "q": [
+     "G4C07"
+    ]
+   }
+  ],
+  "hook": "Loops and hot spots have one answer: bond the enclosures together.",
+  "questions": [
+   "G4C12",
+   "G4C10",
+   "G4C09",
+   "G4C11",
+   "G4C05",
+   "G4C06",
+   "G4C07"
+  ]
+ },
+ {
+  "id": "g-4-hf-mobile",
+  "title": "HF mobile: short antennas, heavy wires",
+  "summary": "A mobile antenna is electrically short, which limits efficiency and bandwidth. Power comes straight from the battery.",
+  "points": [
+   {
+    "label": "Biggest limit",
+    "value": "Efficiency of the electrically short antenna",
+    "q": [
+     "G4E05"
+    ]
+   },
+   {
+    "label": "Shortened antenna drawback",
+    "value": "Operating bandwidth may be very limited",
+    "q": [
+     "G4E06"
+    ]
+   },
+   {
+    "label": "Capacitance hat",
+    "value": "Electrically lengthens a short antenna",
+    "q": [
+     "G4E01"
+    ]
+   },
+   {
+    "label": "Corona ball",
+    "value": "Reduces RF discharge from the tip",
+    "q": [
+     "G4E02"
+    ]
+   },
+   {
+    "label": "100 W rig power hookup",
+    "value": "To the battery, heavy-gauge wire",
+    "q": [
+     "G4E03"
+    ]
+   },
+   {
+    "label": "Not the aux power socket",
+    "value": "Its wiring may not handle the current",
+    "q": [
+     "G4E04"
+    ]
+   }
+  ],
+  "questions": [
+   "G4E05",
+   "G4E06",
+   "G4E01",
+   "G4E02",
+   "G4E03",
+   "G4E04"
+  ]
+ },
+ {
+  "id": "g-4-solar-charging",
+  "title": "Solar charging, cell to battery",
+  "summary": "Follow the power from one cell, through the panel, past a diode and controller, into the battery.",
+  "points": [
+   {
+    "label": "One silicon cell, open",
+    "value": "About 0.5 VDC",
+    "q": [
+     "G4E09"
+    ]
+   },
+   {
+    "label": "Cells in a panel",
+    "value": "Series-parallel",
+    "q": [
+     "G4E08"
+    ]
+   },
+   {
+    "label": "Series diode",
+    "value": "Stops battery discharge through the panel",
+    "q": [
+     "G4E10"
+    ]
+   },
+   {
+    "label": "Lithium iron phosphate",
+    "value": "Panel must have a charge controller",
+    "q": [
+     "G4E11"
+    ]
+   }
+  ],
+  "questions": [
+   "G4E09",
+   "G4E08",
+   "G4E10",
+   "G4E11"
+  ]
+ },
+ {
+  "id": "g-5-reactance",
+  "title": "Reactance and impedance",
+  "summary": "Reactance is how coils and capacitors resist AC. They react to frequency in opposite directions.",
+  "points": [
+   {
+    "label": "What reactance is",
+    "value": "Opposition to AC from capacitance or inductance",
+    "q": [
+     "G5A02",
+     "G5A03",
+     "G5A04"
+    ]
+   },
+   {
+    "label": "Letter and unit",
+    "value": "Written X, measured in ohms",
+    "q": [
+     "G5A11",
+     "G5A09"
+    ]
+   },
+   {
+    "label": "Inductor, frequency rises",
+    "value": "Reactance increases",
+    "q": [
+     "G5A05"
+    ]
+   },
+   {
+    "label": "Capacitor, frequency rises",
+    "value": "Reactance decreases",
+    "q": [
+     "G5A06"
+    ]
+   },
+   {
+    "label": "Impedance",
+    "value": "The ratio of voltage to current",
+    "q": [
+     "G5A08"
+    ]
+   },
+   {
+    "label": "Inverse of impedance",
+    "value": "Admittance",
+    "q": [
+     "G5A07"
+    ]
+   }
+  ],
+  "hook": "Coils and capacitors are opposites: raise the frequency and an inductor fights harder, a capacitor gives way.",
+  "questions": [
+   "G5A02",
+   "G5A03",
+   "G5A04",
+   "G5A11",
+   "G5A09",
+   "G5A05",
+   "G5A06",
+   "G5A08",
+   "G5A07"
+  ]
+ },
+ {
+  "id": "g-5-resonance",
+  "title": "Resonance and oscillators",
+  "summary": "At resonance the coil's and capacitor's reactances are equal and cancel. That one frequency is what an LC oscillator runs at.",
+  "points": [
+   {
+    "label": "LC circuit at resonance",
+    "value": "Inductive and capacitive reactance cancel",
+    "q": [
+     "G5A12"
+    ]
+   },
+   {
+    "label": "Series LC at resonance",
+    "value": "Impedance is very low",
+    "q": [
+     "G5A01"
+    ]
+   },
+   {
+    "label": "LC oscillator frequency",
+    "value": "Set by L and C in the tank circuit",
+    "q": [
+     "G7B09"
+    ]
+   },
+   {
+    "label": "Sine wave oscillator parts",
+    "value": "A filter and an amplifier in a feedback loop",
+    "q": [
+     "G7B07"
+    ]
+   }
+  ],
+  "questions": [
+   "G5A12",
+   "G5A01",
+   "G7B09",
+   "G7B07"
+  ]
+ },
+ {
+  "id": "g-5-series-parallel",
+  "title": "Series vs parallel",
+  "summary": "Inductors combine like resistors. Capacitors do the opposite: they add in parallel and combine like reciprocals in series.",
+  "points": [
+   {
+    "label": "Parallel branch currents",
+    "value": "Total current is the sum of the branches",
+    "q": [
+     "G5B02"
+    ]
+   },
+   {
+    "label": "100 and 200 ohms, parallel",
+    "value": "Reciprocal rule: about 67 ohms",
+    "q": [
+     "G5C04"
+    ]
+   },
+   {
+    "label": "10, 20, 50 ohms, parallel",
+    "value": "Reciprocal rule: 5.9 ohms",
+    "q": [
+     "G5C03"
+    ]
+   },
+   {
+    "label": "Inductors in series",
+    "value": "Add up: 70 millihenries",
+    "q": [
+     "G5C11",
+     "G5C14"
+    ]
+   },
+   {
+    "label": "Inductors in parallel",
+    "value": "Reciprocal rule: 3.3 millihenries",
+    "q": [
+     "G5C10"
+    ]
+   },
+   {
+    "label": "Capacitors in parallel",
+    "value": "Add up: 10.750 nanofarads",
+    "q": [
+     "G5C13",
+     "G5C08"
+    ]
+   },
+   {
+    "label": "20 and 50 microfarad, series",
+    "value": "Reciprocal rule: 14.3 microfarads",
+    "q": [
+     "G5C12"
+    ]
+   },
+   {
+    "label": "Three 100 microfarad, series",
+    "value": "Reciprocal rule: 33.3 microfarads",
+    "q": [
+     "G5C09"
+    ]
+   }
+  ],
+  "hook": "To grow an inductor, add one in series. To grow a capacitor, add one in parallel. The reciprocal rule always lands below the smallest part.",
+  "questions": [
+   "G5B02",
+   "G5C04",
+   "G5C03",
+   "G5C11",
+   "G5C14",
+   "G5C10",
+   "G5C13",
+   "G5C08",
+   "G5C12",
+   "G5C09"
+  ]
+ },
+ {
+  "id": "g-5-power-formulas",
+  "title": "Three power formulas",
+  "summary": "Know any two of volts, amps and ohms and one formula gives the power.",
+  "points": [
+   {
+    "label": "12 V bulb drawing 0.2 A",
+    "value": "P = E x I = 2.4 watts",
+    "q": [
+     "G5B04"
+    ]
+   },
+   {
+    "label": "400 V across 800 ohms",
+    "value": "P = E x E / R = 200 watts",
+    "q": [
+     "G5B03"
+    ]
+   },
+   {
+    "label": "7.0 mA through 1,250 ohms",
+    "value": "P = I x I x R, about 61 milliwatts",
+    "q": [
+     "G5B05"
+    ]
+   },
+   {
+    "label": "1200 W into 50 ohms",
+    "value": "E = square root of P x R: 245 volts",
+    "q": [
+     "G5B12"
+    ]
+   }
+  ],
+  "hook": "Watch the units: milliamps in gives milliwatts out (7.0 mA gives 61 milliwatts, not 61 watts).",
+  "questions": [
+   "G5B04",
+   "G5B03",
+   "G5B05",
+   "G5B12"
+  ]
+ },
+ {
+  "id": "g-5-peak-rms-pep",
+  "title": "Peak, RMS and PEP",
+  "summary": "RMS is the heating value of AC. Peak x 0.707 gives RMS, and peak to peak is twice the peak.",
+  "points": [
+   {
+    "label": "RMS value",
+    "value": "Same heating in a resistor as that DC voltage",
+    "q": [
+     "G5B07"
+    ]
+   },
+   {
+    "label": "17 volts peak",
+    "value": "12 volts RMS",
+    "q": [
+     "G5B09"
+    ]
+   },
+   {
+    "label": "120 volts RMS",
+    "value": "339.4 volts peak to peak",
+    "q": [
+     "G5B08"
+    ]
+   },
+   {
+    "label": "200 V peak to peak, 50 ohms",
+    "value": "100 watts PEP",
+    "q": [
+     "G5B06"
+    ]
+   },
+   {
+    "label": "500 V peak to peak, 50 ohms",
+    "value": "625 watts PEP",
+    "q": [
+     "G5B14"
+    ]
+   },
+   {
+    "label": "Unmodulated carrier",
+    "value": "PEP to average ratio is 1.00",
+    "q": [
+     "G5B11"
+    ]
+   },
+   {
+    "label": "1060 W average, unmodulated",
+    "value": "1060 watts PEP",
+    "q": [
+     "G5B13"
+    ]
+   }
+  ],
+  "hook": "For PEP: halve the peak to peak to get peak, times 0.707 for RMS, then square it and divide by the load (50 ohms).",
+  "questions": [
+   "G5B07",
+   "G5B09",
+   "G5B08",
+   "G5B06",
+   "G5B14",
+   "G5B11",
+   "G5B13"
+  ]
+ },
+ {
+  "id": "g-5-transformers",
+  "title": "Transformers and matching",
+  "summary": "A transformer trades voltage for current by its turns ratio, which also lets it match one impedance to another.",
+  "points": [
+   {
+    "label": "How voltage gets across",
+    "value": "Mutual inductance",
+    "q": [
+     "G5C01"
+    ]
+   },
+   {
+    "label": "500:1500 turns, 120 VAC in",
+    "value": "360 volts out",
+    "q": [
+     "G5C06"
+    ]
+   },
+   {
+    "label": "4:1 step-down fed backward",
+    "value": "Input voltage is multiplied by 4",
+    "q": [
+     "G5C02"
+    ]
+   },
+   {
+    "label": "Step-up primary wire",
+    "value": "Larger, for the higher primary current",
+    "q": [
+     "G5C05"
+    ]
+   },
+   {
+    "label": "Matching 600 ohms to 50 ohms",
+    "value": "3.5 to 1 turns ratio",
+    "q": [
+     "G5C07"
+    ]
+   },
+   {
+    "label": "RF matching devices",
+    "value": "Transformer, pi-network or transmission line",
+    "q": [
+     "G5A10"
+    ]
+   },
+   {
+    "label": "Matching transformer at rig",
+    "value": "Presents the desired impedance to rig and line",
+    "q": [
+     "G7C03"
+    ]
+   }
+  ],
+  "hook": "Volts follow the turns ratio. Impedance follows its square: 600 / 50 is 12, and 3.5 x 3.5 is about 12.",
+  "questions": [
+   "G5C01",
+   "G5C06",
+   "G5C02",
+   "G5C05",
+   "G5C07",
+   "G5A10",
+   "G7C03"
+  ]
+ },
+ {
+  "id": "g-6-passive-quirks",
+  "title": "Passive parts and their quirks",
+  "summary": "Each passive part has a strength and a hidden side that shows up at radio frequencies.",
+  "points": [
+   {
+    "label": "Electrolytic capacitor",
+    "value": "High capacitance for a given volume",
+    "q": [
+     "G6A04"
+    ]
+   },
+   {
+    "label": "Ceramic capacitor, low volts",
+    "value": "Comparatively low cost",
+    "q": [
+     "G6A08"
+    ]
+   },
+   {
+    "label": "Wire-wound resistor in RF",
+    "value": "Its inductance makes circuits unpredictable",
+    "q": [
+     "G6A06"
+    ]
+   },
+   {
+    "label": "Inductor past self-resonance",
+    "value": "It becomes capacitive",
+    "q": [
+     "G6A11"
+    ]
+   },
+   {
+    "label": "Ferrite core performance",
+    "value": "Set by the mix of materials",
+    "q": [
+     "G6B01"
+    ]
+   },
+   {
+    "label": "Ferrite toroid inductor",
+    "value": "Large inductance, contained field, tuned core",
+    "q": [
+     "G6B05"
+    ]
+   },
+   {
+    "label": "Ferrite bead on coax",
+    "value": "Adds impedance in the common-mode path",
+    "q": [
+     "G6B10"
+    ]
+   }
+  ],
+  "hook": "Resistors hide inductance and inductors turn capacitive up high. Ferrite works by adding impedance, chosen by its mix.",
+  "questions": [
+   "G6A04",
+   "G6A08",
+   "G6A06",
+   "G6A11",
+   "G6B01",
+   "G6B05",
+   "G6B10"
+  ]
+ },
+ {
+  "id": "g-6-active-devices",
+  "title": "Diodes, transistors and tubes",
+  "summary": "Each active device has one key fact: the voltage it turns on at, how it is biased, or which part controls the flow.",
+  "points": [
+   {
+    "label": "Germanium diode threshold",
+    "value": "About 0.3 volts",
+    "q": [
+     "G6A03"
+    ]
+   },
+   {
+    "label": "Silicon junction diode",
+    "value": "About 0.7 volts",
+    "q": [
+     "G6A05"
+    ]
+   },
+   {
+    "label": "LED emitting light",
+    "value": "Forward biased",
+    "q": [
+     "G6B08"
+    ]
+   },
+   {
+    "label": "Bipolar transistor as switch",
+    "value": "Saturation and cutoff",
+    "q": [
+     "G6A07"
+    ]
+   },
+   {
+    "label": "MOSFET gate",
+    "value": "Thin insulating layer separates it from channel",
+    "q": [
+     "G6A09"
+    ]
+   },
+   {
+    "label": "Tube control grid",
+    "value": "Regulates electron flow, cathode to plate",
+    "q": [
+     "G6A10"
+    ]
+   },
+   {
+    "label": "Tube screen grid",
+    "value": "Reduces grid-to-plate capacitance",
+    "q": [
+     "G6A12"
+    ]
+   }
+  ],
+  "hook": "Germanium 0.3 plus silicon 0.7 adds up to 1 volt. A switch lives at the two extremes: fully on (saturation) or fully off (cutoff).",
+  "questions": [
+   "G6A03",
+   "G6A05",
+   "G6B08",
+   "G6A07",
+   "G6A09",
+   "G6A10",
+   "G6A12"
+  ],
+  "aid": {
+   "kind": "component",
+   "symbol": "diode"
+  }
+ },
+ {
+  "id": "g-6-integrated-circuits",
+  "title": "Integrated circuit types",
+  "summary": "Three kinds of integrated circuit, one key fact each: analog op amps, low-power CMOS, microwave MMICs.",
+  "points": [
+   {
+    "label": "Op amp",
+    "value": "Analog device",
+    "q": [
+     "G6B06"
+    ]
+   },
+   {
+    "label": "CMOS compared to TTL",
+    "value": "Low power consumption",
+    "q": [
+     "G6B03"
+    ]
+   },
+   {
+    "label": "MMIC",
+    "value": "Monolithic Microwave Integrated Circuit",
+    "q": [
+     "G6B02"
+    ]
+   }
+  ],
+  "questions": [
+   "G6B06",
+   "G6B03",
+   "G6B02"
+  ]
+ },
+ {
+  "id": "g-6-connectors",
+  "title": "Connectors by frequency",
+  "summary": "Pick a connector by how high the signal goes, from RCA for dc up to type N at 10 GHz.",
+  "points": [
+   {
+    "label": "RCA phono",
+    "value": "Low frequency or dc connections",
+    "q": [
+     "G6B12"
+    ]
+   },
+   {
+    "label": "BNC, 50 ohm",
+    "value": "Low SWR up to about 4 GHz",
+    "q": [
+     "G6B04"
+    ]
+   },
+   {
+    "label": "SMA",
+    "value": "Small, threaded, signals up to several GHz",
+    "q": [
+     "G6B11"
+    ]
+   },
+   {
+    "label": "Type N",
+    "value": "Moisture resistant, useful to 10 GHz",
+    "q": [
+     "G6B07"
+    ]
+   }
+  ],
+  "hook": "Climbing the ladder: RCA for dc, BNC to 4 GHz, N to 10 GHz and weatherproof.",
+  "questions": [
+   "G6B12",
+   "G6B04",
+   "G6B11",
+   "G6B07"
+  ]
+ },
+ {
+  "id": "g-7-power-supply",
+  "title": "Power supply building blocks",
+  "summary": "AC goes in, a rectifier flips it to pulses of DC, a filter smooths them, and a bleeder makes it safe after shutoff.",
+  "points": [
+   {
+    "label": "Half-wave rectifier",
+    "value": "One diode, 180 degrees of the cycle",
+    "q": [
+     "G7A04",
+     "G7A05"
+    ]
+   },
+   {
+    "label": "Full-wave rectifier",
+    "value": "Two diodes and a center-tapped transformer",
+    "q": [
+     "G7A03"
+    ]
+   },
+   {
+    "label": "Full-wave output",
+    "value": "360 degrees, pulses at twice the AC frequency",
+    "q": [
+     "G7A06",
+     "G7A07"
+    ]
+   },
+   {
+    "label": "Filter network",
+    "value": "Capacitors and inductors",
+    "q": [
+     "G7A02"
+    ]
+   },
+   {
+    "label": "Bleeder resistor",
+    "value": "Discharges filter capacitors after power off",
+    "q": [
+     "G7A01"
+    ]
+   },
+   {
+    "label": "Switchmode vs linear",
+    "value": "High frequency allows smaller components",
+    "q": [
+     "G7A08"
+    ]
+   }
+  ],
+  "hook": "Half-wave uses half the cycle (180 degrees), full-wave the whole cycle (360 degrees), so full-wave pulses come twice as often.",
+  "questions": [
+   "G7A04",
+   "G7A05",
+   "G7A03",
+   "G7A06",
+   "G7A07",
+   "G7A02",
+   "G7A01",
+   "G7A08"
+  ]
+ },
+ {
+  "id": "g-7-symbols",
+  "title": "Figure G7-1 symbol map",
+  "summary": "Figure G7-1 numbers each symbol. Learn the five the pool asks about.",
+  "points": [
+   {
+    "label": "Symbol 1",
+    "value": "Field effect transistor",
+    "q": [
+     "G7A09"
+    ]
+   },
+   {
+    "label": "Symbol 2",
+    "value": "NPN junction transistor",
+    "q": [
+     "G7A11"
+    ]
+   },
+   {
+    "label": "Symbol 5",
+    "value": "Zener diode",
+    "q": [
+     "G7A10"
+    ]
+   },
+   {
+    "label": "Symbol 6",
+    "value": "Solid core transformer",
+    "q": [
+     "G7A12"
+    ]
+   },
+   {
+    "label": "Symbol 7",
+    "value": "Tapped inductor",
+    "q": [
+     "G7A13"
+    ]
+   }
+  ],
+  "hook": "Transistors come first (1 and 2), the Zener diode is 5, and the coils sit together at 6 and 7.",
+  "questions": [
+   "G7A09",
+   "G7A11",
+   "G7A10",
+   "G7A12",
+   "G7A13"
+  ]
+ },
+ {
+  "id": "g-7-amplifiers",
+  "title": "Amplifier classes",
+  "summary": "Amplifier classes trade faithfulness for efficiency, from Class A that conducts all the time to efficient Class C.",
+  "points": [
+   {
+    "label": "Class A conducts",
+    "value": "100% of the time",
+    "q": [
+     "G7B04"
+    ]
+   },
+   {
+    "label": "Highest efficiency",
+    "value": "Class C",
+    "q": [
+     "G7B02"
+    ]
+   },
+   {
+    "label": "Linear amplifier",
+    "value": "Output preserves the input waveform",
+    "q": [
+     "G7B10"
+    ]
+   },
+   {
+    "label": "Class C is fine for",
+    "value": "FM",
+    "q": [
+     "G7B11"
+    ]
+   },
+   {
+    "label": "Efficiency",
+    "value": "RF output power divided by DC input power",
+    "q": [
+     "G7B08"
+    ]
+   },
+   {
+    "label": "Neutralizing",
+    "value": "Eliminates self-oscillations",
+    "q": [
+     "G7B01"
+    ]
+   }
+  ],
+  "hook": "Class A is on 100% of the time. Class C wins on efficiency and suits FM, not SSB or AM.",
+  "questions": [
+   "G7B04",
+   "G7B02",
+   "G7B10",
+   "G7B11",
+   "G7B08",
+   "G7B01"
+  ]
+ },
+ {
+  "id": "g-7-digital",
+  "title": "Digital building blocks",
+  "summary": "Three basic digital circuits: a gate makes decisions, a counter counts states, a shift register moves data.",
+  "points": [
+   {
+    "label": "Two-input AND gate",
+    "value": "Output high only when both inputs are high",
+    "q": [
+     "G7B03"
+    ]
+   },
+   {
+    "label": "3-bit binary counter",
+    "value": "8 states",
+    "q": [
+     "G7B05"
+    ]
+   },
+   {
+    "label": "Shift register",
+    "value": "Clocked array passing data in steps",
+    "q": [
+     "G7B06"
+    ]
+   }
+  ],
+  "hook": "Each bit doubles the count: 3 bits give 2 x 2 x 2 = 8 states.",
+  "questions": [
+   "G7B03",
+   "G7B05",
+   "G7B06"
+  ],
+  "aid": {
+   "kind": "logic",
+   "gate": "AND"
+  }
+ },
+ {
+  "id": "g-7-filters",
+  "title": "Filter vocabulary",
+  "summary": "A filter's edges are its half-power points. Inside, you measure the loss; outside, the rejection.",
+  "points": [
+   {
+    "label": "Low-pass, half power out",
+    "value": "Cutoff frequency",
+    "q": [
+     "G7C12"
+    ]
+   },
+   {
+    "label": "Band-pass bandwidth",
+    "value": "Between upper and lower half-power points",
+    "q": [
+     "G7C14"
+    ]
+   },
+   {
+    "label": "Loss inside the passband",
+    "value": "Insertion loss",
+    "q": [
+     "G7C07"
+    ]
+   },
+   {
+    "label": "Best rejection outside",
+    "value": "Ultimate rejection",
+    "q": [
+     "G7C13"
+    ]
+   }
+  ],
+  "hook": "Inside the passband: insertion loss. Outside it: ultimate rejection. The edges: half power.",
+  "questions": [
+   "G7C12",
+   "G7C14",
+   "G7C07",
+   "G7C13"
+  ],
+  "aid": {
+   "kind": "filter",
+   "type": "bandpass"
+  }
+ },
+ {
+  "id": "g-7-ssb-path",
+  "title": "SSB signal path",
+  "summary": "SSB is made in two steps and recovered in one: make double sideband, filter away one side, then detect.",
+  "points": [
+   {
+    "label": "Balanced modulator output",
+    "value": "Double-sideband modulated RF",
+    "q": [
+     "G7C02"
+    ]
+   },
+   {
+    "label": "Selects one sideband",
+    "value": "A filter",
+    "q": [
+     "G7C01"
+    ]
+   },
+   {
+    "label": "Product detector",
+    "value": "In an SSB receiver, extracts the signal",
+    "q": [
+     "G7C04"
+    ]
+   }
+  ],
+  "questions": [
+   "G7C02",
+   "G7C01",
+   "G7C04"
+  ]
+ },
+ {
+  "id": "g-7-sdr",
+  "title": "Software-defined and DSP radios",
+  "summary": "In an SDR, software does the radio's work, built on I and Q signals.",
+  "points": [
+   {
+    "label": "Done in software",
+    "value": "Filtering, detection and modulation",
+    "q": [
+     "G7C11"
+    ]
+   },
+   {
+    "label": "I and Q phase difference",
+    "value": "90 degrees",
+    "q": [
+     "G7C09"
+    ]
+   },
+   {
+    "label": "I-Q advantage",
+    "value": "Any modulation type with processing",
+    "q": [
+     "G7C10"
+    ]
+   },
+   {
+    "label": "DSP filter advantage",
+    "value": "Wide range of bandwidths and shapes",
+    "q": [
+     "G7C06"
+    ]
+   },
+   {
+    "label": "Direct digital synthesizer",
+    "value": "Variable frequency, crystal stability",
+    "q": [
+     "G7C05"
+    ]
+   }
+  ],
+  "questions": [
+   "G7C11",
+   "G7C09",
+   "G7C10",
+   "G7C06",
+   "G7C05"
+  ]
+ },
+ {
+  "id": "g-8-modulation",
+  "title": "What each modulation changes",
+  "summary": "Every modulation changes one property of the RF wave: its power, its frequency or its phase.",
+  "points": [
+   {
+    "label": "Amplitude modulation",
+    "value": "Varies the instantaneous power level",
+    "q": [
+     "G8A05"
+    ]
+   },
+   {
+    "label": "AM modulation envelope",
+    "value": "Line connecting the signal's peaks",
+    "q": [
+     "G8A11"
+    ]
+   },
+   {
+    "label": "Frequency modulation",
+    "value": "Changes instantaneous frequency",
+    "q": [
+     "G8A03"
+    ]
+   },
+   {
+    "label": "Phase modulation",
+    "value": "Changes the phase angle",
+    "q": [
+     "G8A02"
+    ]
+   },
+   {
+    "label": "Reactance modulator",
+    "value": "Produces phase modulation",
+    "q": [
+     "G8A04"
+    ]
+   },
+   {
+    "label": "Direct binary FSK",
+    "value": "Digital signal shifts oscillator frequency",
+    "q": [
+     "G8A01"
+    ]
+   }
+  ],
+  "questions": [
+   "G8A05",
+   "G8A11",
+   "G8A03",
+   "G8A02",
+   "G8A04",
+   "G8A01"
+  ]
+ },
+ {
+  "id": "g-8-bandwidth",
+  "title": "What sets signal bandwidth",
+  "summary": "Bandwidth grows with deviation, symbol rate and overdriving. Match the receiver to it.",
+  "points": [
+   {
+    "label": "Narrowest phone emission",
+    "value": "Single sideband",
+    "q": [
+     "G8A07"
+    ]
+   },
+   {
+    "label": "Receiver bandwidth",
+    "value": "Match the mode for best signal-to-noise",
+    "q": [
+     "G8B09"
+    ]
+   },
+   {
+    "label": "Symbol rate",
+    "value": "Higher rates need wider bandwidth",
+    "q": [
+     "G8B10"
+    ]
+   },
+   {
+    "label": "5 kHz deviation, 3 kHz tone",
+    "value": "16 kHz total bandwidth",
+    "q": [
+     "G8B06"
+    ]
+   },
+   {
+    "label": "Overmodulation",
+    "value": "Excessive bandwidth",
+    "q": [
+     "G8A08"
+    ]
+   },
+   {
+    "label": "Flat-topping",
+    "value": "Distortion from too much drive or speech",
+    "q": [
+     "G8A10"
+    ]
+   },
+   {
+    "label": "Waterfall display axes",
+    "value": "Frequency across, time down, strength intensity",
+    "q": [
+     "G8C14"
+    ]
+   },
+   {
+    "label": "Waterfall vertical lines",
+    "value": "Overmodulation of data or RTTY signal",
+    "q": [
+     "G8C13"
+    ]
+   }
+  ],
+  "hook": "FM bandwidth is 2 x (deviation + audio): 2 x (5 + 3) = 16 kHz. Overmodulation shows as excess width: vertical lines on a waterfall.",
+  "questions": [
+   "G8A07",
+   "G8B09",
+   "G8B10",
+   "G8B06",
+   "G8A08",
+   "G8A10",
+   "G8C14",
+   "G8C13"
+  ]
+ },
+ {
+  "id": "g-8-mixing",
+  "title": "Mixers and multipliers",
+  "summary": "A mixer outputs sum and difference frequencies. A multiplier makes harmonics, multiplying deviation too.",
+  "points": [
+   {
+    "label": "Mixing two RF signals",
+    "value": "Heterodyning",
+    "q": [
+     "G8B03"
+    ]
+   },
+   {
+    "label": "Mixer output",
+    "value": "Sum and difference of LO and RF",
+    "q": [
+     "G8B11"
+    ]
+   },
+   {
+    "label": "Input tuned to reach IF",
+    "value": "Local oscillator",
+    "q": [
+     "G8B01"
+    ]
+   },
+   {
+    "label": "Signal twice the IF away",
+    "value": "Image response",
+    "q": [
+     "G8B02"
+    ]
+   },
+   {
+    "label": "VHF FM harmonic stage",
+    "value": "Multiplier",
+    "q": [
+     "G8B04"
+    ]
+   },
+   {
+    "label": "12.21 MHz oscillator stage",
+    "value": "Only 416.7 Hz deviation",
+    "q": [
+     "G8B07"
+    ]
+   }
+  ],
+  "hook": "The multiplier scales deviation too: 146.52 / 12.21 = 12, so 5 kHz / 12 = 416.7 Hz at the oscillator.",
+  "questions": [
+   "G8B03",
+   "G8B11",
+   "G8B01",
+   "G8B02",
+   "G8B04",
+   "G8B07"
+  ]
+ },
+ {
+  "id": "g-8-intermod",
+  "title": "Intermodulation order",
+  "summary": "Nonlinear mixing makes unwanted products. The odd-order ones land closest to the real signals.",
+  "points": [
+   {
+    "label": "Nonlinear spurious mixing",
+    "value": "Intermodulation",
+    "q": [
+     "G8B12"
+    ]
+   },
+   {
+    "label": "Closest to original signals",
+    "value": "Odd-order products",
+    "q": [
+     "G8B05"
+    ]
+   },
+   {
+    "label": "Odd-order example",
+    "value": "2F1-F2",
+    "q": [
+     "G8B13"
+    ]
+   }
+  ],
+  "hook": "Add the multipliers to get the order: 2F1-F2 is 2 + 1 = 3, odd.",
+  "questions": [
+   "G8B12",
+   "G8B05",
+   "G8B13"
+  ]
+ },
+ {
+  "id": "g-8-fsk-psk",
+  "title": "FSK, PSK and their codes",
+  "summary": "FSK shifts between two frequencies, PSK shifts phase. Each pairs with a character code.",
+  "points": [
+   {
+    "label": "FSK's two frequencies",
+    "value": "Mark and space",
+    "q": [
+     "G8C11"
+    ]
+   },
+   {
+    "label": "Baudot code",
+    "value": "5-bit code plus start and stop bits",
+    "q": [
+     "G8C04"
+    ]
+   },
+   {
+    "label": "PSK31 character code",
+    "value": "Varicode",
+    "q": [
+     "G8C12"
+    ]
+   },
+   {
+    "label": "PSK31 upper case",
+    "value": "Longer Varicode, slower to send",
+    "q": [
+     "G8C08"
+    ]
+   },
+   {
+    "label": "QPSK",
+    "value": "0, 90, 180, 270 degree shifts, pairs of bits",
+    "q": [
+     "G8A12"
+    ]
+   },
+   {
+    "label": "QPSK31",
+    "value": "Sideband sensitive, error correcting, BPSK width",
+    "q": [
+     "G8A06"
+    ]
+   }
+  ],
+  "hook": "Quad means four: QPSK uses four phases, so each shift carries a pair of bits.",
+  "questions": [
+   "G8C11",
+   "G8C04",
+   "G8C12",
+   "G8C08",
+   "G8A12",
+   "G8A06"
+  ]
+ },
+ {
+  "id": "g-8-weak-signal",
+  "title": "Weak-signal and digital voice modes",
+  "summary": "Each of these digital modes has one job: beacons, weak-signal contacts, or voice.",
+  "points": [
+   {
+    "label": "Low-power HF beacon",
+    "value": "WSPR",
+    "q": [
+     "G8C02"
+    ]
+   },
+   {
+    "label": "Digital voice",
+    "value": "DMR, D-STAR and SystemFusion",
+    "q": [
+     "G8C16"
+    ]
+   },
+   {
+    "label": "FT8 modulation",
+    "value": "8-tone frequency shift keying",
+    "q": [
+     "G8A09"
+    ]
+   },
+   {
+    "label": "FT8 strength",
+    "value": "Copies very low signal-to-noise signals",
+    "q": [
+     "G8C07"
+    ]
+   },
+   {
+    "label": "FT8 report of +3",
+    "value": "Signal-to-noise +3 dB in a 2.5 kHz bandwidth",
+    "q": [
+     "G8C15"
+    ]
+   }
+  ],
+  "hook": "FT8 has 8 in its name and 8 tones in its signal.",
+  "questions": [
+   "G8C02",
+   "G8C16",
+   "G8A09",
+   "G8C07",
+   "G8C15"
+  ]
+ },
+ {
+  "id": "g-8-error-control",
+  "title": "Getting data through intact",
+  "summary": "Digital links protect data two ways: ask again when something fails, or send extra so the receiver can fix it.",
+  "points": [
+   {
+    "label": "Packet header",
+    "value": "Routing and handling information",
+    "q": [
+     "G8C03"
+    ]
+   },
+   {
+    "label": "ARQ NAK response",
+    "value": "Request retransmission",
+    "q": [
+     "G8C05"
+    ]
+   },
+   {
+    "label": "Too many ARQ attempts",
+    "value": "The connection is dropped",
+    "q": [
+     "G8C06"
+    ]
+   },
+   {
+    "label": "Forward error correction",
+    "value": "Sends redundant information with data",
+    "q": [
+     "G8C10"
+    ]
+   },
+   {
+    "label": "Mesh node fails",
+    "value": "Packet can go via an alternate node",
+    "q": [
+     "G8C09"
+    ]
+   }
+  ],
+  "questions": [
+   "G8C03",
+   "G8C05",
+   "G8C06",
+   "G8C10",
+   "G8C09"
+  ]
+ },
+ {
+  "id": "g-9-feed-lines",
+  "title": "Feed line basics",
+  "summary": "Feed line loss is counted in dB per length and rises with frequency. Spacing sets a parallel line's impedance.",
+  "points": [
+   {
+    "label": "Loss usually stated in",
+    "value": "Decibels per 100 feet",
+    "q": [
+     "G9A06"
+    ]
+   },
+   {
+    "label": "Coax, frequency rising",
+    "value": "Attenuation increases",
+    "q": [
+     "G9A05"
+    ]
+   },
+   {
+    "label": "Parallel line impedance",
+    "value": "Set by conductor spacing and radius",
+    "q": [
+     "G9A01"
+    ]
+   },
+   {
+    "label": "Window line impedance",
+    "value": "450 ohms",
+    "q": [
+     "G9A03"
+    ]
+   }
+  ],
+  "questions": [
+   "G9A06",
+   "G9A05",
+   "G9A01",
+   "G9A03"
+  ]
+ },
+ {
+  "id": "g-9-swr",
+  "title": "SWR and mismatch",
+  "summary": "SWR comes from a mismatch between feed line and antenna. A tuner hides it from the rig but the line still sees it.",
+  "points": [
+   {
+    "label": "Cause of reflected power",
+    "value": "Feed line and feed point impedances differ",
+    "q": [
+     "G9A04"
+    ]
+   },
+   {
+    "label": "Prevent standing waves",
+    "value": "Match feed point to line impedance",
+    "q": [
+     "G9A07"
+    ]
+   },
+   {
+    "label": "50-ohm line, 200-ohm load",
+    "value": "4:1 SWR",
+    "q": [
+     "G9A09"
+    ]
+   },
+   {
+    "label": "50-ohm line, 10-ohm load",
+    "value": "5:1 SWR",
+    "q": [
+     "G9A10"
+    ]
+   },
+   {
+    "label": "Tuner shows rig 1:1",
+    "value": "Feed line SWR is still 5:1",
+    "q": [
+     "G9A08"
+    ]
+   },
+   {
+    "label": "High SWR",
+    "value": "Increases loss in a lossy line",
+    "q": [
+     "G9A02"
+    ]
+   },
+   {
+    "label": "Higher line loss",
+    "value": "Lowers SWR measured at the line input",
+    "q": [
+     "G9A11"
+    ]
+   }
+  ],
+  "hook": "SWR is the larger impedance over the smaller: 200 / 50 = 4, and 50 / 10 = 5.",
+  "questions": [
+   "G9A04",
+   "G9A07",
+   "G9A09",
+   "G9A10",
+   "G9A08",
+   "G9A02",
+   "G9A11"
+  ]
+ },
+ {
+  "id": "g-9-antenna-length",
+  "title": "Antenna length vs frequency",
+  "summary": "Lower frequency means a longer antenna. Length goes opposite to frequency.",
+  "points": [
+   {
+    "label": "1/2 wave at 14.250 MHz",
+    "value": "About 33 feet",
+    "q": [
+     "G9B10"
+    ]
+   },
+   {
+    "label": "1/2 wave at 3.550 MHz",
+    "value": "About 132 feet",
+    "q": [
+     "G9B11"
+    ]
+   },
+   {
+    "label": "1/4 wave at 28.5 MHz",
+    "value": "About 8 feet",
+    "q": [
+     "G9B12"
+    ]
+   }
+  ],
+  "hook": "3.550 MHz is about 1/4 of 14.250 MHz, so its dipole is 4 times longer: 33 feet x 4 = 132 feet.",
+  "questions": [
+   "G9B10",
+   "G9B11",
+   "G9B12"
+  ],
+  "aid": {
+   "kind": "antenna",
+   "type": "dipole"
+  }
+ },
+ {
+  "id": "g-9-patterns",
+  "title": "Radiation pattern shapes",
+  "summary": "Each antenna shape has a signature pattern. Learn where each one radiates and where it goes quiet.",
+  "points": [
+   {
+    "label": "Main lobe",
+    "value": "Direction of maximum radiated field strength",
+    "q": [
+     "G9C08"
+    ]
+   },
+   {
+    "label": "Front-to-back ratio",
+    "value": "Major lobe power vs the opposite direction",
+    "q": [
+     "G9C07"
+    ]
+   },
+   {
+    "label": "Dipole in free space",
+    "value": "Figure-eight at right angles to the wire",
+    "q": [
+     "G9B04"
+    ]
+   },
+   {
+    "label": "Quarter-wave ground plane",
+    "value": "Omnidirectional in azimuth",
+    "q": [
+     "G9B03"
+    ]
+   },
+   {
+    "label": "VHF/UHF halo",
+    "value": "Omnidirectional in the plane of the halo",
+    "q": [
+     "G9D03"
+    ]
+   },
+   {
+    "label": "Small loop, under 1/10 wave",
+    "value": "Nulls broadside to the loop",
+    "q": [
+     "G9D10"
+    ]
+   }
+  ],
+  "questions": [
+   "G9C08",
+   "G9C07",
+   "G9B04",
+   "G9B03",
+   "G9D03",
+   "G9D10"
+  ]
+ },
+ {
+  "id": "g-9-dipole",
+  "title": "Dipole height and feed point",
+  "summary": "A dipole's impedance and pattern shift with height and with where you feed it.",
+  "points": [
+   {
+    "label": "One central support",
+    "value": "Inverted V",
+    "q": [
+     "G9D12"
+    ]
+   },
+   {
+    "label": "Less than 1/2 wave high",
+    "value": "Azimuth pattern almost omnidirectional",
+    "q": [
+     "G9B05"
+    ]
+   },
+   {
+    "label": "NVIS, 40 meters by day",
+    "value": "Horizontal, 1/10 to 1/4 wavelength high",
+    "q": [
+     "G9D01"
+    ]
+   },
+   {
+    "label": "Lowered toward 1/10 wave",
+    "value": "Feed point impedance steadily decreases",
+    "q": [
+     "G9B07"
+    ]
+   },
+   {
+    "label": "Feed moved center to ends",
+    "value": "Feed point impedance steadily increases",
+    "q": [
+     "G9B08"
+    ]
+   },
+   {
+    "label": "End-fed half wave",
+    "value": "Very high feed point impedance",
+    "q": [
+     "G9D02"
+    ]
+   }
+  ],
+  "hook": "Impedance climbs from the center toward the ends, so feeding right at the end is very high.",
+  "questions": [
+   "G9D12",
+   "G9B05",
+   "G9D01",
+   "G9B07",
+   "G9B08",
+   "G9D02"
+  ]
+ },
+ {
+  "id": "g-9-verticals",
+  "title": "Verticals and ground",
+  "summary": "Vertical antennas depend on their radials and the ground beneath them.",
+  "points": [
+   {
+    "label": "Raised ground plane, 50 ohms",
+    "value": "Slope the radials downward",
+    "q": [
+     "G9B02"
+    ]
+   },
+   {
+    "label": "Ground-mounted radials",
+    "value": "On the surface or a few inches under",
+    "q": [
+     "G9B06"
+    ]
+   },
+   {
+    "label": "Horizontal vs vertical HF",
+    "value": "Horizontal has lower ground losses",
+    "q": [
+     "G9B09"
+    ]
+   }
+  ],
+  "hook": "Radials go down: sloped downward when raised, on or just under the soil when ground-mounted.",
+  "questions": [
+   "G9B02",
+   "G9B06",
+   "G9B09"
+  ],
+  "aid": {
+   "kind": "antenna",
+   "type": "vertical",
+   "highlight": "radials"
+  }
+ },
+ {
+  "id": "g-9-yagi",
+  "title": "Yagi design and matching",
+  "summary": "A Yagi is a driven element with a longer reflector and shorter directors. Its dimensions trade gain, pattern and bandwidth.",
+  "points": [
+   {
+    "label": "Driven element length",
+    "value": "About 1/2 wavelength",
+    "q": [
+     "G9C02"
+    ]
+   },
+   {
+    "label": "Reflector and director",
+    "value": "Reflector longer, director shorter",
+    "q": [
+     "G9C03"
+    ]
+   },
+   {
+    "label": "Longer boom, more directors",
+    "value": "Gain increases",
+    "q": [
+     "G9C05"
+    ]
+   },
+   {
+    "label": "Larger-diameter elements",
+    "value": "Wider bandwidth",
+    "q": [
+     "G9C01"
+    ]
+   },
+   {
+    "label": "Things you can adjust",
+    "value": "Boom length, element count, spacing",
+    "q": [
+     "G9C10"
+    ]
+   },
+   {
+    "label": "Two stacked 1/2 wave apart",
+    "value": "About 3 dB more, lobe narrower in elevation",
+    "q": [
+     "G9C09",
+     "G9D05"
+    ]
+   },
+   {
+    "label": "Beta or hairpin match",
+    "value": "Shorted stub at the feed point",
+    "q": [
+     "G9C11"
+    ]
+   },
+   {
+    "label": "Gamma match",
+    "value": "Driven element need not be insulated",
+    "q": [
+     "G9C12"
+    ]
+   }
+  ],
+  "hook": "Lengths step down: reflector longer, driven element about 1/2 wave, director shorter.",
+  "questions": [
+   "G9C02",
+   "G9C03",
+   "G9C05",
+   "G9C01",
+   "G9C10",
+   "G9C09",
+   "G9D05",
+   "G9C11",
+   "G9C12"
+  ],
+  "aid": {
+   "kind": "antenna",
+   "type": "yagi",
+   "highlight": "reflector"
+  }
+ },
+ {
+  "id": "g-9-special-antennas",
+  "title": "Special-purpose antennas",
+  "summary": "Each specialty antenna is known for one strength or one weakness.",
+  "points": [
+   {
+    "label": "Antenna traps",
+    "value": "Enable multiband operation",
+    "q": [
+     "G9D04"
+    ]
+   },
+   {
+    "label": "Multiband antenna downside",
+    "value": "Poor harmonic rejection",
+    "q": [
+     "G9D11"
+    ]
+   },
+   {
+    "label": "Log-periodic advantage",
+    "value": "Wide bandwidth",
+    "q": [
+     "G9D06"
+    ]
+   },
+   {
+    "label": "Log-periodic layout",
+    "value": "Length and spacing vary logarithmically",
+    "q": [
+     "G9D07"
+    ]
+   },
+   {
+    "label": "Screwdriver mobile",
+    "value": "Varies base loading inductance",
+    "q": [
+     "G9D08"
+    ]
+   },
+   {
+    "label": "Beverage antenna",
+    "value": "Directional receiving, MF and low HF",
+    "q": [
+     "G9D09"
+    ]
+   }
+  ],
+  "questions": [
+   "G9D04",
+   "G9D11",
+   "G9D06",
+   "G9D07",
+   "G9D08",
+   "G9D09"
+  ]
+ },
+ {
+  "id": "g-0-rf-exposure",
+  "title": "RF exposure: what counts",
+  "summary": "RF heats tissue. Exposure depends on power density, frequency and duty cycle, averaged over time.",
+  "points": [
+   {
+    "label": "Effect on body tissue",
+    "value": "It heats it",
+    "q": [
+     "G0A01"
+    ]
+   },
+   {
+    "label": "Factors in exposure",
+    "value": "Duty cycle, frequency and power density",
+    "q": [
+     "G0A02"
+    ]
+   },
+   {
+    "label": "Time averaging",
+    "value": "Total exposure averaged over a period",
+    "q": [
+     "G0A04"
+    ]
+   },
+   {
+    "label": "Lower duty cycle",
+    "value": "Permits greater power levels",
+    "q": [
+     "G0A07"
+    ]
+   },
+   {
+    "label": "Stations covered",
+    "value": "All over one milliwatt, time-averaged",
+    "q": [
+     "G0A12"
+    ]
+   }
+  ],
+  "hook": "Time averaging is why duty cycle matters: transmit less of the time and you may use more power.",
+  "questions": [
+   "G0A01",
+   "G0A02",
+   "G0A04",
+   "G0A07",
+   "G0A12"
+  ]
+ },
+ {
+  "id": "g-0-rf-compliance",
+  "title": "RF exposure: the steps",
+  "summary": "Evaluate your station, then keep people out of any area that is over the limit.",
+  "points": [
+   {
+    "label": "Fail the exemption",
+    "value": "RF evaluation per FCC OET Bulletin 65",
+    "q": [
+     "G0A06"
+    ]
+   },
+   {
+    "label": "Ways to show compliance",
+    "value": "Calculation, computer modeling or measurement",
+    "q": [
+     "G0A03"
+    ]
+   },
+   {
+    "label": "Accurate field measurement",
+    "value": "Calibrated meter with a calibrated antenna",
+    "q": [
+     "G0A09"
+    ]
+   },
+   {
+    "label": "Routine duty",
+    "value": "Evaluate and block high exposure areas",
+    "q": [
+     "G0A08"
+    ]
+   },
+   {
+    "label": "Over the limit",
+    "value": "Prevent human exposure to those fields",
+    "q": [
+     "G0A05"
+    ]
+   },
+   {
+    "label": "Neighbor in the main lobe",
+    "value": "Ensure it cannot point at them while present",
+    "q": [
+     "G0A10"
+    ]
+   },
+   {
+    "label": "Indoor antenna",
+    "value": "MPE limits not exceeded in occupied areas",
+    "q": [
+     "G0A11"
+    ]
+   }
+  ],
+  "questions": [
+   "G0A06",
+   "G0A03",
+   "G0A09",
+   "G0A08",
+   "G0A05",
+   "G0A10",
+   "G0A11"
+  ]
+ },
+ {
+  "id": "g-0-electrical",
+  "title": "Station wiring safety",
+  "summary": "The National Electrical Code covers station safety: size wire to the breaker and protect only the hot wires.",
+  "points": [
+   {
+    "label": "National Electrical Code",
+    "value": "Electrical safety of the station",
+    "q": [
+     "G0B06"
+    ]
+   },
+   {
+    "label": "AWG 14 wiring",
+    "value": "15 ampere fuse or breaker",
+    "q": [
+     "G0B03"
+    ]
+   },
+   {
+    "label": "20 A breaker",
+    "value": "AWG 12 wire minimum",
+    "q": [
+     "G0B02"
+    ]
+   },
+   {
+    "label": "240 VAC, four conductors",
+    "value": "Fuse only the hot wires",
+    "q": [
+     "G0B01"
+    ]
+   },
+   {
+    "label": "GFCI trips on",
+    "value": "Current from hot directly to ground",
+    "q": [
+     "G0B05"
+    ]
+   },
+   {
+    "label": "Power supply interlock",
+    "value": "Removes dangerous voltage if cabinet opens",
+    "q": [
+     "G0B12"
+    ]
+   }
+  ],
+  "hook": "Lower AWG number, bigger breaker: AWG 14 goes with 15 A, AWG 12 with 20 A.",
+  "questions": [
+   "G0B06",
+   "G0B03",
+   "G0B02",
+   "G0B01",
+   "G0B05",
+   "G0B12"
+  ]
+ },
+ {
+  "id": "g-0-lightning",
+  "title": "Lightning protection layout",
+  "summary": "Keep lightning outside: ground outside, arrestors at the entry, and every ground tied together.",
+  "points": [
+   {
+    "label": "Lightning ground system",
+    "value": "Outside the building",
+    "q": [
+     "G0B04"
+    ]
+   },
+   {
+    "label": "Lightning arrestors",
+    "value": "Where feed lines enter the building",
+    "q": [
+     "G0B13"
+    ]
+   },
+   {
+    "label": "Ground rods",
+    "value": "Bonded together with all other grounds",
+    "q": [
+     "G0B11"
+    ]
+   }
+  ],
+  "questions": [
+   "G0B04",
+   "G0B13",
+   "G0B11"
+  ]
+ }
+]

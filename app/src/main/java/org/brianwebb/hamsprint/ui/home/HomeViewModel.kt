@@ -1,5 +1,6 @@
 package org.brianwebb.hamsprint.ui.home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
@@ -16,6 +17,7 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.withContext
 import org.brianwebb.hamsprint.AppContainer
 import org.brianwebb.hamsprint.data.ExamRecord
+import org.brianwebb.hamsprint.domain.Curriculum
 import org.brianwebb.hamsprint.domain.LicenseClass
 import org.brianwebb.hamsprint.domain.QuestionPool
 import org.brianwebb.hamsprint.domain.Readiness
@@ -30,6 +32,8 @@ sealed interface HomeUiState {
         val report: ReadinessReport,
         val recentExams: List<ExamRecord>,
         val studyTimeMillis: Long,
+        /** Zero when the pool has no foundations or they failed to load. */
+        val foundationCount: Int = 0,
     ) : HomeUiState
 }
 
@@ -57,8 +61,10 @@ class HomeViewModel(private val container: AppContainer) : ViewModel() {
     private suspend fun load(license: LicenseClass): HomeUiState.Ready {
         val pool = withContext(Dispatchers.IO) { container.pools.load(license) }
         val progress = container.progress.progress(license)
+        val curriculum = curriculum(license)
+        val seen = container.progress.seenFoundations(license)
         val report = withContext(Dispatchers.Default) {
-            Readiness.evaluate(pool, progress, container.clock.nowMillis())
+            Readiness.evaluate(pool, progress, container.clock.nowMillis(), curriculum, seen)
         }
         return HomeUiState.Ready(
             license = license,
@@ -66,6 +72,13 @@ class HomeViewModel(private val container: AppContainer) : ViewModel() {
             report = report,
             recentExams = container.progress.recentExams(license, limit = 5),
             studyTimeMillis = container.progress.studyTimeMillis(license),
+            foundationCount = curriculum.foundations.size,
         )
     }
+
+    /** Foundations are optional on Home, so a bad file hides their card rather than the screen. */
+    private suspend fun curriculum(license: LicenseClass): Curriculum =
+        runCatching { withContext(Dispatchers.IO) { container.foundations.load(license) } }
+            .onFailure { Log.e("Home", "Foundations unavailable for ${license.poolId}", it) }
+            .getOrDefault(Curriculum.EMPTY)
 }

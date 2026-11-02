@@ -71,4 +71,44 @@ class ProgressStoreTest {
         assertEquals(1, store.progress(LicenseClass.EXTRA).size)
         assertTrue(store.version.value > before)
     }
+
+    @Test
+    fun `seen foundations are idempotent, scoped per license, and cleared by reset`() = runTest {
+        assertTrue(store.seenFoundations(LicenseClass.GENERAL).isEmpty())
+        store.markFoundationSeen(LicenseClass.GENERAL, "g-1-power", 10L, studiedMillis = 30_000)
+        store.markFoundationSeen(LicenseClass.GENERAL, "g-1-power", 20L)
+        store.markFoundationSeen(LicenseClass.TECHNICIAN, "t-1-bands", 10L)
+        assertEquals(setOf("g-1-power"), store.seenFoundations(LicenseClass.GENERAL))
+        assertEquals("lesson reading counts as study time", 30_000L, store.studyTimeMillis(LicenseClass.GENERAL))
+
+        store.reset(LicenseClass.GENERAL)
+        assertTrue(store.seenFoundations(LicenseClass.GENERAL).isEmpty())
+        assertEquals(setOf("t-1-bands"), store.seenFoundations(LicenseClass.TECHNICIAN))
+    }
+
+    @Test
+    fun `upgrading a version 1 database keeps progress and adds seen foundations`() = runTest {
+        val context = ApplicationProvider.getApplicationContext<android.content.Context>()
+        val name = "upgrade-test.db"
+        context.deleteDatabase(name)
+        context.openOrCreateDatabase(name, 0, null).use { db ->
+            db.execSQL(
+                "CREATE TABLE progress (question_id TEXT PRIMARY KEY NOT NULL, pool_id TEXT NOT NULL, stage INTEGER NOT NULL, " +
+                    "due_at INTEGER NOT NULL, seen INTEGER NOT NULL, correct INTEGER NOT NULL, lapses INTEGER NOT NULL, last_answered_at INTEGER NOT NULL)",
+            )
+            db.execSQL("CREATE TABLE exam_results (id INTEGER PRIMARY KEY AUTOINCREMENT, pool_id TEXT NOT NULL, taken_at INTEGER NOT NULL, score INTEGER NOT NULL, total INTEGER NOT NULL, passing INTEGER NOT NULL, duration_ms INTEGER NOT NULL)")
+            db.execSQL("CREATE TABLE study_time (pool_id TEXT PRIMARY KEY NOT NULL, millis INTEGER NOT NULL)")
+            db.execSQL("INSERT INTO progress VALUES ('G1A01', 'general', 3, 100, 4, 3, 0, 50)")
+            db.version = 1
+        }
+        val upgraded = ProgressStore(context, Dispatchers.Unconfined, name)
+        try {
+            assertEquals(3, upgraded.progress(LicenseClass.GENERAL).getValue("G1A01").stage)
+            upgraded.markFoundationSeen(LicenseClass.GENERAL, "g-1-power", 10L)
+            assertEquals(setOf("g-1-power"), upgraded.seenFoundations(LicenseClass.GENERAL))
+        } finally {
+            upgraded.close()
+            context.deleteDatabase(name)
+        }
+    }
 }

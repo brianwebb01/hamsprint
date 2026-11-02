@@ -151,6 +151,7 @@ private fun HomeContent(s: HomeUiState.Ready, onNavigate: (Screen) -> Unit, onSw
             )
         }
         item { ExamCard(s) { onNavigate(Screen.ExamHistory) } }
+        if (s.foundationCount > 0) item { FoundationsCard(s.foundationCount) { onNavigate(Screen.Foundations) } }
         item {
             SectionHeader("Topics", Modifier.padding(top = Space.sm))
             HamCard(padding = PaddingValues(vertical = Space.xs)) {
@@ -288,6 +289,30 @@ private fun ExamCard(s: HomeUiState.Ready, onClick: () -> Unit) {
                     )
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun FoundationsCard(count: Int, onClick: () -> Unit) {
+    val c = HamTheme.colors
+    HamCard(onClick = onClick) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Box(
+                Modifier.size(48.dp).clip(RoundedCornerShape(Radius.sm)).background(c.accentSoft),
+                contentAlignment = Alignment.Center,
+            ) {
+                Icon(HamIcons.Layers, null, tint = c.accent, modifier = Modifier.size(24.dp))
+            }
+            Column(Modifier.padding(start = Space.lg).weight(1f)) {
+                Text("Foundations", style = MaterialTheme.typography.titleMedium, color = c.textPrimary)
+                Text(
+                    "$count frameworks that tie the facts together",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = c.textSecondary,
+                )
+            }
+            Icon(HamIcons.Chevron, null, tint = c.textTertiary, modifier = Modifier.size(20.dp))
         }
     }
 }

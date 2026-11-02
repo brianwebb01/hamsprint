@@ -27,6 +27,8 @@ import org.brianwebb.hamsprint.ui.home.HomeScreen
 import org.brianwebb.hamsprint.ui.onboarding.OnboardingScreen
 import org.brianwebb.hamsprint.ui.settings.SettingsScreen
 import org.brianwebb.hamsprint.ui.theme.HamTheme
+import org.brianwebb.hamsprint.ui.foundations.FoundationDetailScreen
+import org.brianwebb.hamsprint.ui.foundations.FoundationsScreen
 import org.brianwebb.hamsprint.ui.training.TrainingScreen
 
 val LocalAppContainer = staticCompositionLocalOf<AppContainer> { error("AppContainer not provided") }
@@ -78,6 +80,11 @@ private fun NavHost() {
                         onStartExam = { navigator.push(Screen.Exam) },
                     )
                     Screen.Settings -> SettingsScreen(onBack = { navigator.pop() })
+                    Screen.Foundations -> FoundationsScreen(
+                        onBack = { navigator.pop() },
+                        onOpen = { navigator.push(Screen.FoundationDetail(it)) },
+                    )
+                    is Screen.FoundationDetail -> FoundationDetailScreen(screen.foundationId, onBack = { navigator.pop() })
                 }
             }
         }

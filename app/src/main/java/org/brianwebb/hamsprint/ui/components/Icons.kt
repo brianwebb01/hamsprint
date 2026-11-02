@@ -30,6 +30,7 @@ object HamIcons {
         "M12 12.5A.5 .5 0 1 0 12 11.5A.5 .5 0 1 0 12 12.5Z",
     )
     val Expand = stroke("Expand", "M14 4H20V10", "M20 4L13.5 10.5", "M10 20H4V14", "M4 20L10.5 13.5")
+    val Layers = stroke("Layers", "M12 3L21 8L12 13L3 8Z", "M3 12.5L12 17.5L21 12.5", "M3 17L12 22L21 17")
     val Book = stroke("Book", "M4 5.5C6.5 4 9.5 4 12 6C14.5 4 17.5 4 20 5.5V19C17.5 17.5 14.5 17.5 12 19.5C9.5 17.5 6.5 17.5 4 19Z", "M12 6V19.5")
     val Refresh = stroke("Refresh", "M20 11A8 8 0 0 0 5.6 6.4L4 8", "M4 4V8H8", "M4 13A8 8 0 0 0 18.4 17.6L20 16", "M20 20V16H16")
     val Code = stroke("Code", "M8 7L3 12L8 17", "M16 7L21 12L16 17")

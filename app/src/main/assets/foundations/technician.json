@@ -1,0 +1,3265 @@
+[
+ {
+  "id": "t-3-frequency-ranges",
+  "title": "HF, VHF and UHF in steps of ten",
+  "summary": "The three range names are back to back, and each one ends where the next begins, ten times higher.",
+  "points": [
+   {
+    "label": "HF",
+    "value": "3 to 30 MHz",
+    "q": [
+     "T3B10"
+    ]
+   },
+   {
+    "label": "VHF",
+    "value": "30 MHz to 300 MHz",
+    "q": [
+     "T3B08"
+    ]
+   },
+   {
+    "label": "UHF",
+    "value": "300 to 3000 MHz",
+    "q": [
+     "T3B09"
+    ]
+   }
+  ],
+  "hook": "Count by tens: 3, 30, 300, 3000 MHz. H, then V (very), then U (ultra).",
+  "questions": [
+   "T3B10",
+   "T3B08",
+   "T3B09"
+  ],
+  "aid": {
+   "kind": "spectrum"
+  }
+ },
+ {
+  "id": "t-3-wave-speed-wavelength",
+  "title": "Radio wave speed and wavelength",
+  "summary": "Every radio wave moves at the same speed, so frequency alone sets the wavelength.",
+  "points": [
+   {
+    "label": "Speed in free space",
+    "value": "Speed of light",
+    "q": [
+     "T3B04"
+    ]
+   },
+   {
+    "label": "That speed in numbers",
+    "value": "300,000,000 meters per second",
+    "q": [
+     "T3B11"
+    ]
+   },
+   {
+    "label": "Which frequency is fastest",
+    "value": "All travel at the same velocity",
+    "q": [
+     "T3B12"
+    ]
+   },
+   {
+    "label": "Frequency goes up",
+    "value": "Wavelength gets shorter",
+    "q": [
+     "T3B05"
+    ]
+   },
+   {
+    "label": "Formula",
+    "value": "Wavelength in meters = 300 / frequency in MHz",
+    "q": [
+     "T3B06"
+    ]
+   },
+   {
+    "label": "Bands are also named by",
+    "value": "The approximate wavelength in meters",
+    "q": [
+     "T3B07"
+    ]
+   }
+  ],
+  "hook": "300 shows up twice: waves move 300,000,000 meters per second, and wavelength in meters is 300 divided by MHz.",
+  "questions": [
+   "T3B04",
+   "T3B11",
+   "T3B12",
+   "T3B05",
+   "T3B06",
+   "T3B07"
+  ]
+ },
+ {
+  "id": "t-3-polarization",
+  "title": "Polarization follows the electric field",
+  "summary": "A radio wave has two fields at right angles. The electric field's direction is its polarization, and matching it matters.",
+  "points": [
+   {
+    "label": "Two parts of a radio wave",
+    "value": "Electric and magnetic fields",
+    "q": [
+     "T3B03"
+    ]
+   },
+   {
+    "label": "How the fields sit",
+    "value": "At right angles",
+    "q": [
+     "T3B01"
+    ]
+   },
+   {
+    "label": "What sets polarization",
+    "value": "The orientation of the electric field",
+    "q": [
+     "T3B02"
+    ]
+   },
+   {
+    "label": "VHF, UHF long-distance",
+    "value": "Horizontal, for CW and SSB contacts",
+    "q": [
+     "T3A03"
+    ]
+   },
+   {
+    "label": "Cross-polarized antennas",
+    "value": "Received signal strength is reduced",
+    "q": [
+     "T3A04"
+    ]
+   },
+   {
+    "label": "After the ionosphere",
+    "value": "Elliptical, so vertical or horizontal both work",
+    "q": [
+     "T3A09"
+    ]
+   }
+  ],
+  "hook": "Match polarization on direct VHF and UHF paths. Signals from the ionosphere are elliptical, so either one works.",
+  "questions": [
+   "T3B03",
+   "T3B01",
+   "T3B02",
+   "T3A03",
+   "T3A04",
+   "T3A09"
+  ]
+ },
+ {
+  "id": "t-1-tech-hf-vs-vhf",
+  "title": "Technician on HF versus above 30 MHz",
+  "summary": "On HF a Technician gets a small slice of 10 meters at lower power. Above 30 MHz the power ceiling is much higher.",
+  "points": [
+   {
+    "label": "HF bands with phone",
+    "value": "10-meter band only",
+    "q": [
+     "T1B06"
+    ]
+   },
+   {
+    "label": "10 meter phone segment",
+    "value": "28.300 MHz to 28.500 MHz",
+    "q": [
+     "T1B01"
+    ]
+   },
+   {
+    "label": "HF propagation beacons",
+    "value": "Ten meters, 28.200 MHz to 28.300 MHz",
+    "q": [
+     "T1A06"
+    ]
+   },
+   {
+    "label": "Power on HF segments",
+    "value": "200 watts PEP output",
+    "q": [
+     "T1B11"
+    ]
+   },
+   {
+    "label": "Power above 30 MHz",
+    "value": "1500 watts PEP output",
+    "q": [
+     "T1B12"
+    ]
+   }
+  ],
+  "hook": "On 10 meters, beacons sit at 28.200 to 28.300 MHz, right below the Technician phone slice at 28.300 to 28.500 MHz.",
+  "questions": [
+   "T1B06",
+   "T1B01",
+   "T1A06",
+   "T1B11",
+   "T1B12"
+  ],
+  "aid": {
+   "kind": "bandplan",
+   "band": "10m",
+   "mark": [
+    28.3,
+    28.5
+   ]
+  }
+ },
+ {
+  "id": "t-1-vhf-landmarks",
+  "title": "Landmarks on 6 and 2 meters",
+  "summary": "A few frequencies tell you which band you are on, where CW only lives, and where to call on FM simplex.",
+  "points": [
+   {
+    "label": "In the 6 meter band",
+    "value": "52.525 MHz",
+    "q": [
+     "T1B03"
+    ]
+   },
+   {
+    "label": "Band that has 146.52 MHz",
+    "value": "2 meters",
+    "q": [
+     "T1B04"
+    ]
+   },
+   {
+    "label": "2 meter FM simplex calling",
+    "value": "146.520 MHz",
+    "q": [
+     "T2A02"
+    ]
+   },
+   {
+    "label": "CW only segments",
+    "value": "50.0 MHz to 50.1 MHz and 144.0 MHz to 144.1 MHz",
+    "q": [
+     "T1B07"
+    ]
+   },
+   {
+    "label": "SSB phone above 50 MHz",
+    "value": "In at least some segment of every band",
+    "q": [
+     "T1B10"
+    ]
+   }
+  ],
+  "hook": "146.52 MHz is both the 2 meter answer and the national FM simplex calling frequency. The CW only slices start at 50.0 and 144.0 MHz.",
+  "questions": [
+   "T1B04",
+   "T1B03",
+   "T2A02",
+   "T1B07",
+   "T1B10"
+  ],
+  "aid": {
+   "kind": "spectrum",
+   "bands": [
+    "6m",
+    "2m"
+   ]
+  }
+ },
+ {
+  "id": "t-1-license-timeline",
+  "title": "License life cycle",
+  "summary": "From the exam to renewal, the license follows a fixed timeline, and you only transmit while it is in the database and current.",
+  "points": [
+   {
+    "label": "Notice of your new license",
+    "value": "Email from the FCC with a link to the grant",
+    "q": [
+     "T1A04"
+    ]
+   },
+   {
+    "label": "Proof of the grant",
+    "value": "The license appears in the FCC ULS database",
+    "q": [
+     "T1A05"
+    ]
+   },
+   {
+    "label": "First transmission",
+    "value": "As soon as the grant appears in the database",
+    "q": [
+     "T1C10"
+    ]
+   },
+   {
+    "label": "Normal term",
+    "value": "Ten years",
+    "q": [
+     "T1C08"
+    ]
+   },
+   {
+    "label": "Earliest renewal request",
+    "value": "90 days before expiration",
+    "q": [
+     "T1C07"
+    ]
+   },
+   {
+    "label": "Grace period after expiring",
+    "value": "Two years",
+    "q": [
+     "T1C09"
+    ]
+   },
+   {
+    "label": "Transmit during grace?",
+    "value": "No, wait until it is renewed",
+    "q": [
+     "T1C11"
+    ]
+   }
+  ],
+  "hook": "Ten years on, renew up to 90 days early, two years of grace, but no transmitting while expired.",
+  "questions": [
+   "T1A04",
+   "T1A05",
+   "T1C10",
+   "T1C08",
+   "T1C07",
+   "T1C09",
+   "T1C11"
+  ]
+ },
+ {
+  "id": "t-1-control-operator",
+  "title": "Control operator rules",
+  "summary": "Every transmitting station needs a control operator. The licensee picks them, and their license class sets the privileges.",
+  "points": [
+   {
+    "label": "Control operator",
+    "value": "Named by the licensee, responsible for the rules",
+    "q": [
+     "T1E11"
+    ]
+   },
+   {
+    "label": "Who designates",
+    "value": "The station licensee",
+    "q": [
+     "T1E03"
+    ]
+   },
+   {
+    "label": "Transmit without one?",
+    "value": "Never",
+    "q": [
+     "T1E01"
+    ]
+   },
+   {
+    "label": "Control point",
+    "value": "Where the control operator function is performed",
+    "q": [
+     "T1E05"
+    ]
+   },
+   {
+    "label": "What sets privileges",
+    "value": "The control operator's license class",
+    "q": [
+     "T1E04"
+    ]
+   },
+   {
+    "label": "Tech in an Extra segment",
+    "value": "At no time, other than an emergency",
+    "q": [
+     "T1E06"
+    ]
+   },
+   {
+    "label": "Who is responsible",
+    "value": "The control operator and the station licensee",
+    "q": [
+     "T1E07"
+    ]
+   },
+   {
+    "label": "Via a satellite",
+    "value": "Anyone allowed on the satellite uplink frequency",
+    "q": [
+     "T1E02"
+    ]
+   }
+  ],
+  "hook": "The control operator's license, not the station owner's, decides what frequencies you may use.",
+  "questions": [
+   "T1E11",
+   "T1E03",
+   "T1E01",
+   "T1E05",
+   "T1E04",
+   "T1E06",
+   "T1E07",
+   "T1E02"
+  ]
+ },
+ {
+  "id": "t-1-station-types",
+  "title": "Station types and kinds of control",
+  "summary": "Part 97 names stations by what they do, and control can be remote or automatic.",
+  "points": [
+   {
+    "label": "Repeater station",
+    "value": "Retransmits another station on another channel",
+    "q": [
+     "T1F09"
+    ]
+   },
+   {
+    "label": "Auxiliary station",
+    "value": "One-way link, remote receiver to main repeater",
+    "q": [
+     "T1D07"
+    ]
+   },
+   {
+    "label": "Space station",
+    "value": "More than 50 km above Earth's surface",
+    "q": [
+     "T1A07"
+    ]
+   },
+   {
+    "label": "Automatic control example",
+    "value": "Repeater operation",
+    "q": [
+     "T1E08"
+    ]
+   },
+   {
+    "label": "Remote control example",
+    "value": "Operating the station over the internet",
+    "q": [
+     "T1E10"
+    ]
+   },
+   {
+    "label": "May be remotely controlled",
+    "value": "Any station",
+    "q": [
+     "T1E09"
+    ]
+   },
+   {
+    "label": "Repeater relays a violation",
+    "value": "Control operator of the originating station",
+    "q": [
+     "T1F10"
+    ]
+   }
+  ],
+  "hook": "Repeaters run on automatic control. If one relays a violation, the control operator of the station that sent it is accountable.",
+  "questions": [
+   "T1F09",
+   "T1D07",
+   "T1A07",
+   "T1E08",
+   "T1E10",
+   "T1E09",
+   "T1F10"
+  ]
+ },
+ {
+  "id": "t-1-identification",
+  "title": "Station identification rules",
+  "summary": "One timing rule covers almost everything: your call sign every 10 minutes and at the end. Only model craft control is exempt.",
+  "points": [
+   {
+    "label": "How often",
+    "value": "At least every 10 minutes and at the end",
+    "q": [
+     "T1F03",
+     "T1F02"
+    ]
+   },
+   {
+    "label": "Language on phone",
+    "value": "English",
+    "q": [
+     "T1F04"
+    ]
+   },
+   {
+    "label": "Method on phone",
+    "value": "Call sign by CW or phone emission",
+    "q": [
+     "T1F05"
+    ]
+   },
+   {
+    "label": "Phonetic alphabet",
+    "value": "Encouraged when using phone",
+    "q": [
+     "T1A03"
+    ]
+   },
+   {
+    "label": "Test transmissions",
+    "value": "Identify the transmitting station",
+    "q": [
+     "T1D12"
+    ]
+   },
+   {
+    "label": "The exception",
+    "value": "Signals to control model craft",
+    "q": [
+     "T1D11"
+    ]
+   }
+  ],
+  "hook": "Every 10 minutes and at the end, even when using tactical calls like Race Headquarters. Model craft control is the only time you skip it.",
+  "questions": [
+   "T1F03",
+   "T1F02",
+   "T1F04",
+   "T1F05",
+   "T1A03",
+   "T1D12",
+   "T1D11"
+  ]
+ },
+ {
+  "id": "t-1-prohibited-content",
+  "title": "Forbidden content and narrow exceptions",
+  "summary": "The default answer is no. Where a yes exists, it is tied to one narrow situation.",
+  "points": [
+   {
+    "label": "Indecent or obscene words",
+    "value": "Any such language is prohibited",
+    "q": [
+     "T1D06"
+    ]
+   },
+   {
+    "label": "Willful interference",
+    "value": "Prohibited",
+    "q": [
+     "T1A11"
+    ]
+   },
+   {
+    "label": "Broadcasting",
+    "value": "Prohibited: aimed at the general public",
+    "q": [
+     "T1D02",
+     "T1D10"
+    ]
+   },
+   {
+    "label": "Encoded messages",
+    "value": "Only commands to space stations or model craft",
+    "q": [
+     "T1D03"
+    ]
+   },
+   {
+    "label": "Music",
+    "value": "Incidental to retransmitting manned spacecraft",
+    "q": [
+     "T1D04"
+    ]
+   },
+   {
+    "label": "Advertising gear for sale",
+    "value": "Amateur gear, not on a regular basis",
+    "q": [
+     "T1D05"
+    ]
+   },
+   {
+    "label": "Getting paid",
+    "value": "Part of classroom instruction at a school",
+    "q": [
+     "T1D08"
+    ]
+   },
+   {
+    "label": "Helping news gathering",
+    "value": "Only for immediate safety of life or property",
+    "q": [
+     "T1D09"
+    ]
+   }
+  ],
+  "hook": "Each yes is narrow: models and spacecraft, a classroom, the occasional gear sale, or safety of life.",
+  "questions": [
+   "T1D06",
+   "T1A11",
+   "T1D02",
+   "T1D10",
+   "T1D03",
+   "T1D04",
+   "T1D05",
+   "T1D08",
+   "T1D09"
+  ]
+ },
+ {
+  "id": "t-1-international",
+  "title": "International and third-party contacts",
+  "summary": "Contacts abroad are fine within limits, and passing a message for someone else needs an agreement.",
+  "points": [
+   {
+    "label": "What you may talk about",
+    "value": "Incidental to amateur purposes, personal remarks",
+    "q": [
+     "T1C03"
+    ]
+   },
+   {
+    "label": "Countries you can't contact",
+    "value": "Any that notified the ITU it objects",
+    "q": [
+     "T1D01"
+    ]
+   },
+   {
+    "label": "Third-party communication",
+    "value": "Message to another station for another person",
+    "q": [
+     "T1F08"
+    ]
+   },
+   {
+    "label": "Unlicensed guest abroad",
+    "value": "Country must have a third-party agreement",
+    "q": [
+     "T1F07"
+    ]
+   }
+  ],
+  "hook": "A third party is the person who isn't licensed. Abroad, their country needs a third-party agreement with the U.S.",
+  "questions": [
+   "T1C03",
+   "T1D01",
+   "T1F08",
+   "T1F07"
+  ]
+ },
+ {
+  "id": "t-2-emergency-services",
+  "title": "RACES, ARES and emergency rules",
+  "summary": "RACES is the civil defense service and needs certification. ARES is volunteers. FCC rules still apply in a crisis.",
+  "points": [
+   {
+    "label": "ARES",
+    "value": "Volunteers who registered for public service",
+    "q": [
+     "T2C06"
+    ]
+   },
+   {
+    "label": "RACES",
+    "value": "Part 97 civil defense service for emergencies",
+    "q": [
+     "T2C04"
+    ]
+   },
+   {
+    "label": "Needs civil defense cert",
+    "value": "RACES and its control operators",
+    "q": [
+     "T2C12",
+     "T1A10"
+    ]
+   },
+   {
+    "label": "Outside your privileges?",
+    "value": "Only for immediate safety of life or property",
+    "q": [
+     "T2C09"
+    ]
+   },
+   {
+    "label": "When Part 97 doesn't apply",
+    "value": "Never: FCC rules always apply",
+    "q": [
+     "T2C01"
+    ]
+   }
+  ],
+  "hook": "RACES has the C for civil defense, so it is the one that needs certification.",
+  "questions": [
+   "T2C06",
+   "T2C04",
+   "T2C12",
+   "T1A10",
+   "T2C09",
+   "T2C01"
+  ]
+ },
+ {
+  "id": "t-2-nets-traffic",
+  "title": "How a net and its messages work",
+  "summary": "A net control station runs the show, and formal messages (traffic) carry a header used to track them.",
+  "points": [
+   {
+    "label": "Net control station",
+    "value": "Calls the net to order, directs check-ins",
+    "q": [
+     "T2C02"
+    ]
+   },
+   {
+    "label": "Your part in a net",
+    "value": "Transmit only when directed, unless emergency",
+    "q": [
+     "T2C07"
+    ]
+   },
+   {
+    "label": "Traffic",
+    "value": "Formal messages exchanged by net stations",
+    "q": [
+     "T2C05"
+    ]
+   },
+   {
+    "label": "Preamble",
+    "value": "Information needed to track the message",
+    "q": [
+     "T2C10"
+    ]
+   },
+   {
+    "label": "Check",
+    "value": "Number of words in the text",
+    "q": [
+     "T2C11"
+    ]
+   },
+   {
+    "label": "Unusual words",
+    "value": "Spell them with a standard phonetic alphabet",
+    "q": [
+     "T2C03"
+    ]
+   }
+  ],
+  "questions": [
+   "T2C02",
+   "T2C07",
+   "T2C05",
+   "T2C10",
+   "T2C11",
+   "T2C03"
+  ]
+ },
+ {
+  "id": "t-2-calling-order",
+  "title": "Call sign order when calling",
+  "summary": "When you reach for one station, say their call first and yours second.",
+  "points": [
+   {
+    "label": "Answering a CQ",
+    "value": "Their call sign, then your call sign",
+    "q": [
+     "T2A05"
+    ]
+   },
+   {
+    "label": "Calling a known station",
+    "value": "Their call sign, then your call sign",
+    "q": [
+     "T2A04"
+    ]
+   },
+   {
+    "label": "Open for a repeater contact",
+    "value": "Your call sign, then the word listening",
+    "q": [
+     "T2A09"
+    ]
+   },
+   {
+    "label": "CQ without a repeater",
+    "value": "CQ a few times, this is, your call, listen",
+    "q": [
+     "T2A06"
+    ]
+   }
+  ],
+  "hook": "Them, then me. With no one in particular in mind, you give only your own call sign.",
+  "questions": [
+   "T2A05",
+   "T2A04",
+   "T2A09",
+   "T2A06"
+  ]
+ },
+ {
+  "id": "t-2-short-codes",
+  "title": "CQ and Q signals",
+  "summary": "A few short codes save time on the air.",
+  "points": [
+   {
+    "label": "CQ",
+    "value": "Calling any station",
+    "q": [
+     "T2A08"
+    ]
+   },
+   {
+    "label": "QRM",
+    "value": "Receiving interference from other stations",
+    "q": [
+     "T2B10"
+    ]
+   },
+   {
+    "label": "QSY",
+    "value": "Changing frequency",
+    "q": [
+     "T2B11"
+    ]
+   }
+  ],
+  "questions": [
+   "T2A08",
+   "T2B10",
+   "T2B11"
+  ],
+  "aid": {
+   "kind": "codes",
+   "set": "q",
+   "highlight": "QRM"
+  }
+ },
+ {
+  "id": "t-2-repeater-offsets",
+  "title": "Repeater offsets and simplex",
+  "summary": "A repeater listens on one frequency and talks on another. Simplex skips the repeater and uses one frequency.",
+  "points": [
+   {
+    "label": "Repeater offset",
+    "value": "Gap between transmit and receive frequencies",
+    "q": [
+     "T2A07"
+    ]
+   },
+   {
+    "label": "2 meters",
+    "value": "Plus or minus 600 kHz",
+    "q": [
+     "T2A01"
+    ]
+   },
+   {
+    "label": "70 centimeters",
+    "value": "Plus or minus 5 MHz",
+    "q": [
+     "T2A03"
+    ]
+   },
+   {
+    "label": "Reverse function",
+    "value": "Listen on the repeater's input frequency",
+    "q": [
+     "T2B01"
+    ]
+   },
+   {
+    "label": "Simplex",
+    "value": "Transmit and receive on the same frequency",
+    "q": [
+     "T2A11"
+    ]
+   },
+   {
+    "label": "Why simplex channels exist",
+    "value": "Talk directly without tying up a repeater",
+    "q": [
+     "T2B09"
+    ]
+   }
+  ],
+  "hook": "Higher band, bigger offset: 600 kHz on 2 meters, 5 MHz on 70 centimeters.",
+  "questions": [
+   "T2A07",
+   "T2A01",
+   "T2A03",
+   "T2B01",
+   "T2A11",
+   "T2B09"
+  ],
+  "aid": {
+   "kind": "repeater",
+   "band": "2m"
+  }
+ },
+ {
+  "id": "t-2-repeater-access",
+  "title": "Repeater tones and digital codes",
+  "summary": "Analog repeaters open with tones. Digital radios need codes and IDs programmed in before you can use a repeater or group.",
+  "points": [
+   {
+    "label": "CTCSS",
+    "value": "Sub-audible tone sent with your voice",
+    "q": [
+     "T2B02"
+    ]
+   },
+   {
+    "label": "DTMF",
+    "value": "Two simultaneous audio tones",
+    "q": [
+     "T2B06"
+    ]
+   },
+   {
+    "label": "DMR color code",
+    "value": "Access code for a specific repeater",
+    "q": [
+     "T2B12"
+    ]
+   },
+   {
+    "label": "DMR talkgroup",
+    "value": "Identifier that organizes radio traffic",
+    "q": [
+     "T2B14"
+    ]
+   },
+   {
+    "label": "Joining a talkgroup",
+    "value": "Program or enter the group's ID code",
+    "q": [
+     "T2B07",
+     "T4B09"
+    ]
+   },
+   {
+    "label": "DMR code plug",
+    "value": "Configuration data for repeaters and talkgroups",
+    "q": [
+     "T4B07"
+    ]
+   },
+   {
+    "label": "D-STAR, before transmitting",
+    "value": "Program in your call sign",
+    "q": [
+     "T4B11"
+    ]
+   }
+  ],
+  "hook": "Analog uses tones: one hidden tone (CTCSS) or two at once (DTMF). Digital uses codes you program in.",
+  "questions": [
+   "T2B02",
+   "T2B06",
+   "T2B12",
+   "T2B14",
+   "T2B07",
+   "T4B09",
+   "T4B07",
+   "T4B11"
+  ],
+  "aid": {
+   "kind": "repeater",
+   "band": "2m",
+   "tone": true
+  }
+ },
+ {
+  "id": "t-3-multipath",
+  "title": "Multipath: many paths, one signal",
+  "summary": "When copies of a signal arrive by different paths they add or cancel, which can hurt, but a reflection can also help.",
+  "points": [
+   {
+    "label": "Antenna moved a few feet",
+    "value": "Multipath cancels or reinforces signals",
+    "q": [
+     "T3A01"
+    ]
+   },
+   {
+    "label": "Picket fencing",
+    "value": "Rapid flutter on mobile signals from multipath",
+    "q": [
+     "T3A06"
+    ]
+   },
+   {
+    "label": "Effect on data",
+    "value": "Error rates are likely to increase",
+    "q": [
+     "T3A10"
+    ]
+   },
+   {
+    "label": "Blocked path to a repeater",
+    "value": "Find a path that reflects signals to it",
+    "q": [
+     "T3A05"
+    ]
+   }
+  ],
+  "questions": [
+   "T3A01",
+   "T3A06",
+   "T3A10",
+   "T3A05"
+  ]
+ },
+ {
+  "id": "t-3-weather-by-frequency",
+  "title": "Rain and leaves by frequency",
+  "summary": "The higher the frequency, the more weather and vegetation get in the way.",
+  "points": [
+   {
+    "label": "Fog or rain, 10 and 6 meters",
+    "value": "Little effect",
+    "q": [
+     "T3A12"
+    ]
+   },
+   {
+    "label": "Vegetation, UHF, microwave",
+    "value": "Absorbs signals, weak signals suffer",
+    "q": [
+     "T3A02"
+    ]
+   },
+   {
+    "label": "Microwave range cut by",
+    "value": "Precipitation",
+    "q": [
+     "T3A07"
+    ]
+   }
+  ],
+  "hook": "Little effect on 10 and 6 meters, real losses up at UHF and microwave.",
+  "questions": [
+   "T3A12",
+   "T3A02",
+   "T3A07"
+  ]
+ },
+ {
+  "id": "t-3-ionosphere",
+  "title": "The ionosphere: HF yes, UHF rarely",
+  "summary": "The ionosphere carries HF signals long distances. It rarely helps UHF, and opens 6 and 10 meters near the sunspot peak.",
+  "points": [
+   {
+    "label": "Reflects HF radio waves",
+    "value": "The ionosphere",
+    "q": [
+     "T3A11"
+    ]
+   },
+   {
+    "label": "Long-distance skywave",
+    "value": "Far more common on HF",
+    "q": [
+     "T3C02"
+    ]
+   },
+   {
+    "label": "UHF simplex range",
+    "value": "Usually not propagated by the ionosphere",
+    "q": [
+     "T3C01"
+    ]
+   },
+   {
+    "label": "F region at sunspot peak",
+    "value": "6 and 10 meters",
+    "q": [
+     "T3C10"
+    ]
+   },
+   {
+    "label": "Best 10 meter F region time",
+    "value": "Dawn to shortly after sunset, high sunspots",
+    "q": [
+     "T3C09"
+    ]
+   },
+   {
+    "label": "Irregular fading",
+    "value": "Signals from different paths combine randomly",
+    "q": [
+     "T3A08"
+    ]
+   }
+  ],
+  "hook": "At the sunspot peak, even 10 and 6 meters can go long distance via the F region.",
+  "questions": [
+   "T3A11",
+   "T3C02",
+   "T3C01",
+   "T3C10",
+   "T3C09",
+   "T3A08"
+  ],
+  "aid": {
+   "kind": "ionosphere",
+   "layer": "F",
+   "time": "day"
+  }
+ },
+ {
+  "id": "t-3-beyond-horizon",
+  "title": "VHF and UHF beyond the horizon",
+  "summary": "VHF and UHF mostly travel line of sight, but several effects carry them farther. Match each effect to its clue.",
+  "points": [
+   {
+    "label": "Past the visual horizon",
+    "value": "The atmosphere refracts radio waves slightly",
+    "q": [
+     "T3C11"
+    ]
+   },
+   {
+    "label": "Around obstructions",
+    "value": "Knife-edge diffraction",
+    "q": [
+     "T3C05"
+    ]
+   },
+   {
+    "label": "Regular, about 300 miles",
+    "value": "Tropospheric ducting",
+    "q": [
+     "T3C06"
+    ]
+   },
+   {
+    "label": "What causes ducting",
+    "value": "Temperature inversions",
+    "q": [
+     "T3C08"
+    ]
+   },
+   {
+    "label": "Occasional, 10, 6, 2 meters",
+    "value": "Sporadic E",
+    "q": [
+     "T3C04"
+    ]
+   },
+   {
+    "label": "Best meteor scatter band",
+    "value": "6 meters",
+    "q": [
+     "T3C07"
+    ]
+   },
+   {
+    "label": "Auroral backscatter sound",
+    "value": "Distorted, with a raspy sound",
+    "q": [
+     "T3C03"
+    ]
+   }
+  ],
+  "hook": "Regular is tropo (temperature inversions). Occasional is Sporadic E. Raspy is aurora.",
+  "questions": [
+   "T3C11",
+   "T3C05",
+   "T3C06",
+   "T3C08",
+   "T3C04",
+   "T3C07",
+   "T3C03"
+  ]
+ },
+ {
+  "id": "t-5-quantities-units",
+  "title": "Electrical quantities and units",
+  "summary": "Each quantity has its own unit and a one-line meaning. Learn them as pairs.",
+  "points": [
+   {
+    "label": "Current",
+    "value": "Amperes: the flow of electrons",
+    "q": [
+     "T5A03",
+     "T5A01"
+    ]
+   },
+   {
+    "label": "Voltage",
+    "value": "A difference in it causes electron flow",
+    "q": [
+     "T5A05"
+    ]
+   },
+   {
+    "label": "Power",
+    "value": "Watts: the rate electrical energy is used",
+    "q": [
+     "T5A02",
+     "T5A10"
+    ]
+   },
+   {
+    "label": "Frequency",
+    "value": "Hertz: complete cycles per second",
+    "q": [
+     "T5A04",
+     "T5A06"
+    ]
+   },
+   {
+    "label": "Capacitance",
+    "value": "Farad: stores energy in an electric field",
+    "q": [
+     "T5C01",
+     "T5C02"
+    ]
+   },
+   {
+    "label": "Inductance",
+    "value": "Henry: stores energy in a magnetic field",
+    "q": [
+     "T5C03",
+     "T5C04"
+    ]
+   },
+   {
+    "label": "Impedance",
+    "value": "Ohm: the opposition to AC current flow",
+    "q": [
+     "T5C12",
+     "T5C05"
+    ]
+   }
+  ],
+  "hook": "Capacitance goes with the electric field, inductance with the magnetic field.",
+  "questions": [
+   "T5A01",
+   "T5A03",
+   "T5A05",
+   "T5A02",
+   "T5A10",
+   "T5A06",
+   "T5A04",
+   "T5C02",
+   "T5C01",
+   "T5C04",
+   "T5C03",
+   "T5C05",
+   "T5C12"
+  ]
+ },
+ {
+  "id": "t-5-small-prefixes",
+  "title": "Small prefixes: milli, micro, pico",
+  "summary": "Milli means thousandths and micro means millionths. Shift the decimal three places per step.",
+  "points": [
+   {
+    "label": "3000 milliamperes",
+    "value": "3 amperes",
+    "q": [
+     "T5B06"
+    ]
+   },
+   {
+    "label": "1.5 amperes",
+    "value": "1500 milliamperes",
+    "q": [
+     "T5B01"
+    ]
+   },
+   {
+    "label": "500 milliwatts",
+    "value": "0.5 watts",
+    "q": [
+     "T5B05"
+    ]
+   },
+   {
+    "label": "Micro means",
+    "value": "Millionths: one one-millionth of a volt",
+    "q": [
+     "T5B04"
+    ]
+   },
+   {
+    "label": "1,000,000 picofarads",
+    "value": "1 microfarad",
+    "q": [
+     "T5B08"
+    ]
+   }
+  ],
+  "hook": "A thousand milli make one whole; a million micro make one whole.",
+  "questions": [
+   "T5B06",
+   "T5B01",
+   "T5B05",
+   "T5B04",
+   "T5B08"
+  ]
+ },
+ {
+  "id": "t-5-big-prefixes",
+  "title": "Big prefixes: kilo, mega, giga",
+  "summary": "Each step up (kilo, mega, giga) is a thousand times bigger, so the decimal moves three places.",
+  "points": [
+   {
+    "label": "Kilo means",
+    "value": "One thousand: one kilovolt is one thousand volts",
+    "q": [
+     "T5B03"
+    ]
+   },
+   {
+    "label": "Kilohertz, written",
+    "value": "kHz",
+    "q": [
+     "T5C06"
+    ]
+   },
+   {
+    "label": "Megahertz, written",
+    "value": "MHz",
+    "q": [
+     "T5C07"
+    ]
+   },
+   {
+    "label": "1,500,000 hertz",
+    "value": "1500 kHz",
+    "q": [
+     "T5B02"
+    ]
+   },
+   {
+    "label": "3.525 MHz",
+    "value": "3525 kHz",
+    "q": [
+     "T5B07"
+    ]
+   },
+   {
+    "label": "28400 kHz",
+    "value": "28.400 MHz",
+    "q": [
+     "T5B12"
+    ]
+   },
+   {
+    "label": "2425 MHz",
+    "value": "2.425 GHz",
+    "q": [
+     "T5B13"
+    ]
+   }
+  ],
+  "hook": "Up a prefix, decimal three places left: 2425 MHz is 2.425 GHz. Down a prefix, three places right: 3.525 MHz is 3525 kHz.",
+  "questions": [
+   "T5B03",
+   "T5C06",
+   "T5C07",
+   "T5B02",
+   "T5B07",
+   "T5B12",
+   "T5B13"
+  ]
+ },
+ {
+  "id": "t-5-decibels",
+  "title": "Decibel ladder",
+  "summary": "A few power ratios cover the decibel questions: double, quarter, and ten times.",
+  "points": [
+   {
+    "label": "Double (5 W to 10 W)",
+    "value": "3 dB",
+    "q": [
+     "T5B09"
+    ]
+   },
+   {
+    "label": "Quarter (12 W to 3 W)",
+    "value": "-6 dB",
+    "q": [
+     "T5B10"
+    ]
+   },
+   {
+    "label": "Ten times (20 W to 200 W)",
+    "value": "10 dB",
+    "q": [
+     "T5B11"
+    ]
+   }
+  ],
+  "hook": "Each doubling adds 3 dB and each halving takes 3 dB away, so a quarter is two halvings: -6 dB.",
+  "questions": [
+   "T5B09",
+   "T5B11",
+   "T5B10"
+  ]
+ },
+ {
+  "id": "t-5-ohms-law",
+  "title": "Ohm's law triangle",
+  "summary": "One rule links voltage (E), current (I) and resistance (R). Know any two and you can find the third.",
+  "points": [
+   {
+    "label": "Find voltage",
+    "value": "E = I x R",
+    "q": [
+     "T5D02",
+     "T5D11",
+     "T5D12",
+     "T5D10"
+    ]
+   },
+   {
+    "label": "Find current",
+    "value": "I = E / R",
+    "q": [
+     "T5D01",
+     "T5D08",
+     "T5D09",
+     "T5D07"
+    ]
+   },
+   {
+    "label": "Find resistance",
+    "value": "R = E / I",
+    "q": [
+     "T5D03",
+     "T5D04",
+     "T5D06",
+     "T5D05"
+    ]
+   }
+  ],
+  "hook": "E on top, I and R below. Cover the one you want: side by side means multiply, one over the other means divide.",
+  "questions": [
+   "T5D02",
+   "T5D01",
+   "T5D03",
+   "T5D11",
+   "T5D12",
+   "T5D10",
+   "T5D08",
+   "T5D09",
+   "T5D07",
+   "T5D04",
+   "T5D06",
+   "T5D05"
+  ]
+ },
+ {
+  "id": "t-5-power-formula",
+  "title": "Power formula: P = I x E",
+  "summary": "Power is current times voltage. Multiply to get watts, divide watts by volts to get amperes.",
+  "points": [
+   {
+    "label": "Formula",
+    "value": "P = I x E",
+    "q": [
+     "T5C08"
+    ]
+   },
+   {
+    "label": "13.8 V and 10 A",
+    "value": "138 watts",
+    "q": [
+     "T5C09"
+    ]
+   },
+   {
+    "label": "12 V and 2.5 A",
+    "value": "30 watts",
+    "q": [
+     "T5C10"
+    ]
+   },
+   {
+    "label": "120 W at 12 V",
+    "value": "10 amperes",
+    "q": [
+     "T5C11"
+    ]
+   }
+  ],
+  "hook": "Watts are volts times amps: 12 x 2.5 = 30. Going back: 120 / 12 = 10 amperes.",
+  "questions": [
+   "T5C08",
+   "T5C09",
+   "T5C10",
+   "T5C11"
+  ]
+ },
+ {
+  "id": "t-5-series-parallel",
+  "title": "Series versus parallel",
+  "summary": "In series one current flows through everything; in parallel everything shares one voltage. Meters follow the same rule.",
+  "points": [
+   {
+    "label": "Series circuit",
+    "value": "Current is the same through all components",
+    "q": [
+     "T5D13"
+    ]
+   },
+   {
+    "label": "Parallel circuit",
+    "value": "Voltage is the same across all components",
+    "q": [
+     "T5D14"
+    ]
+   },
+   {
+    "label": "Measuring voltage",
+    "value": "Voltmeter connects in parallel",
+    "q": [
+     "T7D02"
+    ]
+   },
+   {
+    "label": "Measuring current",
+    "value": "Multimeter connects in series",
+    "q": [
+     "T7D03"
+    ]
+   }
+  ],
+  "hook": "Voltage is measured across a part (parallel); current is measured through it (series).",
+  "questions": [
+   "T5D13",
+   "T5D14",
+   "T7D02",
+   "T7D03"
+  ]
+ },
+ {
+  "id": "t-4-dc-power",
+  "title": "Powering a radio from DC",
+  "summary": "Mobile radios run near 12 volts and draw real current, so wiring and battery math matter.",
+  "points": [
+   {
+    "label": "50 watt mobile FM supply",
+    "value": "13.8 volts at 12 amperes",
+    "q": [
+     "T4A01"
+    ]
+   },
+   {
+    "label": "Short, heavy power wires",
+    "value": "Minimize voltage drop when transmitting",
+    "q": [
+     "T4A03"
+    ]
+   },
+   {
+    "label": "Negative return in a car",
+    "value": "At the 12-volt battery chassis ground",
+    "q": [
+     "T4A11"
+    ]
+   },
+   {
+    "label": "Battery run time",
+    "value": "Ampere-hour rating divided by average current",
+    "q": [
+     "T4A09"
+    ]
+   }
+  ],
+  "questions": [
+   "T4A01",
+   "T4A03",
+   "T4A11",
+   "T4A09"
+  ]
+ },
+ {
+  "id": "t-4-computer-interface",
+  "title": "Radio to computer for digital modes",
+  "summary": "Digital modes need three signals between radio and computer, with the audio lines crossed over.",
+  "points": [
+   {
+    "label": "Signals needed",
+    "value": "Receive audio, transmit audio, transmit keying",
+    "q": [
+     "T4A06"
+    ]
+   },
+   {
+    "label": "Radio audio in and out",
+    "value": "To the computer's audio out and in",
+    "q": [
+     "T4A04"
+    ]
+   },
+   {
+    "label": "Computer line in",
+    "value": "To the transceiver speaker connector",
+    "q": [
+     "T4A07"
+    ]
+   }
+  ],
+  "hook": "Cross them over: radio out goes to computer in, computer out goes to radio in.",
+  "questions": [
+   "T4A06",
+   "T4A04",
+   "T4A07"
+  ]
+ },
+ {
+  "id": "t-4-receiver-controls",
+  "title": "Receiver controls and what they fix",
+  "summary": "Each front panel control solves one listening problem.",
+  "points": [
+   {
+    "label": "Enter a frequency",
+    "value": "The keypad or VFO knob",
+    "q": [
+     "T4B02"
+    ]
+   },
+   {
+    "label": "Scanning",
+    "value": "Tunes through frequencies to check for activity",
+    "q": [
+     "T4B05"
+    ]
+   },
+   {
+    "label": "Squelch",
+    "value": "Mutes audio when no signal is present",
+    "q": [
+     "T2B13"
+    ]
+   },
+   {
+    "label": "Squelch for a weak FM signal",
+    "value": "Set so receiver audio is on all the time",
+    "q": [
+     "T4B03"
+    ]
+   },
+   {
+    "label": "SSB voice pitch off",
+    "value": "The RIT or Clarifier",
+    "q": [
+     "T4B06"
+    ]
+   },
+   {
+    "label": "Filter bandwidth choice",
+    "value": "Match the mode to cut noise and interference",
+    "q": [
+     "T4B08"
+    ]
+   },
+   {
+    "label": "Best filter for SSB",
+    "value": "2400 Hz",
+    "q": [
+     "T4B10"
+    ]
+   }
+  ],
+  "questions": [
+   "T4B02",
+   "T4B05",
+   "T2B13",
+   "T4B03",
+   "T4B06",
+   "T4B08",
+   "T4B10"
+  ],
+  "aid": {
+   "kind": "filter",
+   "type": "bandpass"
+  }
+ },
+ {
+  "id": "t-4-audio-problems",
+  "title": "Causes of bad audio",
+  "summary": "Too much audio going in, or tuning slightly off, ruins the sound.",
+  "points": [
+   {
+    "label": "Too much mic gain on SSB",
+    "value": "Distorted transmitted audio",
+    "q": [
+     "T4B01"
+    ]
+   },
+   {
+    "label": "Talking too loudly on FM",
+    "value": "Audio drops out on voice peaks",
+    "q": [
+     "T2B05"
+    ]
+   },
+   {
+    "label": "FM received off frequency",
+    "value": "The audio becomes distorted",
+    "q": [
+     "T4B04"
+    ]
+   }
+  ],
+  "questions": [
+   "T4B01",
+   "T2B05",
+   "T4B04"
+  ]
+ },
+ {
+  "id": "t-6-passive-components",
+  "title": "Resistor, capacitor, inductor",
+  "summary": "Three basic parts, three jobs: oppose current, store energy in an electric field, store it in a magnetic field.",
+  "points": [
+   {
+    "label": "Resistor",
+    "value": "Opposes the flow of current in a DC circuit",
+    "q": [
+     "T6A01"
+    ]
+   },
+   {
+    "label": "Potentiometer",
+    "value": "Adjustable resistance, like a volume control",
+    "q": [
+     "T6A02",
+     "T6A03"
+    ]
+   },
+   {
+    "label": "Capacitor",
+    "value": "Stores energy in an electric field",
+    "q": [
+     "T6A04"
+    ]
+   },
+   {
+    "label": "Capacitor build",
+    "value": "Conductive surfaces separated by an insulator",
+    "q": [
+     "T6A05"
+    ]
+   },
+   {
+    "label": "Inductor",
+    "value": "Stores energy in a magnetic field",
+    "q": [
+     "T6A06"
+    ]
+   },
+   {
+    "label": "Inductor build",
+    "value": "A coil of wire",
+    "q": [
+     "T6A07"
+    ]
+   },
+   {
+    "label": "Inductor plus capacitor",
+    "value": "Resonant (tuned) circuit, in series or parallel",
+    "q": [
+     "T6D08",
+     "T6D11"
+    ]
+   }
+  ],
+  "hook": "Coil means inductor means magnetic field. Plates with an insulator mean capacitor means electric field.",
+  "questions": [
+   "T6A01",
+   "T6A02",
+   "T6A03",
+   "T6A04",
+   "T6A05",
+   "T6A06",
+   "T6A07",
+   "T6D08",
+   "T6D11"
+  ]
+ },
+ {
+  "id": "t-6-diodes-transistors",
+  "title": "Diodes and transistors",
+  "summary": "A diode is a one-way valve with two leads. A transistor has three and can switch or amplify.",
+  "points": [
+   {
+    "label": "Diode",
+    "value": "Lets current flow in only one direction",
+    "q": [
+     "T6B02"
+    ]
+   },
+   {
+    "label": "Diode electrodes",
+    "value": "Anode and cathode; cathode marked with a stripe",
+    "q": [
+     "T6B09",
+     "T6B06"
+    ]
+   },
+   {
+    "label": "Forward voltage drop",
+    "value": "Lower in some diode types than in others",
+    "q": [
+     "T6B01"
+    ]
+   },
+   {
+    "label": "LED",
+    "value": "Lights from forward current; visual indicator",
+    "q": [
+     "T6B07",
+     "T6D07"
+    ]
+   },
+   {
+    "label": "Transistor",
+    "value": "Electronic switch, power gain, three regions",
+    "q": [
+     "T6B03",
+     "T6B10",
+     "T6B04"
+    ]
+   },
+   {
+    "label": "Bipolar (BJT) electrodes",
+    "value": "Emitter, base, collector",
+    "q": [
+     "T6B12"
+    ]
+   },
+   {
+    "label": "FET",
+    "value": "Field Effect Transistor: gate, drain, source",
+    "q": [
+     "T6B08",
+     "T6B05"
+    ]
+   }
+  ],
+  "hook": "Two names for a diode (anode, cathode), three for a transistor: BJT is emitter, base, collector; FET is gate, drain, source.",
+  "questions": [
+   "T6B02",
+   "T6B09",
+   "T6B06",
+   "T6B01",
+   "T6B07",
+   "T6D07",
+   "T6B03",
+   "T6B10",
+   "T6B04",
+   "T6B12",
+   "T6B08",
+   "T6B05"
+  ]
+ },
+ {
+  "id": "t-6-schematic-t1",
+  "title": "Schematics and figure T-1",
+  "summary": "A schematic shows how parts connect using standard symbols. Figure T-1 numbers four of them.",
+  "points": [
+   {
+    "label": "Diagram of standard symbols",
+    "value": "Schematic",
+    "q": [
+     "T6C01"
+    ]
+   },
+   {
+    "label": "What it shows accurately",
+    "value": "Component connections",
+    "q": [
+     "T6C12"
+    ]
+   },
+   {
+    "label": "T-1, component 1",
+    "value": "Resistor",
+    "q": [
+     "T6C02"
+    ]
+   },
+   {
+    "label": "T-1, component 2",
+    "value": "Transistor: controls the flow of current",
+    "q": [
+     "T6C03",
+     "T6D10"
+    ]
+   },
+   {
+    "label": "T-1, component 3",
+    "value": "Lamp",
+    "q": [
+     "T6C04"
+    ]
+   },
+   {
+    "label": "T-1, component 4",
+    "value": "Battery",
+    "q": [
+     "T6C05"
+    ]
+   }
+  ],
+  "hook": "Read figure T-1 in number order: resistor, transistor, lamp, battery.",
+  "questions": [
+   "T6C01",
+   "T6C12",
+   "T6C02",
+   "T6C03",
+   "T6D10",
+   "T6C04",
+   "T6C05"
+  ]
+ },
+ {
+  "id": "t-6-schematic-t2-t3",
+  "title": "Figures T-2 and T-3 by number",
+  "summary": "Learn the numbered parts of figures T-2 and T-3 as a short list, figure by figure.",
+  "points": [
+   {
+    "label": "T-2, component 3",
+    "value": "Single-pole single-throw switch",
+    "q": [
+     "T6A09"
+    ]
+   },
+   {
+    "label": "T-2, component 4",
+    "value": "Transformer",
+    "q": [
+     "T6C09"
+    ]
+   },
+   {
+    "label": "T-2, component 6",
+    "value": "Capacitor",
+    "q": [
+     "T6C06"
+    ]
+   },
+   {
+    "label": "T-2, component 8",
+    "value": "Light emitting diode",
+    "q": [
+     "T6C07"
+    ]
+   },
+   {
+    "label": "T-2, component 9",
+    "value": "Variable resistor",
+    "q": [
+     "T6C08"
+    ]
+   },
+   {
+    "label": "T-3, component 3",
+    "value": "Variable inductor",
+    "q": [
+     "T6C10"
+    ]
+   },
+   {
+    "label": "T-3, component 4",
+    "value": "Antenna",
+    "q": [
+     "T6C11"
+    ]
+   }
+  ],
+  "questions": [
+   "T6C06",
+   "T6C09",
+   "T6C07",
+   "T6C08",
+   "T6A09",
+   "T6C10",
+   "T6C11"
+  ]
+ },
+ {
+  "id": "t-6-circuit-blocks",
+  "title": "Circuit building blocks",
+  "summary": "Each block has one job. Name the job and you have the block.",
+  "points": [
+   {
+    "label": "Transformer (120 V AC)",
+    "value": "Changes it to a lower AC voltage",
+    "q": [
+     "T6D06"
+    ]
+   },
+   {
+    "label": "Rectifier",
+    "value": "Changes AC into varying DC",
+    "q": [
+     "T6D01"
+    ]
+   },
+   {
+    "label": "Regulator",
+    "value": "Controls the voltage from a power supply",
+    "q": [
+     "T6D05"
+    ]
+   },
+   {
+    "label": "Relay",
+    "value": "An electrically controlled switch",
+    "q": [
+     "T6D02"
+    ]
+   },
+   {
+    "label": "SPDT switch",
+    "value": "Switches one circuit between two others",
+    "q": [
+     "T6A08"
+    ]
+   },
+   {
+    "label": "Meter",
+    "value": "Displays a quantity as a numeric value",
+    "q": [
+     "T6D04"
+    ]
+   },
+   {
+    "label": "Integrated circuit",
+    "value": "Many semiconductors and parts in one package",
+    "q": [
+     "T6D09"
+    ]
+   },
+   {
+    "label": "Shielded wire",
+    "value": "Stops unwanted signals coupling to or from it",
+    "q": [
+     "T6D03"
+    ]
+   }
+  ],
+  "hook": "Three power jobs: transformer changes the AC voltage, rectifier turns AC into DC, regulator controls the voltage.",
+  "questions": [
+   "T6D06",
+   "T6D01",
+   "T6D05",
+   "T6D02",
+   "T6A08",
+   "T6D04",
+   "T6D09",
+   "T6D03"
+  ]
+ },
+ {
+  "id": "t-7-transceiver-parts",
+  "title": "Inside a transceiver",
+  "summary": "A transceiver is a receiver plus a transmitter. A few circuits set, change and carry the frequency.",
+  "points": [
+   {
+    "label": "Transceiver",
+    "value": "Receiver and transmitter in one device",
+    "q": [
+     "T7A02"
+    ]
+   },
+   {
+    "label": "Sensitivity",
+    "value": "Ability to detect that a signal is there",
+    "q": [
+     "T7A01"
+    ]
+   },
+   {
+    "label": "Selectivity",
+    "value": "Ability to pick between multiple signals",
+    "q": [
+     "T7A04"
+    ]
+   },
+   {
+    "label": "Oscillator",
+    "value": "Generates a signal at a specific frequency",
+    "q": [
+     "T7A05"
+    ]
+   },
+   {
+    "label": "VFO",
+    "value": "Sets the receive and transmit frequency",
+    "q": [
+     "T7A11"
+    ]
+   },
+   {
+    "label": "Mixer",
+    "value": "Converts a signal from one frequency to another",
+    "q": [
+     "T7A03"
+    ]
+   },
+   {
+    "label": "Transverter",
+    "value": "Converts transceiver RF to another band",
+    "q": [
+     "T7A06"
+    ]
+   },
+   {
+    "label": "Modulation",
+    "value": "Combining speech with an RF carrier",
+    "q": [
+     "T7A08"
+    ]
+   }
+  ],
+  "hook": "Sensitivity senses (is a signal there?); selectivity selects (which signal?).",
+  "questions": [
+   "T7A02",
+   "T7A01",
+   "T7A04",
+   "T7A05",
+   "T7A11",
+   "T7A03",
+   "T7A06",
+   "T7A08"
+  ]
+ },
+ {
+  "id": "t-7-test-gear",
+  "title": "Test equipment: what each measures",
+  "summary": "Match each instrument to the one thing it tells you.",
+  "points": [
+   {
+    "label": "Voltmeter",
+    "value": "Electric potential (voltage)",
+    "q": [
+     "T7D01"
+    ]
+   },
+   {
+    "label": "Ammeter",
+    "value": "Electric current",
+    "q": [
+     "T7D04"
+    ]
+   },
+   {
+    "label": "Multimeter",
+    "value": "Voltage and resistance",
+    "q": [
+     "T7D07"
+    ]
+   },
+   {
+    "label": "Antenna analyzer",
+    "value": "Is the antenna resonant on your frequency",
+    "q": [
+     "T7C02"
+    ]
+   },
+   {
+    "label": "Directional wattmeter",
+    "value": "SWR",
+    "q": [
+     "T7C08"
+    ]
+   },
+   {
+    "label": "Dummy load: purpose",
+    "value": "Test without transmitting over the air",
+    "q": [
+     "T7C01"
+    ]
+   },
+   {
+    "label": "Dummy load: build",
+    "value": "50-ohm non-inductive resistor on a heat sink",
+    "q": [
+     "T7C03"
+    ]
+   }
+  ],
+  "questions": [
+   "T7D01",
+   "T7D04",
+   "T7D07",
+   "T7C02",
+   "T7C08",
+   "T7C01",
+   "T7C03"
+  ]
+ },
+ {
+  "id": "t-7-ohmmeter-rules",
+  "title": "Using an ohmmeter safely",
+  "summary": "An ohmmeter supplies its own small current, so measure only with the circuit unpowered.",
+  "points": [
+   {
+    "label": "How it works",
+    "value": "Applies a small current, measures the voltage",
+    "q": [
+     "T7D05"
+    ]
+   },
+   {
+    "label": "In-circuit resistance",
+    "value": "Make sure the circuit is not powered",
+    "q": [
+     "T7D11"
+    ]
+   },
+   {
+    "label": "Damages the meter",
+    "value": "Measuring voltage on the resistance setting",
+    "q": [
+     "T7D06"
+    ]
+   },
+   {
+    "label": "Large discharged capacitor",
+    "value": "Resistance increases with time",
+    "q": [
+     "T7D10"
+    ]
+   }
+  ],
+  "questions": [
+   "T7D05",
+   "T7D11",
+   "T7D06",
+   "T7D10"
+  ]
+ },
+ {
+  "id": "t-7-swr",
+  "title": "SWR: how well things match",
+  "summary": "SWR measures how well a load is matched to its feed line. 1:1 is perfect; higher readings mean mismatch.",
+  "points": [
+   {
+    "label": "What SWR measures",
+    "value": "How well a load is matched to a feed line",
+    "q": [
+     "T9B12"
+    ]
+   },
+   {
+    "label": "SWR 1:1",
+    "value": "Perfect impedance match",
+    "q": [
+     "T7C04"
+    ]
+   },
+   {
+    "label": "SWR 4:1",
+    "value": "Impedance mismatch",
+    "q": [
+     "T7C06"
+    ]
+   },
+   {
+    "label": "High SWR",
+    "value": "Low RF output from a solid-state transceiver",
+    "q": [
+     "T7B04"
+    ]
+   },
+   {
+    "label": "Why power drops",
+    "value": "To protect the RF output amplifier transistors",
+    "q": [
+     "T7C05"
+    ]
+   },
+   {
+    "label": "Erratic SWR",
+    "value": "Loose connection in antenna or feed line",
+    "q": [
+     "T9B09"
+    ]
+   },
+   {
+    "label": "Antenna tuner",
+    "value": "Matches antenna system to transceiver impedance",
+    "q": [
+     "T9B04"
+    ]
+   }
+  ],
+  "questions": [
+   "T9B12",
+   "T7C04",
+   "T7C06",
+   "T7B04",
+   "T7C05",
+   "T9B09",
+   "T9B04"
+  ]
+ },
+ {
+  "id": "t-7-interference-fixes",
+  "title": "Interference: problem and fix",
+  "summary": "Each interference problem has a matching first fix. Learn them as pairs.",
+  "points": [
+   {
+    "label": "FM over-deviating",
+    "value": "Talk farther away from the microphone",
+    "q": [
+     "T7B01"
+    ]
+   },
+   {
+    "label": "Distorted voice",
+    "value": "Clip-on ferrite choke on the microphone cable",
+    "q": [
+     "T7B11"
+    ]
+   },
+   {
+    "label": "Neighbor complains",
+    "value": "Check your rig and your own TV for interference",
+    "q": [
+     "T7B06"
+    ]
+   },
+   {
+    "label": "Broadcast radio hears you",
+    "value": "It can't reject strong signals outside its band",
+    "q": [
+     "T7B02"
+    ]
+   },
+   {
+    "label": "Neighbor's receiver",
+    "value": "Filter at the affected receiver's antenna input",
+    "q": [
+     "T7B05"
+    ]
+   },
+   {
+    "label": "Nearby FM station, 2 meters",
+    "value": "Install a band-reject filter",
+    "q": [
+     "T7B07"
+    ]
+   },
+   {
+    "label": "Cable TV, first step",
+    "value": "Check TV coax connectors are installed properly",
+    "q": [
+     "T7B09"
+    ]
+   }
+  ],
+  "hook": "Fix your own audio first, then block the signal where it gets in: filters at receiver inputs, good coax connectors.",
+  "questions": [
+   "T7B01",
+   "T7B11",
+   "T7B06",
+   "T7B02",
+   "T7B05",
+   "T7B07",
+   "T7B09"
+  ]
+ },
+ {
+  "id": "t-8-mode-bandwidth",
+  "title": "Signal bandwidth, narrow to wide",
+  "summary": "Modes line up from narrowest to widest: CW, SSB, FM, then TV.",
+  "points": [
+   {
+    "label": "CW",
+    "value": "150 Hz, the narrowest",
+    "q": [
+     "T8A11",
+     "T8A05"
+    ]
+   },
+   {
+    "label": "SSB voice",
+    "value": "3 kHz",
+    "q": [
+     "T8A08"
+    ]
+   },
+   {
+    "label": "SSB compared to FM",
+    "value": "SSB signals have narrower bandwidth",
+    "q": [
+     "T8A07"
+    ]
+   },
+   {
+    "label": "FM voice, VHF repeater",
+    "value": "Between 10 and 15 kHz",
+    "q": [
+     "T8A09"
+    ]
+   },
+   {
+    "label": "AM fast-scan TV",
+    "value": "About 6 MHz",
+    "q": [
+     "T8A10"
+    ]
+   }
+  ],
+  "hook": "150 Hz, 3 kHz, 10 to 15 kHz, 6 MHz: each step up is at least three times wider than the one before.",
+  "questions": [
+   "T8A05",
+   "T8A11",
+   "T8A08",
+   "T8A07",
+   "T8A09",
+   "T8A10"
+  ],
+  "aid": {
+   "kind": "modes",
+   "highlight": "SSB"
+  }
+ },
+ {
+  "id": "t-8-fm-vs-ssb",
+  "title": "FM versus SSB: where each is used",
+  "summary": "FM (or PM) is the repeater and packet mode. SSB, a form of AM, is the VHF and UHF weak signal voice mode.",
+  "points": [
+   {
+    "label": "FM or PM",
+    "value": "VHF and UHF voice repeaters",
+    "q": [
+     "T8A04"
+    ]
+   },
+   {
+    "label": "FM or PM",
+    "value": "VHF packet radio",
+    "q": [
+     "T8A02"
+    ]
+   },
+   {
+    "label": "FM drawback",
+    "value": "Only one signal can be received at a time",
+    "q": [
+     "T8A12"
+    ]
+   },
+   {
+    "label": "SSB is a form of",
+    "value": "Amplitude modulation",
+    "q": [
+     "T8A01"
+    ]
+   },
+   {
+    "label": "SSB on VHF and UHF",
+    "value": "Long-distance (weak signal) voice contacts",
+    "q": [
+     "T8A03"
+    ]
+   },
+   {
+    "label": "10 meters, VHF and UHF SSB",
+    "value": "Upper sideband",
+    "q": [
+     "T8A06"
+    ]
+   }
+  ],
+  "questions": [
+   "T8A04",
+   "T8A02",
+   "T8A12",
+   "T8A01",
+   "T8A03",
+   "T8A06"
+  ]
+ },
+ {
+  "id": "t-8-mode-names",
+  "title": "Mode and network names decoded",
+  "summary": "Many mode questions just ask what a name or abbreviation means. Learn each one as a pair.",
+  "points": [
+   {
+    "label": "CW",
+    "value": "Another name for Morse code",
+    "q": [
+     "T8D09"
+    ]
+   },
+   {
+    "label": "PSK",
+    "value": "Phase Shift Keying",
+    "q": [
+     "T8D06"
+    ]
+   },
+   {
+    "label": "FT8",
+    "value": "Digital mode for low signal-to-noise operation",
+    "q": [
+     "T8D02"
+    ]
+   },
+   {
+    "label": "NTSC",
+    "value": "Analog fast-scan color TV signal",
+    "q": [
+     "T8D04"
+    ]
+   },
+   {
+    "label": "DMR",
+    "value": "Two digital voices on one 12.5 kHz channel",
+    "q": [
+     "T8D07"
+    ]
+   },
+   {
+    "label": "APRS",
+    "value": "Real-time tactical data with a station map",
+    "q": [
+     "T8D05"
+    ]
+   },
+   {
+    "label": "ARQ",
+    "value": "Receiver detects errors, asks for a resend",
+    "q": [
+     "T8D11"
+    ]
+   },
+   {
+    "label": "Mesh network",
+    "value": "Commercial Wi-Fi gear with modified firmware",
+    "q": [
+     "T8D12"
+    ]
+   }
+  ],
+  "questions": [
+   "T8D09",
+   "T8D06",
+   "T8D02",
+   "T8D04",
+   "T8D07",
+   "T8D05",
+   "T8D11",
+   "T8D12"
+  ]
+ },
+ {
+  "id": "t-8-satellites",
+  "title": "Satellite basics",
+  "summary": "Satellite questions cover the beacon, the uplink and downlink bands, and why the signal shifts and fades.",
+  "points": [
+   {
+    "label": "Beacon",
+    "value": "Health and status telemetry; anyone may receive",
+    "q": [
+     "T8B05",
+     "T8B01",
+     "T8B11"
+    ]
+   },
+   {
+    "label": "Right uplink power",
+    "value": "Downlink about the same as the beacon",
+    "q": [
+     "T8B12"
+    ]
+   },
+   {
+    "label": "Too much uplink power",
+    "value": "Blocks access by other users",
+    "q": [
+     "T8B02"
+    ]
+   },
+   {
+    "label": "U/V mode",
+    "value": "Uplink 70-centimeter, downlink 2-meter",
+    "q": [
+     "T8B08"
+    ]
+   },
+   {
+    "label": "LEO",
+    "value": "Low Earth Orbit, period around 100 minutes",
+    "q": [
+     "T8B10"
+    ]
+   },
+   {
+    "label": "Doppler shift",
+    "value": "Frequency change from relative motion",
+    "q": [
+     "T8B07"
+    ]
+   },
+   {
+    "label": "Spin fading",
+    "value": "Rotation of the satellite and its antennas",
+    "q": [
+     "T8B09"
+    ]
+   },
+   {
+    "label": "Tracking program input",
+    "value": "The Keplerian elements",
+    "q": [
+     "T8B06"
+    ]
+   }
+  ],
+  "hook": "Use the beacon as your yardstick: match its downlink strength and you are neither too low nor too high.",
+  "questions": [
+   "T8B05",
+   "T8B01",
+   "T8B11",
+   "T8B12",
+   "T8B02",
+   "T8B08",
+   "T8B10",
+   "T8B07",
+   "T8B09",
+   "T8B06"
+  ]
+ },
+ {
+  "id": "t-8-internet-linking",
+  "title": "Internet linking: IRLP, EchoLink",
+  "summary": "Several systems carry ham voice over the internet. Know how each is reached.",
+  "points": [
+   {
+    "label": "VoIP",
+    "value": "Voice over the internet using digital techniques",
+    "q": [
+     "T8C07"
+    ]
+   },
+   {
+    "label": "IRLP",
+    "value": "Connects repeaters and systems via internet",
+    "q": [
+     "T8C08"
+    ]
+   },
+   {
+    "label": "Reaching an IRLP node",
+    "value": "DTMF tones over the air",
+    "q": [
+     "T8C06"
+    ]
+   },
+   {
+    "label": "EchoLink",
+    "value": "Use a repeater without a radio",
+    "q": [
+     "T8C09"
+    ]
+   },
+   {
+    "label": "Before using EchoLink",
+    "value": "Register call sign, provide proof of license",
+    "q": [
+     "T8C10"
+    ]
+   },
+   {
+    "label": "Gateway",
+    "value": "Station connecting others to the internet",
+    "q": [
+     "T8C11"
+    ]
+   }
+  ],
+  "questions": [
+   "T8C07",
+   "T8C08",
+   "T8C06",
+   "T8C09",
+   "T8C10",
+   "T8C11"
+  ]
+ },
+ {
+  "id": "t-8-operating-activities",
+  "title": "Operating activities",
+  "summary": "Hunting signals and contesting, plus the grid locator, a short code for where a station is.",
+  "points": [
+   {
+    "label": "Finding noise or jamming",
+    "value": "Radio direction finding",
+    "q": [
+     "T8C01"
+    ]
+   },
+   {
+    "label": "Hidden transmitter hunt",
+    "value": "A directional antenna",
+    "q": [
+     "T8C02"
+    ]
+   },
+   {
+    "label": "Contesting",
+    "value": "Contact as many stations as possible in a period",
+    "q": [
+     "T8C03"
+    ]
+   },
+   {
+    "label": "Contest good practice",
+    "value": "Send only the minimum ID and exchange",
+    "q": [
+     "T8C04"
+    ]
+   },
+   {
+    "label": "Grid locator",
+    "value": "Letter-number code for a geographic location",
+    "q": [
+     "T8C05"
+    ]
+   }
+  ],
+  "questions": [
+   "T8C03",
+   "T8C04",
+   "T8C01",
+   "T8C02",
+   "T8C05"
+  ]
+ },
+ {
+  "id": "t-9-antenna-length",
+  "title": "Antenna length and frequency",
+  "summary": "Antenna length sets its frequency. Shorter means higher, and inductors make it act longer.",
+  "points": [
+   {
+    "label": "Shorten a dipole",
+    "value": "Its resonant frequency increases",
+    "q": [
+     "T9A05"
+    ]
+   },
+   {
+    "label": "Loading",
+    "value": "Inserting inductors to lengthen it electrically",
+    "q": [
+     "T9A02"
+    ]
+   },
+   {
+    "label": "19-inch vertical, 2 meters",
+    "value": "A resonant quarter-wave",
+    "q": [
+     "T9A08"
+    ]
+   },
+   {
+    "label": "Short flexible handheld whip",
+    "value": "Low efficiency next to a full quarter-wave",
+    "q": [
+     "T9A04"
+    ]
+   },
+   {
+    "label": "5/8-wave versus 1/4-wave",
+    "value": "The longer whip has more gain",
+    "q": [
+     "T9A09"
+    ]
+   }
+  ],
+  "questions": [
+   "T9A05",
+   "T9A02",
+   "T9A08",
+   "T9A04",
+   "T9A09"
+  ]
+ },
+ {
+  "id": "t-9-antenna-direction",
+  "title": "Antenna direction and gain",
+  "summary": "Gain means more signal in one direction than a reference antenna. Polarization is the electric field's orientation.",
+  "points": [
+   {
+    "label": "Antenna gain",
+    "value": "More signal one way, compared to a reference",
+    "q": [
+     "T9A11"
+    ]
+   },
+   {
+    "label": "Beam antenna",
+    "value": "Concentrates signals in one direction",
+    "q": [
+     "T9A01"
+    ]
+   },
+   {
+    "label": "Greatest gain of the choices",
+    "value": "Yagi",
+    "q": [
+     "T9A06"
+    ]
+   },
+   {
+    "label": "Half-wave dipole, strongest",
+    "value": "Broadside to the antenna",
+    "q": [
+     "T9A10"
+    ]
+   },
+   {
+    "label": "Polarization",
+    "value": "Orientation of the electric field",
+    "q": [
+     "T9A03"
+    ]
+   }
+  ],
+  "questions": [
+   "T9A11",
+   "T9A01",
+   "T9A06",
+   "T9A10",
+   "T9A03"
+  ]
+ },
+ {
+  "id": "t-9-feed-line-loss",
+  "title": "Feed line loss ranking",
+  "summary": "Coax is the everyday feed line. Loss climbs with frequency and drops with better cable.",
+  "points": [
+   {
+    "label": "Most common coax impedance",
+    "value": "50 ohms",
+    "q": [
+     "T9B02"
+    ]
+   },
+   {
+    "label": "Why coax is most common",
+    "value": "Easy to use, few special installation needs",
+    "q": [
+     "T9B03"
+    ]
+   },
+   {
+    "label": "Higher frequency",
+    "value": "Loss increases",
+    "q": [
+     "T9B05"
+    ]
+   },
+   {
+    "label": "Foam versus solid dielectric",
+    "value": "Foam has less loss per foot",
+    "q": [
+     "T7C11"
+    ]
+   },
+   {
+    "label": "RG-213 versus RG-58",
+    "value": "RG-213 has less loss at a given frequency",
+    "q": [
+     "T9B10"
+    ]
+   },
+   {
+    "label": "Lowest loss of all",
+    "value": "Air-insulated hardline",
+    "q": [
+     "T9B11"
+    ]
+   },
+   {
+    "label": "Where lost power goes",
+    "value": "Converted into heat",
+    "q": [
+     "T7C07"
+    ]
+   }
+  ],
+  "questions": [
+   "T9B02",
+   "T9B03",
+   "T9B05",
+   "T7C07",
+   "T7C11",
+   "T9B10",
+   "T9B11"
+  ]
+ },
+ {
+  "id": "t-9-connectors-water",
+  "title": "Coax connectors and water",
+  "summary": "Pick the connector for the frequency, then keep water out: it is coax's main enemy.",
+  "points": [
+   {
+    "label": "PL-259",
+    "value": "Common at HF and VHF",
+    "q": [
+     "T9B07"
+    ]
+   },
+   {
+    "label": "Type N, above 400 MHz",
+    "value": "Most suitable RF connector",
+    "q": [
+     "T9B06"
+    ]
+   },
+   {
+    "label": "Outdoors: PL259, BNC, Type N",
+    "value": "Tape all of them for weather protection",
+    "q": [
+     "T9B01"
+    ]
+   },
+   {
+    "label": "Coax failure cause",
+    "value": "Moisture contamination",
+    "q": [
+     "T7C09"
+    ]
+   },
+   {
+    "label": "UV resistant jacket",
+    "value": "UV damage lets water into the cable",
+    "q": [
+     "T7C10"
+    ]
+   },
+   {
+    "label": "Sources of coax loss",
+    "value": "Water, multiple connectors, high SWR",
+    "q": [
+     "T9B08"
+    ]
+   }
+  ],
+  "questions": [
+   "T9B07",
+   "T9B06",
+   "T9B01",
+   "T7C09",
+   "T7C10",
+   "T9B08"
+  ]
+ },
+ {
+  "id": "t-0-electrical-hazards",
+  "title": "Shock, fire and stored energy",
+  "summary": "Fuses guard the hot wire, and batteries and capacitors hold energy that can hurt you.",
+  "points": [
+   {
+    "label": "Black wire, 120 V AC cable",
+    "value": "Hot",
+    "q": [
+     "T0A03"
+    ]
+   },
+   {
+    "label": "Fuse purpose",
+    "value": "Removes power in case of an overload",
+    "q": [
+     "T0A04"
+    ]
+   },
+   {
+    "label": "Where a fuse goes",
+    "value": "In series with the hot conductor only",
+    "q": [
+     "T0A08"
+    ]
+   },
+   {
+    "label": "5 A fuse swapped for 20 A",
+    "value": "Excessive current could cause a fire",
+    "q": [
+     "T0A05"
+    ]
+   },
+   {
+    "label": "Shorting a 12 V battery",
+    "value": "Burns, fire, or an explosion",
+    "q": [
+     "T0A01"
+    ]
+   },
+   {
+    "label": "Fast charge or discharge",
+    "value": "Overheating or out-gassing",
+    "q": [
+     "T0A10"
+    ]
+   },
+   {
+    "label": "Power supply just turned off",
+    "value": "Charge stored in filter capacitors",
+    "q": [
+     "T0A11"
+    ]
+   },
+   {
+    "label": "Measuring high voltage",
+    "value": "Meter and leads rated for that voltage",
+    "q": [
+     "T0A12"
+    ]
+   }
+  ],
+  "hook": "Black is hot, and the fuse goes on the hot wire. Never fit a bigger fuse than the circuit was built for.",
+  "questions": [
+   "T0A03",
+   "T0A04",
+   "T0A08",
+   "T0A05",
+   "T0A01",
+   "T0A10",
+   "T0A11",
+   "T0A12"
+  ]
+ },
+ {
+  "id": "t-0-grounding",
+  "title": "Grounding and lightning protection",
+  "summary": "Good grounds are short, direct, free of sharp bends, and all bonded together.",
+  "points": [
+   {
+    "label": "Ground wire runs",
+    "value": "Short and direct",
+    "q": [
+     "T0B01"
+    ]
+   },
+   {
+    "label": "Bends in ground conductors",
+    "value": "Avoid sharp bends",
+    "q": [
+     "T0B10"
+    ]
+   },
+   {
+    "label": "External ground rods",
+    "value": "Bond together with heavy wire or strap",
+    "q": [
+     "T0A09"
+    ]
+   },
+   {
+    "label": "Tower ground",
+    "value": "Separate eight-foot rod per leg, all bonded",
+    "q": [
+     "T0B08"
+    ]
+   },
+   {
+    "label": "Lightning arrester",
+    "value": "Grounded panel near where feed lines enter",
+    "q": [
+     "T0A07"
+    ]
+   },
+   {
+    "label": "Who sets the requirements",
+    "value": "Local electrical codes",
+    "q": [
+     "T0B11"
+    ]
+   }
+  ],
+  "questions": [
+   "T0B01",
+   "T0B10",
+   "T0A09",
+   "T0B08",
+   "T0A07",
+   "T0B11"
+  ]
+ },
+ {
+  "id": "t-0-tower-safety",
+  "title": "Tower and antenna safety",
+  "summary": "Power lines are the main danger when putting up antennas, and nobody climbs alone.",
+  "points": [
+   {
+    "label": "Overhead wires",
+    "value": "Look for them and stay clear",
+    "q": [
+     "T0B04"
+    ]
+   },
+   {
+    "label": "Distance from power lines",
+    "value": "If it falls, stays 10 feet from the wires",
+    "q": [
+     "T0B06"
+    ]
+   },
+   {
+    "label": "Utility pole mounting",
+    "value": "Avoid: could contact high-voltage lines",
+    "q": [
+     "T0B09"
+    ]
+   },
+   {
+    "label": "Climbing alone",
+    "value": "Never",
+    "q": [
+     "T0B03"
+    ]
+   },
+   {
+    "label": "Crank-up tower",
+    "value": "Climb only retracted or with safety locks",
+    "q": [
+     "T0B07"
+    ]
+   },
+   {
+    "label": "Turnbuckle safety wire",
+    "value": "Prevents loosening from vibration",
+    "q": [
+     "T0B05"
+    ]
+   }
+  ],
+  "hook": "Power lines first: stay clear, allow 10 feet even if it falls, skip utility poles.",
+  "questions": [
+   "T0B04",
+   "T0B06",
+   "T0B09",
+   "T0B03",
+   "T0B07",
+   "T0B05"
+  ]
+ },
+ {
+  "id": "t-0-rf-exposure",
+  "title": "RF exposure basics",
+  "summary": "Radio waves are non-ionizing, but the body absorbs them, and the licensee keeps exposure within limits.",
+  "points": [
+   {
+    "label": "Type of radiation",
+    "value": "Non-ionizing",
+    "q": [
+     "T0C01"
+    ]
+   },
+   {
+    "label": "Unlike radioactivity",
+    "value": "Not enough energy to damage DNA",
+    "q": [
+     "T0C12"
+    ]
+   },
+   {
+    "label": "Why limits vary",
+    "value": "Body absorbs more at some frequencies",
+    "q": [
+     "T0C05"
+    ]
+   },
+   {
+    "label": "Lowest exposure limit",
+    "value": "50 MHz",
+    "q": [
+     "T0C02"
+    ]
+   },
+   {
+    "label": "Touching a live antenna",
+    "value": "RF burn to skin",
+    "q": [
+     "T0C07"
+    ]
+   },
+   {
+    "label": "Reduce exposure",
+    "value": "Relocate antennas",
+    "q": [
+     "T0C08"
+    ]
+   },
+   {
+    "label": "Stay compliant",
+    "value": "Re-evaluate whenever the station changes",
+    "q": [
+     "T0C09"
+    ]
+   },
+   {
+    "label": "Who is responsible",
+    "value": "The station licensee",
+    "q": [
+     "T0C13"
+    ]
+   }
+  ],
+  "questions": [
+   "T0C01",
+   "T0C12",
+   "T0C05",
+   "T0C02",
+   "T0C07",
+   "T0C08",
+   "T0C09",
+   "T0C13"
+  ]
+ },
+ {
+  "id": "t-0-duty-cycle",
+  "title": "Duty cycle and exposure",
+  "summary": "Duty cycle is how much of the time you transmit. Less transmit time means less average exposure.",
+  "points": [
+   {
+    "label": "Duty cycle",
+    "value": "Percentage of time the transmitter transmits",
+    "q": [
+     "T0C11"
+    ]
+   },
+   {
+    "label": "Why it matters",
+    "value": "It affects the average exposure",
+    "q": [
+     "T0C10"
+    ]
+   },
+   {
+    "label": "100 percent to 50 percent",
+    "value": "Allowed power density increases by 2",
+    "q": [
+     "T0C03"
+    ]
+   }
+  ],
+  "hook": "Halve the time on the air (100 to 50 percent) and the allowed power density doubles.",
+  "questions": [
+   "T0C11",
+   "T0C10",
+   "T0C03"
+  ]
+ }
+]
